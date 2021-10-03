@@ -1,13 +1,16 @@
 .container input {
-  padding: 10px 20px;
+  padding: 10px 10px;
   border-radius: 10px;
   background-color: #fafafa;
   color: #838181;
 }
 
-.container input:focus {
-  outline: none;
+@media screen and (min-width: 400px) {
+  .container input {
+    padding: 10px 20px;
+  }
 }
 
-.container input.white-box {
+.container input:focus {
+  outline: none;
 }
