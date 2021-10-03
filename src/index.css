@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
   --app-primary-blue: #022655;
   --app-blue-fade: #ebf3ff;
