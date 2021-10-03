@@ -1,9 +1,5 @@
-.container {
-}
-
 .container input {
   padding: 10px 20px;
-  /* border: 1px solid; */
   border-radius: 10px;
   background-color: #fafafa;
   color: #838181;
@@ -11,7 +7,6 @@
 
 .container input:focus {
   outline: none;
-  /* border: 1px solid !important; */
 }
 
 .container input.white-box {
