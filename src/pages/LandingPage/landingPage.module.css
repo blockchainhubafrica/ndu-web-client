@@ -1,0 +1,65 @@
+.main {
+}
+
+section.intro {
+  min-height: 80vh;
+  background-color: #e4effd;
+}
+
+section.intro > div {
+  /* max-width: 840px; */
+}
+
+section.intro div.text-content {
+  position: relative;
+  z-index: 2;
+  /* display: none; */
+}
+
+section.intro h1 {
+  line-height: 2.8rem !important;
+  color: var(--app-primary-blue);
+  font-weight: 500;
+}
+
+section.intro p {
+  line-height: 1.5rem !important;
+  font-weight: 400;
+}
+
+.green-bg {
+  background-color: var(--app-primary-green);
+  padding: 0px 10px;
+}
+
+.intro-image-div {
+  position: relative;
+  top: -80px;
+  z-index: 1;
+  display: flex;
+  justify-content: center;
+}
+
+.intro-image-div > div:first-child {
+  position: absolute;
+  /* top: 100px; */
+}
+
+.intro-image-div > div:last-child {
+  position: relative;
+  top: 90px;
+  left: -10px;
+}
+
+@media screen and (min-width: 768px) {
+  .intro-image-div > div:last-child {
+    position: relative;
+    top: 130px;
+    left: -15px;
+  }
+  section.intro {
+    min-height: 100vh;
+    background-color: #e4effd;
+  }
+  
+}
