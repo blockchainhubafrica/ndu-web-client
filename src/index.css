@@ -1,6 +1,8 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss/base";
+
+@import "tailwindcss/components";
+
+@import "tailwindcss/utilities";
 
 @import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,550,600,900);
 
@@ -9,6 +11,7 @@
   --app-blue-fade: #ebf3ff;
   --app-blue-light: #f8fafc;
   --app-primary-text: poppins;
+  --app-primary-green: #87e5d8;
 }
 
 * {
