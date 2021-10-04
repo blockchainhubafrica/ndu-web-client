@@ -4,8 +4,20 @@ import {
   FullLogoIcon,
   HalfLogoIcon,
   MicroChipSvg,
+  HowItWorksIconA,
+  HowItWorksIconB,
+  HowItWorksIconC,
+  HowItWorksIconD,
 } from "../../assets/";
-import { Header, ActionBox, Input, Footer } from "./../../components";
+
+import {
+  Header,
+  ActionBox,
+  Input,
+  Footer,
+  HowItWorksCard,
+} from "./../../components";
+
 function Components(props) {
   return (
     <>
@@ -38,7 +50,39 @@ function Components(props) {
             </div>
           </div>
         </div>
+
+        {/* How it works cards */}
+        <div className="py-8">
+          <p className="mb-4">These are the Action Boxes</p>
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
+            <div className="my-3">
+              <HowItWorksCard
+                Icon={HowItWorksIconA}
+                text={"Inscribe and ID a product with unique hash values."}
+              />
+            </div>
+            <div className="my-3">
+              <HowItWorksCard
+                Icon={HowItWorksIconB}
+                text={"Store hash values in blockchain."}
+              />
+            </div>
+            <div className="my-3">
+              <HowItWorksCard
+                Icon={HowItWorksIconC}
+                text={"Generate barcode with hash values."}
+              />
+            </div>
+            <div className="my-3">
+              <HowItWorksCard
+                Icon={HowItWorksIconD}
+                text={"Now you can verify product anywhere."}
+              />
+            </div>
+          </div>
+        </div>
       </main>
+      {/* Footer */}
       <Footer />
     </>
   );
