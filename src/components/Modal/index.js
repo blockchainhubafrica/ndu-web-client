@@ -3,7 +3,7 @@ import { CloseIcon } from "../../assets";
 
 import styles from "./modal.module.css";
 
-const Modal = ({ children, type, displayModal, closeModal, render }) => {
+const Modal = ({ children, type, displayModal, closeModal }) => {
   return (
     <>
       {displayModal ? (
