@@ -8,6 +8,7 @@ import { ReactComponent as HowItWorksIconA } from "./howItWorksIconA.svg";
 import { ReactComponent as HowItWorksIconB } from "./howItWorksIconB.svg";
 import { ReactComponent as HowItWorksIconC } from "./howItWorksIconC.svg";
 import { ReactComponent as HowItWorksIconD } from "./howItWorksIconD.svg";
+import { ReactComponent as TboltIcon } from "./tBolt.svg";
 
 export {
   WarningIcon,
@@ -20,4 +21,5 @@ export {
   HowItWorksIconB,
   HowItWorksIconC,
   HowItWorksIconD,
+  TboltIcon,
 };

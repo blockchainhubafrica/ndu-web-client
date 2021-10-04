@@ -8,6 +8,9 @@ import {
   HowItWorksIconB,
   HowItWorksIconC,
   HowItWorksIconD,
+  SheildIcon,
+  WarningIcon,
+  TboltIcon,
 } from "../../assets/";
 
 import {
@@ -16,6 +19,7 @@ import {
   Input,
   Footer,
   HowItWorksCard,
+  HistoryCard,
 } from "./../../components";
 
 function Components(props) {
@@ -53,7 +57,7 @@ function Components(props) {
 
         {/* How it works cards */}
         <div className="py-8">
-          <p className="mb-4">These are the Action Boxes</p>
+          <p className="mb-4">These are the How It Works Cards</p>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-10">
             <div className="my-3">
               <HowItWorksCard
@@ -81,7 +85,42 @@ function Components(props) {
             </div>
           </div>
         </div>
+
+        {/* History cards */}
+        <div className="py-4">
+          <p className="mb-4">These are the History Cards</p>
+          <div className="">
+            <div className="my-3">
+              <HistoryCard
+                Icon={SheildIcon}
+                headText={"Tetracycline capsule"}
+                subText={"Rema Pharmacy"}
+                date={"7 Jun, 21"}
+                type={"Original"}
+              />
+            </div>
+            <div className="my-3">
+              <HistoryCard
+                Icon={WarningIcon}
+                headText={"Tetracycline capsule"}
+                subText={"Rema Pharmacy"}
+                date={"7 Jun, 21"}
+                type={"Counterfiet"}
+              />
+            </div>
+            <div className="my-3">
+              <HistoryCard
+                Icon={TboltIcon}
+                headText={"Tetracycline capsule"}
+                subText={"Rema Pharmacy"}
+                date={"7 Jun, 21"}
+                type={"Expired"}
+              />
+            </div>
+          </div>
+        </div>
       </main>
+
       {/* Footer */}
       <Footer />
     </>
