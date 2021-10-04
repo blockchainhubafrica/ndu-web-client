@@ -5,7 +5,7 @@ import {
   HalfLogoIcon,
   MicroChipSvg,
 } from "../../assets/";
-import { Header, ActionBox, Input } from "./../../components";
+import { Header, ActionBox, Input, Footer } from "./../../components";
 function Components(props) {
   return (
     <>
@@ -39,8 +39,9 @@ function Components(props) {
           </div>
         </div>
       </main>
+      <Footer />
     </>
   );
 }
 
-export default Components;
+export { Components };

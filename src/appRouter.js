@@ -6,9 +6,7 @@ import {
   Switch,
   useLocation,
 } from "react-router-dom";
-import { LandingPage } from "./pages";
-
-import Components from "./pages/Components";
+import { LandingPage, Components } from "./pages";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
