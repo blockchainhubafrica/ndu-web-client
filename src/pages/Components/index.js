@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import {
   DrugsSvg,
   FullLogoIcon,
@@ -20,9 +20,12 @@ import {
   Footer,
   HowItWorksCard,
   HistoryCard,
+  Modal,
 } from "./../../components";
 
 function Components(props) {
+  const [displayModal, setdisplayModal] = useState(true);
+
   return (
     <>
       <Header />
@@ -119,6 +122,20 @@ function Components(props) {
             </div>
           </div>
         </div>
+
+        {/* Modal */}
+        <Modal
+          type="Original"
+          displayModal={displayModal}
+          closeModal={() => setdisplayModal(false)}
+        >
+          <div>
+            <h1 className="text-center">Modal items go into here</h1>
+            <h2 style={{ fontSize: "50px" }} className="text-center mt-5">
+              😎
+            </h2>
+          </div>
+        </Modal>
       </main>
 
       {/* Footer */}

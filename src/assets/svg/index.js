@@ -9,6 +9,7 @@ import { ReactComponent as HowItWorksIconB } from "./howItWorksIconB.svg";
 import { ReactComponent as HowItWorksIconC } from "./howItWorksIconC.svg";
 import { ReactComponent as HowItWorksIconD } from "./howItWorksIconD.svg";
 import { ReactComponent as TboltIcon } from "./tBolt.svg";
+import { ReactComponent as CloseIcon } from "./close.svg";
 
 export {
   WarningIcon,
@@ -22,4 +23,5 @@ export {
   HowItWorksIconC,
   HowItWorksIconD,
   TboltIcon,
+  CloseIcon,
 };

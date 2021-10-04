@@ -5,7 +5,7 @@ import styles from "./historyCard.module.css";
 const HistoryCard = ({ Icon, headText, subText, date, type }) => {
   return (
     <div className={`${styles["container"]} flex items-start py-3`}>
-      <div className={`${styles[`icon-${type}`]} py-2 px-3 mr-4`}>
+      <div className={`${styles[`icon-${type}`]} py-2 px-3 mr-2 md:mr-4`}>
         {Icon ? <Icon /> : ""}
       </div>
       <div>
