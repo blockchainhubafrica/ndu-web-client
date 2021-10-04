@@ -1,13 +1,11 @@
 import React from "react";
-import Input from "./../../components/Input/index";
 import {
   DrugsSvg,
   FullLogoIcon,
   HalfLogoIcon,
   MicroChipSvg,
 } from "../../assets/";
-import ActionBox from "../../components/ActionBox";
-import Header from "./../../components/Header/index";
+import { Header, ActionBox, Input } from "./../../components";
 function Components(props) {
   return (
     <>
@@ -32,8 +30,12 @@ function Components(props) {
         <div className="py-4">
           <p className="mb-4">These are the Action Boxes</p>
           <div className="flex flex-wrap flex-1 gap-7">
-            <ActionBox title="Generate Hash" image={MicroChipSvg} />
-            <ActionBox title="Drug Inventory" image={DrugsSvg} />
+            <div className="my-3">
+              <ActionBox title="Generate Hash" image={MicroChipSvg} />
+            </div>
+            <div className="my-3">
+              <ActionBox title="Drug Inventory" image={DrugsSvg} />
+            </div>
           </div>
         </div>
       </main>

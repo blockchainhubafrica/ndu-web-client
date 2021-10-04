@@ -9,4 +9,4 @@ function Input({ type, onClick, ...rest }) {
   );
 }
 
-export default Input;
+export { Input };

@@ -17,4 +17,4 @@ function ActionBox({ image, title, imgWidth, imgHeight }) {
   );
 }
 
-export default ActionBox;
+export { ActionBox };
