@@ -1,0 +1,75 @@
+.container {
+}
+
+.container svg {
+  width: 15px;
+  height: 15px;
+}
+.container div:nth-of-type(1) {
+  border-radius: 10px;
+}
+
+.container div:last-of-type {
+  text-align: right;
+}
+
+.container h1,
+.container h2 {
+  font-weight: 600;
+}
+
+.container h1 {
+  font-size: 16px;
+}
+
+.container h2 {
+  font-size: 14px;
+}
+
+.container p {
+  font-size: 10px;
+  font-weight: 300;
+}
+
+.icon-Counterfiet {
+  background: rgba(250, 96, 30, 0.1);
+}
+
+.icon-Original {
+  background: rgb(216, 243, 241);
+}
+
+.icon-Expired {
+  background: rgba(255, 218, 5, 0.1);
+}
+
+.text-Counterfiet {
+  color: rgba(250, 96, 30);
+}
+
+.text-Original {
+  color: rgba(7, 174, 114);
+}
+
+.text-Expired {
+  color: rgba(255, 218, 5);
+}
+
+@media screen and (min-width: 768px) {
+  .container svg {
+    width: 25px;
+    height: 25px;
+  }
+
+  .container h1 {
+    font-size: 18px;
+  }
+
+  .container h2 {
+    font-size: 16px;
+  }
+
+  .container p {
+    font-size: 14px;
+  }
+}
