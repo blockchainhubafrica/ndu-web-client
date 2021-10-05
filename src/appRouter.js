@@ -6,7 +6,7 @@ import {
   Switch,
   useLocation,
 } from "react-router-dom";
-import { LandingPage } from "./pages";
+import { LandingPage, UserDashboard } from "./pages";
 
 import Components from "./pages/Components";
 
@@ -26,6 +26,7 @@ const AppRouter = () => {
       <ScrollToTop />
       <Switch>
         <Route exact path="/components" render={() => <Components />} />
+        <Route exact  path="/dashboard" render={() => <UserDashboard />} />
         <Route path="/" render={() => <LandingPage />} />
         <Route path="*" render={() => <Redirect to="/" />} />
       </Switch>

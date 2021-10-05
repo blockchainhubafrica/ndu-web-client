@@ -1,0 +1,11 @@
+.normalButton{
+    width: 132px;
+    height: 57px;
+    background: #1C1B72;
+    border-radius: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff;
+    cursor: pointer;
+}
