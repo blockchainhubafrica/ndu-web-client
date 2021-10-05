@@ -5,6 +5,7 @@
   background: rgba(228, 241, 253, 0.56);
   backdrop-filter: blur(4px);
   position: sticky;
+  z-index: 1000;
   top: 0;
   padding: 20px 0px;
 }
