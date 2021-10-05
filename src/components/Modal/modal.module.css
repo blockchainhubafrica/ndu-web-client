@@ -1,0 +1,60 @@
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.6);
+  width: 100vw;
+  height: 100vh;
+  z-index: 99;
+}
+
+.sub-container {
+  position: relative;
+  width: 90%;
+  height: 70%;
+  background: #fff;
+}
+
+.sub-container svg {
+  position: absolute;
+  top: 40px;
+  right: 25px;
+  cursor: pointer;
+}
+
+.sub-container > div:last-of-type {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.sub-container > div:last-of-type h1 {
+  font-size: 20px;
+  color: #fff;
+}
+
+.footer-text-bg-Original {
+  background: #00d6a3;
+}
+
+.footer-text-bg-Counterfeit {
+  background: #fa5f1c;
+}
+
+.footer-text-bg-Expired {
+  background: #f8dc39;
+}
+
+@media screen and (min-width: 768px) {
+  .sub-container {
+    width: 481px;
+    height: 543px;
+  }
+
+  .sub-container svg {
+    right: 50px;
+  }
+}

@@ -9,6 +9,23 @@
     text-align: center;
     justify-content: space-evenly;
   }
+
+  .walletBalanceCon{
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+  }
+
+  .walletButton{
+    background: #ECECEC;
+    backdrop-filter: blur(15px); 
+    border-radius: 100px;
+    height: 40px;
+    width: 203px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+  }
   
   .rightContainer > h1{
     font-style: normal;

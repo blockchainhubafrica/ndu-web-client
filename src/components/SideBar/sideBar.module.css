@@ -53,3 +53,11 @@
     background: #022655;
     box-shadow: 0px 10px 20px rgba(88, 92, 229, 0.25);
 }
+
+.iconCon:hover .sideBarIcon > path{
+        fill: white;
+}
+
+.iconCon:hover .sideBarIcon > rect{
+    fill: white;
+}

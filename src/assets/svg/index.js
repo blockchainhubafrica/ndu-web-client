@@ -12,9 +12,18 @@ import { ReactComponent as NduLogo } from "./nduLogo.svg";
 import { ReactComponent as BigScan } from "./bigScanIcon.svg";
 import { ReactComponent as ScanTracker } from "./scanTracker.svg";
 import { ReactComponent as ButtonScan } from "./buttonScan.svg";
+import { ReactComponent as SquareBarCode } from "./squareBarCode.svg";
+import { ReactComponent as ArrowDown } from "./arrowDown.svg";
+import { ReactComponent as WalletIcon } from "./walletIcon.svg";
 
 import MicroChipSvg from "./micro-chip.svg";
 import DrugsSvg from "./drugs.svg";
+import { ReactComponent as HowItWorksIconA } from "./howItWorksIconA.svg";
+import { ReactComponent as HowItWorksIconB } from "./howItWorksIconB.svg";
+import { ReactComponent as HowItWorksIconC } from "./howItWorksIconC.svg";
+import { ReactComponent as HowItWorksIconD } from "./howItWorksIconD.svg";
+import { ReactComponent as TboltIcon } from "./tBolt.svg";
+import { ReactComponent as CloseIcon } from "./close.svg";
 
 export {
   WarningIcon,
@@ -32,5 +41,14 @@ export {
   NduLogo,
   BigScan,
   ScanTracker,
-  ButtonScan
+  ButtonScan,
+  HowItWorksIconA,
+  HowItWorksIconB,
+  HowItWorksIconC,
+  HowItWorksIconD,
+  TboltIcon,
+  CloseIcon,
+  SquareBarCode,
+  ArrowDown,
+  WalletIcon
 };

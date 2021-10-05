@@ -9,25 +9,25 @@ function SideBar() {
       <ul>
         <li>
           <span className={`${styles.iconCon}`}>
-            <DashBoardIcon />
+            <DashBoardIcon className={`${styles.sideBarIcon}`} />
           </span>
           <h6>Dashboard</h6>
         </li>
         <li>
           <span className={`${styles.iconCon}`}>
-            <UserIcon />
+            <UserIcon className={`${styles.sideBarIcon}`} />
           </span>
           <h6>Profile</h6>
         </li>
         <li>
           <span className={`${styles.iconCon}`}>
-            <MoneyIcon />
+            <MoneyIcon className={`${styles.sideBarIcon}`} />
           </span>
           <h6>Transactions</h6>
         </li>
         <li>
         <span className={`${styles.iconCon}`}>
-            <CartIcon />
+            <CartIcon className={`${styles.sideBarIcon}`} />
           </span>
           <h6>Pharmacy</h6>
         </li>
