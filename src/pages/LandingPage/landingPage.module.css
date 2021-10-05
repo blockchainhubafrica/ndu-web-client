@@ -2,22 +2,19 @@
 }
 
 section.intro {
-  min-height: 80vh;
+  overflow-y: hidden;
   background-color: #e4effd;
-}
-
-section.intro > div {
-  /* max-width: 840px; */
+  max-height: 700px;
+  background-color: #e4effd;
 }
 
 section.intro div.text-content {
   position: relative;
   z-index: 2;
-  /* display: none; */
 }
 
 section.intro h1 {
-  line-height: 2.8rem !important;
+  line-height: 3rem !important;
   color: var(--app-primary-blue);
   font-weight: 500;
 }
@@ -34,32 +31,76 @@ section.intro p {
 
 .intro-image-div {
   position: relative;
-  top: -80px;
-  z-index: 1;
-  display: flex;
+  top: -20px;
+  margin: 0 auto;
   justify-content: center;
 }
 
-.intro-image-div > div:first-child {
-  position: absolute;
-  /* top: 100px; */
+@media screen and (min-width: 768px) {
+  .intro-image-div {
+    top: -60px;
+  }
 }
 
-.intro-image-div > div:last-child {
+.intro-image-div img {
+  margin: 0 auto;
+}
+
+section.cases h2 {
+  line-height: 3rem !important;
+  color: var(--app-primary-blue);
+  font-weight: 500;
+}
+
+.globe-img-container img {
+  width: 100%;
+  max-width: 960px;
+  margin: 0px auto;
+}
+
+section.why-ndu {
+  background-color: var(--app-primary-blue);
+  height: auto;
+}
+
+@media screen and (min-width: 1600px) {
+  section.why-ndu > div {
+    max-width: 1536px;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    margin: 0px auto;
+  }
+}
+
+section.why-ndu p {
+  line-height: 2rem;
+}
+
+section.why-ndu .landing-image-2-container img {
+  max-height: 500px;
   position: relative;
-  top: 90px;
-  left: -10px;
+  left: -2.5rem;
 }
 
 @media screen and (min-width: 768px) {
-  .intro-image-div > div:last-child {
+  section.why-ndu .landing-image-2-container img {
+    max-height: 500px;
     position: relative;
-    top: 130px;
-    left: -15px;
+    left: 0rem;
   }
-  section.intro {
-    min-height: 100vh;
-    background-color: #e4effd;
+}
+
+section.why-ndu .landing-image-3-container {
+  position: absolute;
+  right: 0px;
+  top: -5px;
+  width: 150px;
+}
+
+@media screen and (min-width: 768px) {
+  section.why-ndu .landing-image-3-container {
+    position: absolute;
+    right: 0px;
+    top: 0px;
   }
-  
 }
