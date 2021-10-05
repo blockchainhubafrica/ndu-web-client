@@ -4,14 +4,21 @@ import { CloseIcon } from "../../assets";
 import styles from "./modal.module.css";
 
 const Modal = ({ children, type, displayModal, closeModal }) => {
+  const handleModalClose = (e) => {
+    if (e.target.id === "wrapper") {
+      closeModal();
+    }
+  };
+
   return (
     <>
       {displayModal ? (
         <div
           className={`${styles.container}`}
-          onClick={closeModal ? closeModal : ""}
+          onClick={closeModal ? handleModalClose : ""}
+          id="wrapper"
         >
-          <div className={`${styles["sub-container"]} `}>
+          <div className={`${styles["sub-container"]} `} id="main-card">
             <CloseIcon onClick={closeModal ? closeModal : ""} />
             <div className="mt-24">{children}</div>
             <div className={`${styles[`footer-text-bg-${type}`]} py-6`}>
