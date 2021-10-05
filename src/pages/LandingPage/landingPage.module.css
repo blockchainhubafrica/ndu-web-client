@@ -94,7 +94,7 @@ section.why-ndu .landing-image-3-container {
   position: absolute;
   right: 0px;
   top: -5px;
-  width: 150px;
+  width: 130px;
 }
 
 @media screen and (min-width: 768px) {
@@ -102,5 +102,6 @@ section.why-ndu .landing-image-3-container {
     position: absolute;
     right: 0px;
     top: 0px;
+    width: 150px;
   }
 }
