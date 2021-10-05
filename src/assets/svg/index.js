@@ -11,6 +11,8 @@ import { ReactComponent as CloseIcon } from "./close.svg";
 import MicroChipSvg from "./micro-chip.svg";
 import DrugsSvg from "./drugs.svg";
 import globeStats from "./globe-stats-2.svg";
+import greenArc1 from "./green-arc-1.svg";
+import greenArc2 from "./green-arc-2.svg";
 
 export {
   WarningIcon,
@@ -26,4 +28,6 @@ export {
   HowItWorksIconD,
   TboltIcon,
   CloseIcon,
+  greenArc1,
+  greenArc2,
 };
