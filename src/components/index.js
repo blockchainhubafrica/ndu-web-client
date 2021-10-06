@@ -12,3 +12,4 @@ export * from "./RegularButton";
 export * from "./PharmacyLogin";
 export * from "./CameraDisplay";
 export * from "./InputPassword";
+export * from "./UserDashboard";

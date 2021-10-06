@@ -1,21 +1,19 @@
-import React from "react";
-import styles from "./userDashboard.module.css";
+import React from 'react'
+import styles from "./userDashboard.module.css"
 import {
-  ArrowDown,
-  handWithDrug,
-  SheildIcon,
-  SquareBarCode,
-  TboltIcon,
-  WarningIcon,
-} from "../../assets";
-import { HistoryCard, MainButton, RightBar, SideBar, PharmacyLogin } from "../../components";
+    ArrowDown,
+    handWithDrug,
+    SheildIcon,
+    SquareBarCode,
+    TboltIcon,
+    WarningIcon,
+  } from "../../assets";
+import { HistoryCard, MainButton } from "../../components";
 
-function UserDashboard() {
-  return (
-    <div className="flex">
-      <SideBar />
-      <PharmacyLogin />
-      {/* <div className="centerCon">
+
+function UserDashBoad() {
+    return (
+     <div className="centerCon">
         <div className="w-5/6 flex flex-col">
           <h1 className={`${styles.greeting} mt-10`}>
             Hi<span className={`${styles.welcome}`}>, Welcome</span>
@@ -63,10 +61,8 @@ function UserDashboard() {
             type={"Expired"}
           />
         </div>
-      </div> */}
-      <RightBar />
-    </div>
-  );
+      </div> 
+    )
 }
 
-export { UserDashboard };
+export  {UserDashBoad}
