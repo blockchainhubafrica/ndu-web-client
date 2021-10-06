@@ -27,7 +27,7 @@ section.intro p {
 }
 
 .green-bg {
-  background-color: var(--app-primary-green);
+  background-color: var(--app-green-fade);
   padding: 0px 10px;
 }
 
@@ -106,6 +106,10 @@ section.why-ndu .landing-image-3-container {
     top: 0px;
     width: 150px;
   }
+}
+
+section.how-it-works {
+  background-image: url("/src/assets/images/landing-page-bg-1.png");
 }
 
 section.how-it-works .card:nth-child(1)::after {
@@ -262,9 +266,58 @@ ul.right-drug-content li hr {
 
 section.subscribe h2 {
   color: #fff;
+  line-height: 2.5rem;
 }
 
-section.subscribe > div {
-  background-color: var(--app-primary-blue);
+section.subscribe .primary-blue-bg {
   color: #fff !important;
+  /* border-radius: 0px; */
+  border-radius: var(--app-border-radius-md);
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  section.subscribe .primary-blue-bg {
+    /* border-radius: var(--app-border-radius-md); */
+  }
+}
+
+.primary-blue-bg {
+  background-color: var(--app-primary-blue);
+}
+
+section.subscribe .green-bg {
+  background-color: var(--app-primary-green);
+}
+
+section.subscribe input {
+  color: #000;
+}
+
+section.subscribe .img-container {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  height: 250px;
+}
+
+@media screen and (min-width: 992px) {
+  section.subscribe .img-container {
+    position: absolute;
+    top: -70px;
+    bottom: 0px;
+    right: -70px;
+    height: 400px;
+  }
+}
+
+section.subscribe .img-container img {
+  height: 100%;
+}
+ 
+
+section.subscribe .subscribe-button {
+  max-width: 200px;
+  margin: 0 auto;
+  background-color: var(--app-primary-green);
 }

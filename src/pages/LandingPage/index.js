@@ -2,6 +2,7 @@ import React from "react";
 import {
   drug2,
   drugPark,
+  dude,
   globeStats,
   greenArc1,
   HowItWorksIconA,
@@ -10,11 +11,11 @@ import {
   HowItWorksIconD,
   landingImage1,
   landingImage2,
-  landingPageBg1,
   mainframe,
   rightArc,
 } from "../../assets";
-import { Header, HowItWorksCard, Footer } from "../../components";
+import { Header, HowItWorksCard, Footer, NormalButton } from "../../components";
+import { InputWithButton } from "../../components/InputWithButton";
 
 import styles from "./landingPage.module.css";
 
@@ -23,7 +24,7 @@ const LandingPage = () => {
     <>
       <Header />
       <main className={`${styles.main}`}>
-        <section className={styles.intro}>
+        <section className={styles["intro"]}>
           <div className="container mx-auto text-center py-16 md:py-20">
             <div className={styles["headers"]}>
               <h1 className="text-2xl md:text-3xl lg:text-4xl mb-4">
@@ -80,12 +81,7 @@ const LandingPage = () => {
             </div>
           </div>
         </section>
-        <section
-          className={`${styles["how-it-works"]}`}
-          style={{
-            backgroundImage: `url(${landingPageBg1})`,
-          }}
-        >
+        <section className={`${styles["how-it-works"]}`}>
           <div className="container mx-auto text-center py-16 md:py-20">
             <div className={styles["headers"]}>
               <h2 className="text-2xl md:text-3xl mb-10 ">How it Works</h2>
@@ -246,12 +242,32 @@ const LandingPage = () => {
           </div>
         </section>
         <section className={`${styles["subscribe"]}`}>
-          <div className="md:container mx-auto text-center my-16 md:my-20 py-16 md:py-20">
-            <div className={styles["headers"]}>
-              <h2 className="text-2xl md:text-3xl mb-10">
-                <span className={styles["green-bg"]}>Subscribe</span>
-                <span> to our Newsletters</span>
-              </h2>
+          <div className="container mx-auto text-center mb-16 md:mb-20 ">
+            <div className={`${styles["primary-blue-bg"]} py-16 md:py-20`}>
+              <div className="md:grid md:grid-cols-7 lg:grid-cols-5">
+                <div className="px-8 md:px-16 md:col-span-5 lg:col-span-3">
+                  <div className={`${styles["headers"]} text-left `}>
+                    <h2 className="text-2xl md:text-3xl mb-10">
+                      <span className={styles["green-bg"]}>Subscribe</span>
+                      <span> to our Newsletters</span>
+                    </h2>
+                  </div>
+                  <form action="" onSubmit={() => false}>
+                    <div className="mb-10 md:mb-0">
+                      <InputWithButton placeHolder="Enter your email address" />
+                    </div>
+                    <NormalButton
+                      buttonText="Subscribe"
+                      className={`${styles["subscribe-button"]} md:hidden`}
+                    />
+                  </form>
+                </div>
+                <div
+                  className={`${styles["img-container"]} hidden md:block col-span-2`}
+                >
+                  <img src={dude} alt="" />
+                </div>
+              </div>
             </div>
           </div>
         </section>
