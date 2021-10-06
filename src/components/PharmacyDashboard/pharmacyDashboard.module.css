@@ -1,0 +1,19 @@
+.pharmacyName{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 46px;
+    line-height: 69px;
+    color: #393939;
+    margin-top: 30px;
+    /* align-self: flex-start; */
+    width: 90%;
+}
+
+.ActionBoxCon{
+    /* border: 1px solid green; */
+    width: 100%;
+    height: fill-available;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
