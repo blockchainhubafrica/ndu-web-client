@@ -36,7 +36,7 @@ function Components(props) {
       <Header />
       <main>
         <section id="input-box">
-          <div className="container">
+          <div className="container mx-auto">
             <div className="my-10">
               <p className="mb-4">This is an Input box</p>
               <Input type="text" placeHolder="Drug name" />
@@ -44,15 +44,17 @@ function Components(props) {
           </div>
         </section>
         <section id="input-with-button">
-          <div className="container">
+          <div className="container mx-auto">
             <div className="mb-10">
               <p className="mb-4">This is an Input box with button</p>
-              <InputWithButton />
+              <div style={{ maxWidth: "500px" }}>
+                <InputWithButton placeHolder="Enter your email address" />
+              </div>
             </div>
           </div>
         </section>
         <section id="main-button">
-          <div className="container">
+          <div className="container mx-auto">
             <div className="mb-10">
               <p className="mb-4">This the main button</p>
               <MainButton buttonText="Scan barcode" />
@@ -60,7 +62,7 @@ function Components(props) {
           </div>
         </section>
         <section id="logos">
-          <div className="container">
+          <div className="container mx-auto">
             <div className="mb-10 py-4 flex flex-wrap gap-7 ">
               <div>
                 <p className="mb-4">This is the Full Logo</p>
@@ -74,7 +76,7 @@ function Components(props) {
           </div>
         </section>
         <section id="action-boxes">
-          <div className="container">
+          <div className="container mx-auto">
             <div className="mb-10 py-4">
               <p className="mb-4">These are the Action Boxes</p>
               <div className="flex flex-wrap flex-1 gap-7">
@@ -89,7 +91,7 @@ function Components(props) {
           </div>
         </section>
         <section id="camera-display">
-          <div className="container">
+          <div className="container mx-auto">
             <div className="my-10">
               <p className="mb-4">This is the Camera Display component</p>
               <CameraDisplay />
@@ -97,7 +99,7 @@ function Components(props) {
           </div>
         </section>
         <section id="how-it-works-cards">
-          <div className="container">
+          <div className="container mx-auto">
             {/* How it works cards */}
             <div className="py-8" style={{ width: "90%" }}>
               <p className="mb-4">These are the How It Works Cards</p>
@@ -131,7 +133,7 @@ function Components(props) {
           </div>
         </section>
         <section id="history-cards">
-          <div className="container">
+          <div className="container mx-auto">
             {/* History cards */}
             <div className="py-4" style={{ width: "90%" }}>
               <p className="mb-4">These are the History Cards</p>
@@ -168,7 +170,7 @@ function Components(props) {
           </div>
         </section>
         <section id="modal">
-          <div className="container">
+          <div className="container mx-auto">
             {/* Modal */}
             <Modal
               type="Original"
@@ -191,7 +193,7 @@ function Components(props) {
             </p>
             <DashboardLayout>
               <div className="">
-                <div className="mt-20">
+                <div className="mt-20 text-center">
                   <span className="block">
                     Hello, This component was made by Chidi,
                   </span>
