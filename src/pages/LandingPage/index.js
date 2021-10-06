@@ -1,5 +1,6 @@
 import React from "react";
 import {
+  drug2,
   drugPark,
   globeStats,
   greenArc1,
@@ -13,7 +14,7 @@ import {
   mainframe,
   rightArc,
 } from "../../assets";
-import { Header, HowItWorksCard } from "../../components";
+import { Header, HowItWorksCard, Footer } from "../../components";
 
 import styles from "./landingPage.module.css";
 
@@ -90,25 +91,25 @@ const LandingPage = () => {
               <h2 className="text-2xl md:text-3xl mb-10 ">How it Works</h2>
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
-              <div className="my-3">
+              <div className={`${styles["card"]} my-3`}>
                 <HowItWorksCard
                   Icon={HowItWorksIconA}
                   text={"Inscribe and ID a product with unique hash values."}
                 />
               </div>
-              <div className="my-3">
+              <div className={`${styles["card"]} my-3`}>
                 <HowItWorksCard
                   Icon={HowItWorksIconB}
                   text={"Store hash values in blockchain."}
                 />
               </div>
-              <div className="my-3">
+              <div className={`${styles["card"]} my-3`}>
                 <HowItWorksCard
                   Icon={HowItWorksIconC}
                   text={"Generate barcode with hash values."}
                 />
               </div>
-              <div className="my-3">
+              <div className={`${styles["card"]} my-3`}>
                 <HowItWorksCard
                   Icon={HowItWorksIconD}
                   text={"Now you can verify product anywhere."}
@@ -176,7 +177,86 @@ const LandingPage = () => {
             </div>
           </div>
         </section>
+        <section className={`${styles["what-to-gain"]}`}>
+          <div className="lg:container mx-auto text-center pb-16 md:pb-20">
+            <div className={styles["headers"]}>
+              <h2 className="text-2xl md:text-3xl mb-10 md:mb-16 ">
+                What you stand to gain
+              </h2>
+            </div>
+            <div className="flex justify-center align-middle">
+              <ul
+                className={`${styles["left-drug-content"]} hidden md:flex flex-col justify-between max-h-56 my-auto`}
+              >
+                <li className="my-8">
+                  <span>Since washing powder</span>
+                  <hr />
+                </li>
+                <li className="my-8">
+                  <span>Since washing powder</span>
+                  <hr />
+                </li>
+                <li className="my-8">
+                  <span>Since washing powder</span>
+                  <hr />
+                </li>
+              </ul>
+              <div className={`${styles["img-container"]}`}>
+                <img className="" src={drug2} alt="" />
+              </div>
+              <ul
+                className={`${styles["right-drug-content"]} hidden md:flex flex-col justify-between max-h-56 my-auto`}
+              >
+                <li className="my-8">
+                  <hr />
+                  <span>Since washing powder</span>
+                </li>
+                <li className="my-8">
+                  <hr />
+                  <span>Since washing powder</span>
+                </li>
+                <li className="my-8">
+                  <hr />
+                  <span>Since washing powder</span>
+                </li>
+              </ul>
+              <ul
+                className={`${styles["right-drug-content-2"]} md:hidden flex flex-col justify-between lg:max-h-56 my-auto col-start-2 col-end-3`}
+              >
+                <li className="my-3">
+                  <span>Since washing powder</span>
+                </li>
+                <li className="my-3">
+                  <span>Since washing powder</span>
+                </li>
+                <li className="my-3">
+                  <span>Since washing powder</span>
+                </li>
+                <li className="my-3">
+                  <span>Since washing powder</span>
+                </li>
+                <li className="my-3">
+                  <span>Since washing powder</span>
+                </li>
+                <li className="my-3">
+                  <span>Since washing powder</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </section>
+        <section className={`${styles["subscribe"]}`}>
+          <div className="md:container mx-auto text-center my-16 md:my-20 py-16 md:py-20">
+            <div className={styles["headers"]}>
+              <h2 className="text-2xl md:text-3xl mb-10">
+                <span className={styles["green-bg"]}>Subscribe</span>
+                <span> to our Newsletters</span>
+              </h2>
+            </div>
+          </div>
+        </section>
       </main>
+      <Footer />
     </>
   );
 };

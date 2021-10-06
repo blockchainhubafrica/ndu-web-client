@@ -4,6 +4,7 @@ import landingImage2 from "./drug-in-hand.png";
 import rightArc from "./landing-page-arc.png";
 import landingPageBg1 from "./landing-page-bg-1.png";
 import drugPark from "./drug-park.png";
+import drug2 from "./drug-2.png";
 import mainframe from "./mainframe.png";
 
 export {
@@ -13,5 +14,6 @@ export {
   rightArc,
   landingPageBg1,
   drugPark,
+  drug2,
   mainframe,
 };
