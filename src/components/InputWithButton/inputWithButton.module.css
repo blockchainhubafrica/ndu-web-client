@@ -1,22 +1,22 @@
-.inputWithButton{
-    width: 515px;
-    height: 71px;
-    background: #FFFFFF;
-    border-radius: 15px;
-    position: static;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 0px 10px 0px 25px;
-    box-shadow: 0px 0px 10px #0000001a;
-
+.container {
+  /* width: 515px; */
+  width: 100%;
+  background: #ffffff;
+  border-radius: var(--app-border-radius-sm);
+  position: static;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 6px 8px;
+  box-shadow: 0px 0px 10px #0000001a;
 }
 
-.inputWithButtonInput{
-    width: 60%;
-    font-style: normal;
-    font-size: 18px;
-    line-height: 60px;
-    background-color: transparent;
-    outline: none;
+.container input {
+  max-height: 45px;
+  font-style: normal;
+  line-height: 60px;
+  background-color: transparent;
+  outline: none;
+  padding: 0px 10px;
+  width: 100%;
 }

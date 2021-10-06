@@ -1,6 +1,6 @@
 .container input {
   padding: 10px 10px;
-  border-radius: 10px;
+  border-radius: var(--app-border-radius-1);
   background-color: #fafafa;
   color: #838181;
 }
