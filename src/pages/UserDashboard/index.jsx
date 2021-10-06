@@ -8,7 +8,7 @@ import {
   TboltIcon,
   WarningIcon,
 } from "../../assets";
-import { HistoryCard, MainButton, RightBar, SideBar } from "../../components";
+import { HistoryCard, MainButton } from "../../components";
 import { DashboardLayout } from "../../layouts";
 
 function UserDashboard() {
@@ -28,7 +28,7 @@ function UserDashboard() {
             </h6>
             <MainButton bg="#00D6A3" buttonText="Scan barcode" />
           </div>
-          <img src={handWithDrug} />
+          <img src={handWithDrug} alt="" />
         </div>
         <div
           className={`${styles.arrowDown} self-center flex items-center justify-center mt-10`}
