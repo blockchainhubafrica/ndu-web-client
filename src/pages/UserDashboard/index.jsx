@@ -8,13 +8,14 @@ import {
   TboltIcon,
   WarningIcon,
 } from "../../assets";
-import { HistoryCard, MainButton, RightBar, SideBar } from "../../components";
+import { HistoryCard, MainButton, RightBar, SideBar, PharmacyLogin } from "../../components";
 
 function UserDashboard() {
   return (
     <div className="flex">
       <SideBar />
-      <div className="centerCon">
+      <PharmacyLogin />
+      {/* <div className="centerCon">
         <div className="w-5/6 flex flex-col">
           <h1 className={`${styles.greeting} mt-10`}>
             Hi<span className={`${styles.welcome}`}>, Welcome</span>
@@ -62,7 +63,7 @@ function UserDashboard() {
             type={"Expired"}
           />
         </div>
-      </div>
+      </div> */}
       <RightBar />
     </div>
   );
