@@ -37,9 +37,9 @@ function Components(props) {
       <main>
         <section id="input-box">
           <div className="container">
-            <div>
+            <div className="my-10">
               <p className="mb-4">This is an Input box</p>
-              <Input type="text" placeHolder="Drug name" className="mb-6" />
+              <Input type="text" placeHolder="Drug name" />
             </div>
           </div>
         </section>
@@ -53,7 +53,7 @@ function Components(props) {
         </section>
         <section id="main-button">
           <div className="container">
-            <div>
+            <div className="mb-10">
               <p className="mb-4">This the main button</p>
               <MainButton buttonText="Scan barcode" />
             </div>
@@ -61,7 +61,7 @@ function Components(props) {
         </section>
         <section id="logos">
           <div className="container">
-            <div className="py-4 flex flex-wrap gap-7 ">
+            <div className="mb-10 py-4 flex flex-wrap gap-7 ">
               <div>
                 <p className="mb-4">This is the Full Logo</p>
                 <FullLogoIcon />
@@ -75,7 +75,7 @@ function Components(props) {
         </section>
         <section id="action-boxes">
           <div className="container">
-            <div className="py-4">
+            <div className="mb-10 py-4">
               <p className="mb-4">These are the Action Boxes</p>
               <div className="flex flex-wrap flex-1 gap-7">
                 <div className="my-3">
@@ -90,7 +90,10 @@ function Components(props) {
         </section>
         <section id="camera-display">
           <div className="container">
-            <CameraDisplay />
+            <div className="my-10">
+              <p className="mb-4">This is the Camera Display component</p>
+              <CameraDisplay />
+            </div>
           </div>
         </section>
         <section id="how-it-works-cards">
