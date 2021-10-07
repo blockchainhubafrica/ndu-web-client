@@ -17,3 +17,12 @@
     color: #FFFFFF;
     margin-bottom: 50px;
 }
+
+
+@media screen and (max-width: 768px){
+    .loginCon > h5{
+        font-size: 15px;
+        line-height: 24px;
+    }
+    
+}
