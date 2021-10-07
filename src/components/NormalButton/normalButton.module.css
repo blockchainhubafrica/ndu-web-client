@@ -1,11 +1,7 @@
-.normalButton{
-    width: 132px;
-    height: 57px;
-    background: #1C1B72;
-    border-radius: 15px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff;
-    cursor: pointer;
+.normalButton {
+  padding: 10px 25px;
+  background: #1c1b72;
+  border-radius: var(--app-border-radius-sm);
+  color: #fff;
+  cursor: pointer;
 }

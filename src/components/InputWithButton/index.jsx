@@ -2,16 +2,14 @@ import React from "react";
 import { NormalButton } from "..";
 import styles from "./inputWithButton.module.css";
 
-function InputWithButton() {
+function InputWithButton({ placeHolder }) {
   return (
-    <form className={`${styles.inputWithButton}`}>
-      <input
-        type="text"
-        className={`${styles.inputWithButtonInput}`}
-        placeholder="Enter your email address"
-      />
-      <NormalButton buttonText="Subscribe" />
-    </form>
+    <div className={styles["container"]}>
+      <input type="text" placeHolder={placeHolder} />
+      <div className="hidden md:block">
+        <NormalButton buttonText="Subscribe" />
+      </div>
+    </div>
   );
 }
 

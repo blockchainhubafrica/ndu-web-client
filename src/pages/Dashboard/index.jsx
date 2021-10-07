@@ -1,18 +1,23 @@
 import React from "react";
 import styles from "./dashboard.module.css";
 
-import { RightBar, SideBar, PharmacyLogin, UserDashBoad, PharmacyDasboard } from "../../components";
+import {
+  RightBar,
+  SideBar,
+  PharmacyLogin,
+  UserDashboard,
+  PharmacyDasboard,
+} from "../../components";
+import { DashboardLayout } from "../../layouts";
 
-function UserDashboard() {
+function Dashboard() {
   return (
     <div className="flex">
-      <SideBar />
-      {/* <PharmacyLogin /> */}
-      {/* <UserDashBoad /> */}
-      <PharmacyDasboard />
-      <RightBar />
+        {/* <PharmacyDasboard /> */}
+        {/* <UserDashboard /> */}
+        <PharmacyLogin />
     </div>
   );
 }
 
-export { UserDashboard };
+export { Dashboard };

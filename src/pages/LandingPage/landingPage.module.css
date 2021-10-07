@@ -27,7 +27,7 @@ section.intro p {
 }
 
 .green-bg {
-  background-color: var(--app-primary-green);
+  background-color: var(--app-green-fade);
   padding: 0px 10px;
 }
 
@@ -108,6 +108,19 @@ section.why-ndu .landing-image-3-container {
   }
 }
 
+section.how-it-works {
+  background-image: url("/src/assets/images/landing-page-bg-1.png");
+}
+
+section.how-it-works .card:nth-child(1)::after {
+  content: "";
+  position: relative;
+  z-index: 100;
+  height: 30px;
+  width: 60px;
+  background-image: url("/src/assets/svg/green-arc-1.svg");
+}
+
 section.drugs-could-be-there {
   background-color: var(--app-blue-fade);
 }
@@ -155,4 +168,166 @@ section.drugs-could-be-there p {
 
 .paragraph {
   line-height: 2rem;
+}
+
+section.how-we-protect {
+  display: block;
+}
+
+section.what-to-gain .img-container {
+  position: relative;
+  left: -45px;
+}
+
+section.what-to-gain .headers + div {
+  font-size: 0.75rem;
+}
+
+@media screen and (min-width: 992px) {
+  section.what-to-gain .headers + div {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  section.what-to-gain .img-container {
+    position: static;
+  }
+}
+
+section.what-to-gain .img-container img {
+  height: 100%;
+  object-fit: contain;
+}
+
+ul.left-drug-content,
+ul.right-drug-content,
+ul.right-drug-content-2 {
+  position: relative;
+}
+
+ul.right-drug-content-2 {
+  position: relative;
+  left: -15px;
+  min-width: 180px;
+  font-size: 12px;
+}
+
+@media screen and (min-width: 640px) {
+  ul.right-drug-content-2 {
+    left: 0px;
+  }
+}
+
+ul.left-drug-content li,
+ul.right-drug-content li,
+ul.right-drug-content-2 li {
+  display: flex;
+  align-items: center;
+}
+
+ul.left-drug-content li:before,
+ul.right-drug-content li:before,
+ul.right-drug-content-2 li:before {
+  content: "";
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #3e73c3;
+  position: absolute;
+  height: 10px;
+  width: 10px;
+}
+
+ul.left-drug-content li:before {
+  right: -8.5px;
+}
+
+ul.right-drug-content li:before {
+  left: 0px;
+}
+
+ul.right-drug-content-2 li:before {
+  left: -20px;
+}
+
+ul.left-drug-content li hr,
+ul.right-drug-content li hr {
+  border-color: #3e73c3;
+  width: 80px;
+}
+
+ul.left-drug-content li hr {
+  margin-left: 10px;
+}
+
+ul.right-drug-content li hr {
+  margin-right: 10px;
+}
+
+section.subscribe h2 {
+  color: #fff;
+  line-height: 2.5rem;
+}
+
+section.subscribe .primary-blue-bg {
+  color: #fff !important;
+  /* border-radius: 0px; */
+  border-radius: var(--app-border-radius-md);
+  position: relative;
+}
+
+@media screen and (min-width: 768px) {
+  section.subscribe .primary-blue-bg {
+    /* border-radius: var(--app-border-radius-md); */
+  }
+}
+
+.primary-blue-bg {
+  background-color: var(--app-primary-blue);
+}
+
+section.subscribe .green-bg {
+  background-color: var(--app-primary-green);
+}
+
+section.subscribe input {
+  color: #000;
+}
+
+section.subscribe .img-container {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  height: 250px;
+}
+
+@media screen and (min-width: 992px) {
+  section.subscribe .img-container {
+    position: absolute;
+    top: -70px;
+    bottom: 0px;
+    right: -70px;
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  section.subscribe .img-container {
+    position: absolute;
+    top: -125px;
+    bottom: 0px;
+    right: -70px;
+    height: 415px;
+  }
+}
+
+section.subscribe .img-container img {
+  height: 100%;
+}
+ 
+
+section.subscribe .subscribe-button {
+  max-width: 200px;
+  margin: 0 auto;
+  background-color: var(--app-primary-green);
 }

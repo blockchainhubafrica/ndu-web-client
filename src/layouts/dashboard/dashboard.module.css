@@ -1,0 +1,10 @@
+.center-con {
+  width: 55%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: space-evenly; */
+  background-color: #fff !important;
+  overflow-y: scroll;
+  height: 100vh;
+}

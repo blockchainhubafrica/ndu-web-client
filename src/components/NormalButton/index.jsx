@@ -1,12 +1,11 @@
-import React from 'react'
-import styles from "./normalButton.module.css"
+import React from "react";
+import styles from "./normalButton.module.css";
 
-function NormalButton({buttonText}) {
-    return (
-        <div className={`${styles.normalButton}`}>
-            {buttonText}
-        </div>
-    )
+function NormalButton({ buttonText, className }) {
+  let classes = styles.normalButton;
+  if (className) classes += ` ${className}`;
+
+  return <div className={classes}>{buttonText}</div>;
 }
 
-export  {NormalButton}
+export { NormalButton };
