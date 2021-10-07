@@ -6,20 +6,20 @@ import styles from "./pharmacyDashboard.module.css";
 
 function PharmacyDasboard() {
   return (
-    <DashboardLayout>
+    <DashboardLayout circularButtonDisplay="none">
       <h1 className={`${styles.pharmacyName}`}>Juhel Pharmacy</h1>
 
       <div className={`${styles.ActionBoxCon}`}>
         <ActionBox
           title="Generate Hash"
           image={MicroChipSvg}
-          width="40%"
+          width="317px"
           height="295px"
         />
         <ActionBox
           title="Drug Inventory"
           image={DrugsSvg}
-          width="40%"
+          width="317px"
           height="295px"
         />
       </div>

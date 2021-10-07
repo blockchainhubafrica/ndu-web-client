@@ -3,14 +3,20 @@ import { BigScan } from "../../assets";
 import { RightBar, SideBar } from "../../components";
 import styles from "./dashboard.module.css";
 
-function DashboardLayout({ children, bg, fill }) {
+function DashboardLayout({ children, bg, fill, circularButtonDisplay }) {
   return (
     <>
       <div className={`${styles["layout-con"]} flex`}>
         <SideBar />
         <div className={styles["center-con"]}>
           {children}
-          <div className={`${styles.circularButton}`} style={{background: bg ? bg : null}}>
+          <div
+            className={`${styles.circularButton}`}
+            style={{
+              background: bg ? bg : null,
+              display: circularButtonDisplay ? circularButtonDisplay : null,
+            }}
+          >
             <BigScan className={`${fill ? styles.whiteScanIcon : null}`} />
           </div>
         </div>
