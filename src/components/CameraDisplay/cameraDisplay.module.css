@@ -1,5 +1,5 @@
 .cameraDisplayCon{
-    width: 481px;
+    max-width: 481px;
     /* height: 543px; */
     padding: 40px 20px !important;
     border-radius: 10px;
