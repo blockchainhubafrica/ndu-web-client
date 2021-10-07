@@ -195,9 +195,9 @@ function Components(props) {
               <div className="">
                 <div className="mt-20 text-center">
                   <span className="block">
-                    Hello, This component was made by Chidi,
+                    You know who the greatest is?
                   </span>
-                  <span>Lead Front Engineer, NDU</span>
+                  <span>!You</span>
                 </div>
               </div>
             </DashboardLayout>

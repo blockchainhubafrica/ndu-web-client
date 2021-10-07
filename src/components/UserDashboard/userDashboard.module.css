@@ -18,8 +18,14 @@
     background: #022655;
     backdrop-filter: blur(15px);
     border-radius: 20px;
-    height: 192px;
+    height: fill-available;
     position: relative;
+}
+
+.dashBoardCarousel > div{
+    height: 100%;
+    padding: 20px 0;
+    padding-left: 15px;
 }
 
 .dashBoardCarousel > div > h1{
@@ -36,6 +42,7 @@
     font-size: 12px;
     line-height: 15px;
     color: #FFFFFF;
+    /* margin: 0px; */
 }
 
 .dashBoardCarousel > img{
@@ -67,3 +74,61 @@
     background: #022655;
     border-radius: 10px;
 }
+
+
+.svgPath{
+    fill: #fff
+}
+
+
+@media screen and (max-width: 768px) {
+    /* .dashBoardCarousel{
+        height: 192px;
+    } */
+    .userDashboardCon{
+        margin-top: 60px;
+        margin-bottom: 150px;
+        width: 90%;
+    }
+
+    .dashBoardCarousel{
+        padding-left: 15px;
+        padding: 20px;
+    }
+
+    .dashBoardCarousel > div{
+        width: 185px;
+        padding: 20px 0;
+    }
+
+    .dashBoardCarousel > div > h1{
+        font-size: 14px;
+    }
+
+    .dashBoardCarousel > div > h6{
+        font-size: 10px;
+    }
+
+    .dashBoardCarousel > img{
+        right: 20px;
+    }
+
+    .greeting{
+        display: none;
+    }
+
+    .arrowDown{
+        display: none;
+    }
+
+    .activityScanIndicator{
+        display: none;
+    }
+    .activityHistory{
+        font-style: normal;
+        font-weight: 600;
+        font-size: 16px;
+        line-height: 24px;
+        color: #000000;
+    }
+  }

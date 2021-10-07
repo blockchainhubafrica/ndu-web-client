@@ -276,11 +276,11 @@ section.subscribe .primary-blue-bg {
   position: relative;
 }
 
-@media screen and (min-width: 768px) {
+/* @media screen and (min-width: 768px) {
   section.subscribe .primary-blue-bg {
-    /* border-radius: var(--app-border-radius-md); */
+    border-radius: var(--app-border-radius-md);
   }
-}
+} */
 
 .primary-blue-bg {
   background-color: var(--app-primary-blue);
