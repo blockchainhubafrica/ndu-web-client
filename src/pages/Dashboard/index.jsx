@@ -14,8 +14,8 @@ function Dashboard() {
   return (
     <>
       {/* <PharmacyDasboard /> */}
-      {/* <UserDashboard /> */}
-      <PharmacyLogin />
+      <UserDashboard />
+      {/* <PharmacyLogin /> */}
     </>
   );
 }
