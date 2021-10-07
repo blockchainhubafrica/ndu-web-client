@@ -66,11 +66,11 @@ function Components(props) {
             <div className="mb-10 py-4 flex flex-wrap gap-7 ">
               <div>
                 <p className="mb-4">This is the Full Logo</p>
-                <FullLogoIcon />
+                <FullLogoIcon className="mx-auto" />
               </div>
               <div>
                 <p className="mb-4">This is the Half Logo</p>
-                <HalfLogoIcon />
+                <HalfLogoIcon className="mx-auto" />
               </div>
             </div>
           </div>
