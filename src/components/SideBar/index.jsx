@@ -5,7 +5,7 @@ import { CartIcon, DashBoardIcon, MoneyIcon, NduLogo, UserIcon} from "../../asse
 function SideBar() {
   return (
     <div className={`${styles.sideBarCon}`}>
-      <NduLogo className={`${styles.nduLogo}`} />
+      <NduLogo className={`${styles.nduLogo} mt-10`} />
       <ul>
         <li>
           <span className={`${styles.iconCon}`}>

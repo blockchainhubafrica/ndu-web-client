@@ -12,11 +12,11 @@ import { DashboardLayout } from "../../layouts";
 
 function Dashboard() {
   return (
-    <div className="flex">
-        {/* <PharmacyDasboard /> */}
-        {/* <UserDashboard /> */}
-        <PharmacyLogin />
-    </div>
+    <>
+      {/* <PharmacyDasboard /> */}
+      {/* <UserDashboard /> */}
+      <PharmacyLogin />
+    </>
   );
 }
 

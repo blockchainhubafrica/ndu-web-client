@@ -8,11 +8,12 @@
     height: 100%;
 }
 
-.loginCon > h4{
+.loginCon > h5{
     font-style: normal;
-    font-weight: 300;
+    font-weight: 10;
     font-size: 18px;
     line-height: 27px;
     text-align: center;
     color: #FFFFFF;
+    margin-bottom: 50px;
 }

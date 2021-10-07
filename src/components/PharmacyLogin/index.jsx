@@ -7,10 +7,10 @@ function PharmacyLogin() {
   return (
     <DashboardLayout>
       <div className={`${styles.loginCon}`}>
-        <h4>
+        <h5>
           To access this session, enter your <br />{" "}
           <span style={{ fontWeight: 500 }}>Pharmacy Identity Number</span>
-        </h4>
+        </h5>
         <InputPassword />
         <RegularButton buttonText="SIGN IN" />
       </div>
