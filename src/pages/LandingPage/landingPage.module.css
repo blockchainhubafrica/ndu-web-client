@@ -1,23 +1,22 @@
-.main {
-}
-
 section.intro {
-  min-height: 80vh;
+  overflow-y: hidden;
+  background-color: #e4effd;
+  max-height: 700px;
   background-color: #e4effd;
 }
 
-section.intro > div {
-  /* max-width: 840px; */
+.headers {
+  color: var(--app-primary-blue);
+  font-weight: 500;
 }
 
-section.intro div.text-content {
+section.intro div.headers {
   position: relative;
   z-index: 2;
-  /* display: none; */
 }
 
 section.intro h1 {
-  line-height: 2.8rem !important;
+  line-height: 3rem !important;
   color: var(--app-primary-blue);
   font-weight: 500;
 }
@@ -28,38 +27,307 @@ section.intro p {
 }
 
 .green-bg {
-  background-color: var(--app-primary-green);
+  background-color: var(--app-green-fade);
   padding: 0px 10px;
 }
 
 .intro-image-div {
   position: relative;
-  top: -80px;
-  z-index: 1;
-  display: flex;
+  top: -20px;
+  margin: 0 auto;
   justify-content: center;
 }
 
-.intro-image-div > div:first-child {
-  position: absolute;
-  /* top: 100px; */
+@media screen and (min-width: 768px) {
+  .intro-image-div {
+    top: -60px;
+  }
 }
 
-.intro-image-div > div:last-child {
+.intro-image-div img {
+  margin: 0 auto;
+}
+
+section.cases h2 {
+  line-height: 3rem !important;
+  color: var(--app-primary-blue);
+  font-weight: 500;
+}
+
+.globe-img-container img {
+  width: 100%;
+  max-width: 960px;
+  margin: 0px auto;
+}
+
+section.why-ndu {
+  background-color: var(--app-primary-blue);
+  height: auto;
+}
+
+@media screen and (min-width: 1600px) {
+  section.why-ndu > div {
+    max-width: 1536px;
+    padding-left: 6rem;
+    padding-right: 6rem;
+    margin: 0px auto;
+  }
+}
+
+section.why-ndu p {
+  line-height: 2rem;
+}
+
+section.why-ndu .landing-image-2-container img {
+  max-height: 500px;
   position: relative;
-  top: 90px;
-  left: -10px;
+  left: -2.5rem;
 }
 
 @media screen and (min-width: 768px) {
-  .intro-image-div > div:last-child {
+  section.why-ndu .landing-image-2-container img {
+    max-height: 500px;
     position: relative;
-    top: 130px;
-    left: -15px;
+    left: 0rem;
   }
-  section.intro {
-    min-height: 100vh;
-    background-color: #e4effd;
+}
+
+section.why-ndu .landing-image-3-container {
+  position: absolute;
+  right: 0px;
+  top: -5px;
+  width: 130px;
+}
+
+@media screen and (min-width: 768px) {
+  section.why-ndu .landing-image-3-container {
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 150px;
   }
-  
+}
+
+section.how-it-works {
+  background-image: url("/src/assets/images/landing-page-bg-1.png");
+}
+
+section.how-it-works .card:nth-child(1)::after {
+  content: "";
+  position: relative;
+  z-index: 100;
+  height: 30px;
+  width: 60px;
+  background-image: url("/src/assets/svg/green-arc-1.svg");
+}
+
+section.drugs-could-be-there {
+  background-color: var(--app-blue-fade);
+}
+
+section.drugs-could-be-there h2 {
+  line-height: 3rem !important;
+  color: var(--app-primary-blue);
+  font-weight: 500;
+}
+
+section.drugs-could-be-there p {
+  line-height: 2rem;
+}
+
+.green-underscore {
+  border-bottom: 4px solid var(--app-primary-green);
+}
+
+.special-bullet-list li:before {
+  content: "";
+  background-color: #ccdfff;
+  border-radius: 50%;
+  position: absolute;
+  top: -21px;
+  left: -9.5px;
+  height: 18px;
+  width: 18px;
+}
+
+.special-bullet-list li {
+  padding-bottom: 1rem;
+  padding-left: 1.4rem;
+  position: relative;
+  margin: 0rem 0rem 1.5rem 0.5rem;
+}
+
+.special-bullet-list li:not(.special-bullet-list li:last-child) {
+  border-left: 1px dashed #000;
+}
+
+.special-bullet-list li > span {
+  position: relative;
+  top: -24px;
+}
+
+.paragraph {
+  line-height: 2rem;
+}
+
+section.how-we-protect {
+  display: block;
+}
+
+section.what-to-gain .img-container {
+  position: relative;
+  left: -45px;
+}
+
+section.what-to-gain .headers + div {
+  font-size: 0.75rem;
+}
+
+@media screen and (min-width: 992px) {
+  section.what-to-gain .headers + div {
+    font-size: 1rem;
+  }
+}
+
+@media screen and (min-width: 640px) {
+  section.what-to-gain .img-container {
+    position: static;
+  }
+}
+
+section.what-to-gain .img-container img {
+  height: 100%;
+  object-fit: contain;
+}
+
+ul.left-drug-content,
+ul.right-drug-content,
+ul.right-drug-content-2 {
+  position: relative;
+}
+
+ul.right-drug-content-2 {
+  position: relative;
+  left: -15px;
+  min-width: 180px;
+  font-size: 12px;
+}
+
+@media screen and (min-width: 640px) {
+  ul.right-drug-content-2 {
+    left: 0px;
+  }
+}
+
+ul.left-drug-content li,
+ul.right-drug-content li,
+ul.right-drug-content-2 li {
+  display: flex;
+  align-items: center;
+}
+
+ul.left-drug-content li:before,
+ul.right-drug-content li:before,
+ul.right-drug-content-2 li:before {
+  content: "";
+  background-color: #fff;
+  border-radius: 50%;
+  border: 1px solid #3e73c3;
+  position: absolute;
+  height: 10px;
+  width: 10px;
+}
+
+ul.left-drug-content li:before {
+  right: -8.5px;
+}
+
+ul.right-drug-content li:before {
+  left: 0px;
+}
+
+ul.right-drug-content-2 li:before {
+  left: -20px;
+}
+
+ul.left-drug-content li hr,
+ul.right-drug-content li hr {
+  border-color: #3e73c3;
+  width: 80px;
+}
+
+ul.left-drug-content li hr {
+  margin-left: 10px;
+}
+
+ul.right-drug-content li hr {
+  margin-right: 10px;
+}
+
+section.subscribe h2 {
+  color: #fff;
+  line-height: 2.5rem;
+}
+
+section.subscribe .primary-blue-bg {
+  color: #fff !important;
+  /* border-radius: 0px; */
+  border-radius: var(--app-border-radius-md);
+  position: relative;
+}
+
+/* @media screen and (min-width: 768px) {
+  section.subscribe .primary-blue-bg {
+    border-radius: var(--app-border-radius-md);
+  }
+} */
+
+.primary-blue-bg {
+  background-color: var(--app-primary-blue);
+}
+
+section.subscribe .green-bg {
+  background-color: var(--app-primary-green);
+}
+
+section.subscribe input {
+  color: #000;
+}
+
+section.subscribe .img-container {
+  position: absolute;
+  top: 10px;
+  right: 0px;
+  height: 250px;
+}
+
+@media screen and (min-width: 992px) {
+  section.subscribe .img-container {
+    position: absolute;
+    top: -70px;
+    bottom: 0px;
+    right: -70px;
+    height: 400px;
+  }
+}
+
+@media screen and (min-width: 1280px) {
+  section.subscribe .img-container {
+    position: absolute;
+    top: -125px;
+    bottom: 0px;
+    right: -70px;
+    height: 415px;
+  }
+}
+
+section.subscribe .img-container img {
+  height: 100%;
+}
+ 
+
+section.subscribe .subscribe-button {
+  max-width: 200px;
+  margin: 0 auto;
+  background-color: var(--app-primary-green);
 }

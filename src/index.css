@@ -11,7 +11,11 @@
   --app-blue-fade: #ebf3ff;
   --app-blue-light: #f8fafc;
   --app-primary-text: poppins;
-  --app-primary-green: #87e5d8;
+  --app-primary-green: #00d6a3;
+  --app-green-fade: #87e5d8;
+  --app-border-radius-sm: 10px;
+  --app-border-radius-md: 15px;
+  --app-border-radius-lg: 30px;
 }
 
 * {
