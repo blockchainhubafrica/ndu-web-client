@@ -1,5 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
+import { NormalButton } from "..";
 import { FullLogoIcon } from "../../assets";
 import styles from "./header.module.css";
 
@@ -10,7 +11,9 @@ function Header(props) {
         <Link to="/">
           <FullLogoIcon />
         </Link>
-        <div>Connect Wallet</div>
+        <Link to="/dashboard/user">
+        <NormalButton buttonText="Connect wallet" bg="#022655" />
+        </Link>
       </div>
     </header>
   );

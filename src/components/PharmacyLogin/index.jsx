@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { InputPassword, RegularButton } from "..";
 import { DashboardLayout } from "../../layouts";
 import styles from "./pharmacyLogin.module.css";
@@ -12,7 +13,9 @@ function PharmacyLogin() {
           <span style={{ fontWeight: 500 }}>Pharmacy Identity Number</span>
         </h5>
         <InputPassword />
-        <RegularButton buttonText="SIGN IN" />
+        <Link to="/dashboard/pharmacy">
+          <RegularButton buttonText="SIGN IN" />
+        </Link>
       </div>
     </DashboardLayout>
   );
