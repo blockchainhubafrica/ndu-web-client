@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import {
   drug2,
   drugPark,
@@ -14,15 +14,18 @@ import {
   mainframe,
   rightArc,
 } from "../../assets";
-import { Header, HowItWorksCard, Footer, NormalButton } from "../../components";
+import { Header, HowItWorksCard, Footer, NormalButton, Modal } from "../../components";
+import ConnectWalletModal from "../../components/ConnectWalletModal";
 import { InputWithButton } from "../../components/InputWithButton";
 
 import styles from "./landingPage.module.css";
 
 const LandingPage = () => {
+  const [display, setdisplay] = useState(false);
   return (
     <>
-      <Header />
+    {/* <ConnectWalletModal setDisplayModal={setdisplay} displayModal={display} /> */}
+      <Header setDisplay={setdisplay}  />
       <main className={`${styles.main}`}>
         <section className={styles["intro"]}>
           <div className="container mx-auto text-center py-16 md:py-20">

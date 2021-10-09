@@ -93,11 +93,11 @@
         
     }
 
-    .sideBarCon > ul > li{
+    .sideBarCon > ul > a > li{
         margin: 0px 0px 0px 0px;
     }
 
-    .sideBarCon > ul > li > h6{
+    .sideBarCon > ul > a > li > h6{
         display: none;
     }
 

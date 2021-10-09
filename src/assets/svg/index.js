@@ -21,6 +21,11 @@ import { ReactComponent as HowItWorksIconC } from "./howItWorksIconC.svg";
 import { ReactComponent as HowItWorksIconD } from "./howItWorksIconD.svg";
 import { ReactComponent as TboltIcon } from "./tBolt.svg";
 import { ReactComponent as CloseIcon } from "./close.svg";
+import { ReactComponent as WhiteCloseIcon } from "./whiteCloseButton.svg";
+import { ReactComponent as TrustWallet } from "./trustwallet.svg";
+import { ReactComponent as MetaMask } from "./metamask.svg";
+import { ReactComponent as WalletConnect } from "./walletconnect.svg";
+import { ReactComponent as BinanceChain } from "./binancechain.svg";
 import MicroChipSvg from "./micro-chip.svg";
 import DrugsSvg from "./drugs.svg";
 import globeStats from "./globe-stats-2.svg";
@@ -58,4 +63,9 @@ export {
   WalletIcon,
   greenArc1,
   greenArc2,
+  WhiteCloseIcon,
+  TrustWallet,
+  MetaMask,
+  WalletConnect,
+  BinanceChain
 };

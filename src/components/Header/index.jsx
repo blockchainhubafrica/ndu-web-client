@@ -4,7 +4,7 @@ import { NormalButton } from "..";
 import { FullLogoIcon } from "../../assets";
 import styles from "./header.module.css";
 
-function Header(props) {
+function Header({ setDisplay }) {
   return (
     <header className={`${styles.container}`}>
       <div className="container flex flex-wrap justify-between mx-auto">
@@ -12,7 +12,14 @@ function Header(props) {
           <FullLogoIcon />
         </Link>
         <Link to="/dashboard/user">
-        <NormalButton buttonText="Connect wallet" bg="#022655" />
+        <NormalButton
+          buttonText="Connect wallet"
+          bg="#022655"
+          // action={() => {
+          //   console.log("clicked");
+          //   setDisplay(true);
+          // }}
+        />
         </Link>
       </div>
     </header>
