@@ -63,7 +63,7 @@
     fill: white;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 925px) {
     .sideBarCon{
         width: 100%;
         height: 104px;

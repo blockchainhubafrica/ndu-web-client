@@ -1,5 +1,13 @@
 import React, { useState } from "react";
-import { BinanceChain, CloseIcon, MetaMask, TrustWallet, WalletConnect, WhiteCloseIcon } from "../../assets";
+import { Link } from "react-router-dom";
+import {
+  BinanceChain,
+  CloseIcon,
+  MetaMask,
+  TrustWallet,
+  WalletConnect,
+  WhiteCloseIcon,
+} from "../../assets";
 import styles from "./connectWalletModal.module.css";
 
 function ConnectWalletModal({ displayModal, setDisplayModal }) {
@@ -18,13 +26,15 @@ function ConnectWalletModal({ displayModal, setDisplayModal }) {
                 }}
               />
             </div>
-            <div className={styles.main}>
-                <ul>
-                    <li><TrustWallet /></li>
-                    <li><MetaMask /></li>
-                    <li><WalletConnect /></li>
-                    <li><BinanceChain /></li>
-                </ul>
+            <div
+              className={`${styles.main} w-6/6 h-auto flex items-center justify-evenly`}
+            >
+              {/* <TrustWallet /> */}
+              <Link to="/dashboard/user">
+              <MetaMask />
+              </Link>
+              {/* <WalletConnect /> */}
+                {/* <BinanceChain /> */}
             </div>
           </div>
         </div>

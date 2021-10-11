@@ -19,7 +19,7 @@
 
 .top{
     width: 737px;
-    height: 72px;
+    height: 20%;
     left: -1px;
     top: 0px;
     background: #022655;
@@ -39,4 +39,19 @@
 .closeIcon{
     position: absolute;
     right: 30px;
+}
+
+.main{
+    height: 80%;
+}
+
+@media screen and (max-width: 825px){
+    .connectWalletModalInnerCon{
+        width: 85%;
+    }
+
+    .top{
+        width: 100%;
+    }
+    
 }

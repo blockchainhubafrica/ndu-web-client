@@ -4,7 +4,7 @@
 
 @import "tailwindcss/utilities";
 
-@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,550,600,900);
+@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500);
 
 :root {
   --app-primary-blue: #022655;

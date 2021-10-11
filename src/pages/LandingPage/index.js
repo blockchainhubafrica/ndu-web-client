@@ -24,7 +24,7 @@ const LandingPage = () => {
   const [display, setdisplay] = useState(false);
   return (
     <>
-    {/* <ConnectWalletModal setDisplayModal={setdisplay} displayModal={display} /> */}
+    <ConnectWalletModal setDisplayModal={setdisplay} displayModal={display} />
       <Header setDisplay={setdisplay}  />
       <main className={`${styles.main}`}>
         <section className={styles["intro"]}>

@@ -11,16 +11,16 @@ function Header({ setDisplay }) {
         <Link to="/">
           <FullLogoIcon />
         </Link>
-        <Link to="/dashboard/user">
+        {/* <Link to="/dashboard/user"> */}
         <NormalButton
           buttonText="Connect wallet"
           bg="#022655"
-          // action={() => {
-          //   console.log("clicked");
-          //   setDisplay(true);
-          // }}
+          action={() => {
+            console.log("clicked");
+            setDisplay(true);
+          }}
         />
-        </Link>
+        {/* </Link> */}
       </div>
     </header>
   );
