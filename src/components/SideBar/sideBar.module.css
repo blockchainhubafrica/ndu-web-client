@@ -16,7 +16,7 @@
     
 }
 
-.sideBarCon > ul > li{
+.sideBarCon > ul > a > li{
     list-style: none;
     display: flex;
     flex-direction: column;
@@ -25,7 +25,7 @@
     margin: 40px 0px 0px 0px;
 }
 
-.sideBarCon > ul > li > h6{
+.sideBarCon > ul > a > li > h6{
     font-style: normal;
     font-weight: 500;
     font-size: 12px;
@@ -63,7 +63,7 @@
     fill: white;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 925px) {
     .sideBarCon{
         width: 100%;
         height: 104px;
@@ -93,11 +93,11 @@
         
     }
 
-    .sideBarCon > ul > li{
+    .sideBarCon > ul > a > li{
         margin: 0px 0px 0px 0px;
     }
 
-    .sideBarCon > ul > li > h6{
+    .sideBarCon > ul > a > li > h6{
         display: none;
     }
 

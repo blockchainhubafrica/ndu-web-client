@@ -1,5 +1,5 @@
-import React, { useEffect } from 'react'
-import styles from "./userDashboard.module.css"
+import React, { useEffect } from "react";
+import styles from "./userDashboard.module.css";
 import {
   ArrowDown,
   handWithDrug,
@@ -12,11 +12,10 @@ import { HistoryCard, MainButton } from "../../components";
 import { DashboardLayout } from "../../layouts";
 
 function UserDashboard() {
-
   return (
-    <DashboardLayout bg="#022655" fill="#fff" >
-      <div className={`${styles.userDashboardCon} w-5/6 flex flex-col`}>
-        <h1 className={`${styles.greeting} mt-10`}>
+    <DashboardLayout bg="#022655" fill="#fff">
+      <div className={`${styles.userDashboardCon} w-5/6 flex flex-col pb-10 mt-20`}>
+        <h1 className={`${styles.greeting} `}>
           Hi<span className={`${styles.welcome}`}>, Welcome</span>
         </h1>
         <div
@@ -38,11 +37,6 @@ function UserDashboard() {
         </div>
         <div className="w-6/6 flex items-center justify-between mt-10 mb-7">
           <h1 className={`${styles.activityHistory}`}>Activity history</h1>
-          <div
-            className={`${styles.activityScanIndicator} flex justify-center items-center`}
-          >
-            <SquareBarCode />
-          </div>
         </div>
         <HistoryCard
           Icon={SheildIcon}
@@ -65,7 +59,7 @@ function UserDashboard() {
           date={"7 Jun, 21"}
           type={"Expired"}
         />
-                <HistoryCard
+        <HistoryCard
           Icon={SheildIcon}
           headText={"Tetracycline capsule"}
           subText={"Rema Pharmacy"}
@@ -91,6 +85,4 @@ function UserDashboard() {
   );
 }
 
-export  {UserDashboard}
-
-
+export { UserDashboard };
