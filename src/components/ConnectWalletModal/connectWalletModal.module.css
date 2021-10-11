@@ -1,0 +1,57 @@
+.connectWalletModalCon{
+    width: 100vw;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 7777777777;
+}
+
+.connectWalletModalInnerCon{
+    height: 415px;
+    width: 736px;
+    background-color: #fff;
+}
+
+.top{
+    width: 737px;
+    height: 20%;
+    left: -1px;
+    top: 0px;
+    background: #022655;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.title{
+    font-style: normal;
+    font-size: 18px;
+    line-height: 60px;
+    color: #F8FAFC;
+}
+
+.closeIcon{
+    position: absolute;
+    right: 30px;
+}
+
+.main{
+    height: 80%;
+}
+
+@media screen and (max-width: 825px){
+    .connectWalletModalInnerCon{
+        width: 85%;
+    }
+
+    .top{
+        width: 100%;
+    }
+    
+}
