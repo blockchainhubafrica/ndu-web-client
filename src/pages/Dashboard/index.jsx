@@ -13,9 +13,9 @@ import { DashboardLayout } from "../../layouts";
 function Dashboard() {
   return (
     <>
-      <PharmacyDasboard />
+      {/* <PharmacyDasboard /> */}
       {/* <UserDashboard /> */}
-      {/* <PharmacyLogin /> */}
+      <PharmacyLogin />
     </>
   );
 }
