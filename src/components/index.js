@@ -14,3 +14,4 @@ export * from "./CameraDisplay";
 export * from "./InputPassword";
 export * from "./UserDashboard";
 export * from "./PharmacyDashboard";
+export * from "./textArea";
