@@ -8,7 +8,7 @@ import {
 } from "../../components";
 import styles from "./dashboard.module.css";
 
-function DashboardLayout({ children, bg, fill, circularButtonDisplay }) {
+function DashboardLayout({ children}) {
   return (
     <>
       <DashboardHeader />
