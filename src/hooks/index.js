@@ -1,1 +1,2 @@
-export * from "./useShortenAddress"
+export * from "./useShortenAddress";
+export * from "./useLockBodyScroll";

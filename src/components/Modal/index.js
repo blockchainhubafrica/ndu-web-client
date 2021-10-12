@@ -1,9 +1,11 @@
 import React from "react";
 import { CloseIcon } from "../../assets";
+import { useLockBodyScroll } from "../../hooks";
 
 import styles from "./modal.module.css";
 
 const Modal = ({ children, type, displayModal, closeModal }) => {
+  useLockBodyScroll();
   return (
     <>
       {displayModal && (
