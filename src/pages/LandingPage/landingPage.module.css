@@ -304,9 +304,9 @@ section.subscribe .img-container {
 @media screen and (min-width: 1024px) {
   section.subscribe .img-container {
     position: absolute;
-    top: -70px;
+    top: -105px;
     bottom: 0px;
-    right: -70px;
+    right: -60px;
     height: 400px;
   }
 }
@@ -314,7 +314,7 @@ section.subscribe .img-container {
 @media screen and (min-width: 1280px) {
   section.subscribe .img-container {
     position: absolute;
-    top: -125px;
+    top: -120px;
     bottom: 0px;
     right: -70px;
     height: 415px;

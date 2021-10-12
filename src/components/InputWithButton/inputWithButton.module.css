@@ -1,5 +1,5 @@
 .container {
-  /* width: 515px; */
+  max-width: 520px;
   width: 100%;
   background: #ffffff;
   border-radius: var(--app-border-radius-sm);

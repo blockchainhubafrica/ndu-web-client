@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ArrowDown, HalfLogoIcon, WalletIcon } from "../../assets";
 import { useShortenAddress } from "../../hooks";
 import styles from "./dashboard-header.module.css";
@@ -10,7 +11,9 @@ function DashboardHeader(props) {
   return (
     <div className={`${styles["walletBalanceCon"]}  py-3 shadow-sm lg:hidden`}>
       <div className="flex container">
-        <HalfLogoIcon />
+        <Link to="/dashboard/user">
+          <HalfLogoIcon />
+        </Link>
         <div
           className={`${styles.walletButton} px-5 py-3 flex items-center justify-center`}
         >
