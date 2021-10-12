@@ -44,8 +44,14 @@ const PharmacyGenHash = () => {
           />
         </div>
         <div className="flex flex-wrap justify-between items-center my-6">
-          <Input placeHolder="No. of Hash keys" type="number" />
-          <button className="px-5 py-3 md:px-10 md:py-4 mt-4 ml-auto md:mt-0 md:ml-0">
+          <div className="w-full md:w-auto mb-8 md:mb-0">
+            <Input
+              placeHolder="No. of Hash keys"
+              type="number"
+              className="w-full md:w-auto"
+            />
+          </div>
+          <button className="px-5 py-3 md:px-10 md:py-4 ml-auto md:mt-0 md:ml-0">
             Generate
           </button>
         </div>
