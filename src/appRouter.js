@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+
 import {
   BrowserRouter as Router,
   Redirect,
@@ -6,9 +7,15 @@ import {
   Switch,
   useLocation,
 } from "react-router-dom";
-import { DashboardLayout } from "./layouts";
-import { LandingPage, Dashboard, Components, Pharmacy } from "./pages";
-import { PharmacyDasboard, PharmacyLogin, UserDashboard } from "./pages";
+
+import {
+  Components,
+  LandingPage,
+  PharmacyDasboard,
+  PharmacyGenHash,
+  PharmacyLogin,
+  UserDashboard,
+} from "./pages";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -20,26 +27,12 @@ function ScrollToTop() {
   return null;
 }
 
-const DashboardRoute = ({ Component, ...rest }) => {
-  return (
-    <Route
-      {...rest}
-      render={(props) => (
-        <DashboardLayout>
-          <Component {...props} />
-        </DashboardLayout>
-      )}
-    />
-  );
-};
-
 const AppRouter = () => {
   return (
     <Router basename={"/"}>
       <ScrollToTop />
       <Switch>
         <Route exact path="/components" render={() => <Components />} />
-        <Route exact path="/dashboard" render={() => <Dashboard />} />
         <Route exact path="/dashboard/user" render={() => <UserDashboard />} />
         <Route
           exact
@@ -51,10 +44,10 @@ const AppRouter = () => {
           path="/dashboard/pharmacy/login"
           render={() => <PharmacyLogin />}
         />
-        <DashboardRoute
+        <Route
           exact
           path="/dashboard/pharmacy/generate-hash"
-          Component={Pharmacy}
+          render={() => <PharmacyGenHash />}
         />
         <Route path="/dashboard" render={() => <UserDashboard />} />
         <Route path="/" render={() => <LandingPage />} />
