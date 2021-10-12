@@ -13,7 +13,7 @@ const Modal = ({ children, type, displayModal, closeModal }) => {
           id="wrapper"
         >
           <div
-            // onClick={(e) => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()}
             className={`${styles["sub-container"]} `}
             id="main-card"
           >
