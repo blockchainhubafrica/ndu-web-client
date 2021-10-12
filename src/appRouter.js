@@ -8,7 +8,7 @@ import {
 } from "react-router-dom";
 import { DashboardLayout } from "./layouts";
 import { LandingPage, Dashboard, Components, Pharmacy } from "./pages";
-import { PharmacyDasboard, PharmacyLogin, UserDashboard } from "./components";
+import { PharmacyDasboard, PharmacyLogin, UserDashboard } from "./pages";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -43,19 +43,20 @@ const AppRouter = () => {
         <Route exact path="/dashboard/user" render={() => <UserDashboard />} />
         <Route
           exact
-          path="/dashboard/pharmacy/login"
-          render={() => <PharmacyLogin />}
+          path="/dashboard/pharmacy"
+          render={() => <PharmacyDasboard />}
         />
         <Route
           exact
-          path="/dashboard/pharmacy"
-          render={() => <PharmacyDasboard />}
+          path="/dashboard/pharmacy/login"
+          render={() => <PharmacyLogin />}
         />
         <DashboardRoute
           exact
           path="/dashboard/pharmacy/generate-hash"
           Component={Pharmacy}
         />
+        <Route path="/dashboard" render={() => <UserDashboard />} />
         <Route path="/" render={() => <LandingPage />} />
         <Route path="*" render={() => <Redirect to="/" />} />
       </Switch>

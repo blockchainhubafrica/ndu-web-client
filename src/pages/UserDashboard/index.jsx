@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import styles from "./userDashboard.module.css";
 import {
   ArrowDown,
+  BigScan,
   handWithDrug,
   SheildIcon,
   SquareBarCode,
@@ -14,17 +15,19 @@ import { DashboardLayout } from "../../layouts";
 function UserDashboard() {
   return (
     <DashboardLayout bg="#022655" fill="#fff">
-      <div className={`${styles.userDashboardCon} w-5/6 flex flex-col pb-10 mt-20`}>
-        <h1 className={`${styles.greeting} `}>
+      <div
+        className={`${styles.userDashboardCon} container flex flex-col pb-10`}
+      >
+        <h1 className={`${styles.greeting} mt-5`}>
           Hi<span className={`${styles.welcome}`}>, Welcome</span>
         </h1>
         <div
-          className={`${styles.dashBoardCarousel} pl-10 w-6/6 mt-10 flex items-center justify-beween`}
+          className={`${styles.dashBoardCarousel} pl-10 mt-5 py-6 flex items-center justify-beween`}
         >
-          <div className="w-3/6 h-4/6 flex flex-col justify-center">
+          <div className="flex flex-col justify-center">
             <h1 className="mb-2">Carry out check on a drug</h1>
             <h6 className="mb-10">
-              Clic on the barcode icon to verify the originality of your drug.
+              Click on the barcode icon to verify the originality of your drug.
             </h6>
             <MainButton bg="#00D6A3" buttonText="Scan barcode" />
           </div>
@@ -80,6 +83,9 @@ function UserDashboard() {
           date={"7 Jun, 21"}
           type={"Expired"}
         />
+      </div>
+      <div className={`${styles.circularButton} flex lg:hidden`}>
+        <BigScan />
       </div>
     </DashboardLayout>
   );

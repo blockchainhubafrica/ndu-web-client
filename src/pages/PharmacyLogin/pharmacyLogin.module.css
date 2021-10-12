@@ -1,0 +1,59 @@
+.loginCon {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  background-color: var(--app-primary-blue);
+  width: 100%;
+  min-height: calc(100vh - 70px);
+}
+
+@media screen and (min-width: 1024px) {
+  .loginCon {
+    min-height: calc(100vh);
+  }
+}
+
+.loginCon > h5 {
+  font-style: normal;
+  font-weight: 10;
+  /* font-size: 18px; */
+  line-height: 27px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+
+.circularButton {
+  position: fixed;
+  width: 58px;
+  height: 57px;
+  right: 1rem;
+  bottom: 150px;
+  background: #f3f3f3;
+  border-radius: 33px;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 640px) {
+  .circularButton {
+    right: 2rem;
+  }
+}
+
+.circularButton > svg {
+  height: 50%;
+}
+
+.circularButton > svg > path {
+  fill: var(--app-primary-blue);
+}
+
+@media screen and (max-width: 768px) {
+  .loginCon > h5 {
+    /* font-size: 15px; */
+    line-height: 24px;
+  }
+}
