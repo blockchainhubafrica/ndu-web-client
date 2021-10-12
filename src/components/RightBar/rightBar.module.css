@@ -22,12 +22,57 @@
   cursor: pointer;
 }
 
+.walletBalanceCon * {
+  transition: all 0.5s ease-in-out;
+}
+
+.disconnect-container {
+  cursor: pointer;
+  position: relative;
+}
+
+.disconnect-container .arrow-down-icon {
+  transform: rotate(0deg);
+}
+
+.disconnect-container.active .arrow-down-icon {
+  transform: rotate(180deg);
+}
+
+.disconnect-btn {
+  transition: all 0.8s ease-in-out;
+  position: absolute;
+  z-index: 0;
+  top: 0.5px;
+  opacity: 0;
+  border-radius: 25px 25px 15px 15px;
+}
+
+.disconnect-btn span {
+  text-align: center;
+  transition: all 0.5s ease-in-out;
+  display: block;
+}
+
+.disconnect-container.active .disconnect-btn {
+  opacity: 1;
+}
+
+.disconnect-btn span {
+  margin-top: 0rem;
+}
+
+.disconnect-container.active .disconnect-btn span {
+  margin-top: 2.7rem;
+}
+
 .walletButton {
+  position: relative;
+  z-index: 1;
   background: #ececec;
   backdrop-filter: blur(15px);
   border-radius: 100px;
-  height: 40px;
-  width: 203px;
+  width: 200px;
   display: flex;
   align-items: center;
   justify-content: space-evenly;

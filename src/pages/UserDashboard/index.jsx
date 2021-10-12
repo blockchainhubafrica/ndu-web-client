@@ -22,7 +22,7 @@ function UserDashboard() {
           Hi<span className={`${styles.welcome}`}>, Welcome</span>
         </h1>
         <div
-          className={`${styles.dashBoardCarousel} pl-10 mt-5 py-6 flex items-center justify-beween`}
+          className={`${styles.dashBoardCarousel} pl-10 mt-10 py-6 flex items-center justify-beween`}
         >
           <div className="flex flex-col justify-center">
             <h1 className="mb-2">Carry out check on a drug</h1>
