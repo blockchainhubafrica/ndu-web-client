@@ -174,7 +174,7 @@ function Components(props) {
             {/* Modal */}
             <Modal
               type="Original"
-              displayModal={true}
+              displayModal={displayModal}
               closeModal={() => setdisplayModal(false)}
             >
               <div>
