@@ -8,7 +8,7 @@ import styles from "./pharmacyLogin.module.css";
 function PharmacyLogin() {
   return (
     <DashboardLayout>
-      <div className={`${styles.loginCon} pt-24 lg:pt-64`}>
+      <div className={`${styles.loginCon} pt-24 lg:pt-52`}>
         <h5 className="text-xl">
           To access this session, enter your <br />{" "}
           <span style={{ fontWeight: 500 }}>Pharmacy Identity Number</span>

@@ -3,12 +3,10 @@
   height: 100vh;
   width: 438px;
   padding: 0px 3rem;
-  /* display: flex; */
   flex-direction: column;
   align-items: center;
   background-color: #f9f9f9;
   text-align: center;
-  /* justify-content: space-evenly; */
 }
 
 @media screen and (min-width: 1280px) {

@@ -3,6 +3,14 @@ module.exports = {
   darkMode: false, // or 'media' or 'class'
   theme: {
     extend: {},
+    screens: {
+      sm: "640px",
+      md: "768px",
+      lg: "1024px",
+      xl: "1280px",
+      "2xl": "1536px",
+      "3xl": "1600px",
+    },
     container: {
       center: true,
       padding: {
@@ -32,7 +40,7 @@ module.exports = {
             maxWidth: "1536px",
           },
           "@screen xl": {
-            maxWidth: "1800px",
+            maxWidth: "1600px",
           },
         },
       });

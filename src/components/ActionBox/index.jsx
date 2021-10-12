@@ -3,7 +3,7 @@ import styles from "./action-box.module.css";
 
 function ActionBox({ image, title, imgWidth, imgHeight, width, height }) {
   return (
-    <div className={styles.container} style={{width: width || null, height: height || null}}>
+    <div className={styles.container}>
       <div className={styles.image}>
         <img
           src={image}

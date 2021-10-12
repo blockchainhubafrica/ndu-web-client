@@ -18,12 +18,11 @@ function UserDashboard() {
       <div
         className={`${styles.userDashboardCon} container flex flex-col pb-10`}
       >
-        
         <h1 className={`${styles.greeting} mt-5`}>
           Hi<span className={`${styles.welcome}`}>, Welcome</span>
         </h1>
         <div
-          className={`${styles.dashBoardCarousel} pl-10 mt-5 flex items-center justify-beween`}
+          className={`${styles.dashBoardCarousel} pl-10 mt-5 py-6 flex items-center justify-beween`}
         >
           <div className="flex flex-col justify-center">
             <h1 className="mb-2">Carry out check on a drug</h1>
@@ -86,8 +85,8 @@ function UserDashboard() {
         />
       </div>
       <div className={`${styles.circularButton} flex lg:hidden`}>
-          <BigScan />
-        </div>
+        <BigScan />
+      </div>
     </DashboardLayout>
   );
 }
