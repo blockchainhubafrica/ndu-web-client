@@ -13,12 +13,12 @@ function DashboardFooter(props) {
           </Link>
         </li>
         <li>
-          <Link to="/">
+          <Link to="/dashboard/user">
             <UserIcon />
           </Link>
         </li>
         <li>
-          <Link to="/">
+          <Link to="/dashboard/user">
             <MoneyIcon />
           </Link>
         </li>
