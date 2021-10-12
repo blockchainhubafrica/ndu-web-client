@@ -6,3 +6,12 @@
   width: 100%;
   overflow-y: auto;
 }
+
+.center-con::-webkit-scrollbar {
+  width: 7px;
+}
+
+.center-con::-webkit-scrollbar-thumb {
+  background: var(--app-primary-blue);
+  border-radius: 20px;
+}

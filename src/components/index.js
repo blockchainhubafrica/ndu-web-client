@@ -11,5 +11,6 @@ export * from "./NormalButton";
 export * from "./RegularButton";
 export * from "./CameraDisplay";
 export * from "./InputPassword";
+export * from "./textArea";
 export * from "./DashboardHeader";
 export * from "./DashboardFooter";

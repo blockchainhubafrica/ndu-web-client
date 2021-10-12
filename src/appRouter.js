@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+
 import {
   BrowserRouter as Router,
   Redirect,
@@ -6,8 +7,15 @@ import {
   Switch,
   useLocation,
 } from "react-router-dom";
-import { PharmacyDasboard, PharmacyLogin, UserDashboard } from "./pages";
-import { LandingPage, Dashboard, Components } from "./pages";
+
+import {
+  Components,
+  LandingPage,
+  PharmacyDasboard,
+  PharmacyGenHash,
+  PharmacyLogin,
+  UserDashboard,
+} from "./pages";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -35,6 +43,11 @@ const AppRouter = () => {
           exact
           path="/dashboard/pharmacy/login"
           render={() => <PharmacyLogin />}
+        />
+        <Route
+          exact
+          path="/dashboard/pharmacy/generate-hash"
+          render={() => <PharmacyGenHash />}
         />
         <Route path="/dashboard" render={() => <UserDashboard />} />
         <Route path="/" render={() => <LandingPage />} />
