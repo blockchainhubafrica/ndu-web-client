@@ -29,12 +29,18 @@ function ConnectWalletModal({ displayModal, setDisplayModal }) {
             <div
               className={`${styles.main} w-6/6 h-auto flex items-center justify-evenly`}
             >
-              {/* <TrustWallet /> */}
               <Link to="/dashboard/user">
-              <MetaMask />
+                <TrustWallet />
               </Link>
-              {/* <WalletConnect /> */}
-                {/* <BinanceChain /> */}
+              <Link to="/dashboard/user">
+                <MetaMask />
+              </Link>
+              <Link to="/dashboard/user">
+                <WalletConnect />
+              </Link>
+              <Link to="/dashboard/user">
+                <BinanceChain />
+              </Link>
             </div>
           </div>
         </div>

@@ -14,7 +14,13 @@ import {
   mainframe,
   rightArc,
 } from "../../assets";
-import { Header, HowItWorksCard, Footer, NormalButton, Modal } from "../../components";
+import {
+  Header,
+  HowItWorksCard,
+  Footer,
+  NormalButton,
+  Modal,
+} from "../../components";
 import ConnectWalletModal from "../../components/ConnectWalletModal";
 import { InputWithButton } from "../../components/InputWithButton";
 
@@ -24,8 +30,8 @@ const LandingPage = () => {
   const [display, setdisplay] = useState(false);
   return (
     <>
-    <ConnectWalletModal setDisplayModal={setdisplay} displayModal={display} />
-      <Header setDisplay={setdisplay}  />
+      <ConnectWalletModal setDisplayModal={setdisplay} displayModal={display} />
+      <Header setDisplay={setdisplay} />
       <main className={`${styles.main}`}>
         <section className={styles["intro"]}>
           <div className="container mx-auto text-center py-16 md:py-20">

@@ -1,26 +1,24 @@
-.container {
-  margin-bottom: 5rem;
-}
-
-@media screen and (min-width:1024px) {
-  .container {
-    margin-bottom: 0rem;
-  }
-}
-
-.center-con {
-  width: 100%;
+.loginCon {
   display: flex;
   flex-direction: column;
   align-items: center;
-  /* justify-content: space-evenly; */
-  background-color: #fff !important;
-  overflow-y: auto;
-  min-height: 100vh;
+  background-color: #022655;
+  width: 100%;
+  height: 100%;
+}
+
+.loginCon > h5 {
+  font-style: normal;
+  font-weight: 10;
+  /* font-size: 18px; */
+  line-height: 27px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 50px;
 }
 
 .circularButton {
-  position: absolute;
+  position: fixed;
   width: 58px;
   height: 57px;
   right: 25px;
@@ -29,7 +27,7 @@
   border-radius: 33px;
   transform: matrix(-1, 0, 0, 1, 0, 0);
   z-index: 100;
-  display: none;
+  display: flex;
   align-items: center;
   justify-content: center;
 }
@@ -50,5 +48,12 @@
 
   .circularButton {
     display: flex;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .loginCon > h5 {
+    /* font-size: 15px; */
+    line-height: 24px;
   }
 }

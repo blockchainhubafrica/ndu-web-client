@@ -6,7 +6,7 @@ import {
   Switch,
   useLocation,
 } from "react-router-dom";
-import { PharmacyDasboard, PharmacyLogin, UserDashboard } from "./components";
+import { PharmacyDasboard, PharmacyLogin, UserDashboard } from "./pages";
 import { LandingPage, Dashboard, Components } from "./pages";
 
 function ScrollToTop() {
@@ -28,14 +28,15 @@ const AppRouter = () => {
         <Route exact path="/dashboard/user" render={() => <UserDashboard />} />
         <Route
           exact
-          path="/dashboard/pharmacy/login"
-          render={() => <PharmacyLogin />}
-        />
-        <Route
-          exact
           path="/dashboard/pharmacy"
           render={() => <PharmacyDasboard />}
         />
+        <Route
+          exact
+          path="/dashboard/pharmacy/login"
+          render={() => <PharmacyLogin />}
+        />
+        <Route path="/dashboard" render={() => <UserDashboard />} />
         <Route path="/" render={() => <LandingPage />} />
         <Route path="*" render={() => <Redirect to="/" />} />
       </Switch>

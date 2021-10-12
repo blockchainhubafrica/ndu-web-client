@@ -1,5 +1,5 @@
 import React from "react";
-import { ActionBox } from "..";
+import { ActionBox } from "../../components";
 import { DrugsSvg, MicroChipSvg } from "../../assets";
 import { DashboardLayout } from "../../layouts";
 import styles from "./pharmacyDashboard.module.css";

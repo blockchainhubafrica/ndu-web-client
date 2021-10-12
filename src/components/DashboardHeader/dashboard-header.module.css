@@ -1,0 +1,22 @@
+.walletBalanceCon {
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  background-color: #fff;
+  z-index: 1000;
+}
+
+.walletButton {
+  background: #ececec;
+  backdrop-filter: blur(15px);
+  border-radius: 100px;
+}
+
+.walletAddress {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  color: #022655;
+}

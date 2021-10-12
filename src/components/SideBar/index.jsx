@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function SideBar() {
   return (
-    <div className={`${styles.sideBarCon}`}>
+    <div className={`${styles.sideBarCon} hidden lg:block`}>
       <NduLogo className={`${styles.nduLogo} mt-10`} />
       <ul>
        <Link to="/dashboard/user">
