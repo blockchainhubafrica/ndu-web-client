@@ -8,7 +8,7 @@ function PharmacyDasboard() {
   return (
     <DashboardLayout circularButtonDisplay="none">
       <div className="container mb-32 lg:md-0">
-        <h2 className={`${styles.pharmacyName} text-4xl my-10`}>
+        <h2 className={`${styles.pharmacyName} font-semibold text-4xl my-10`}>
           Juhel Pharmacy
         </h2>
         <div
