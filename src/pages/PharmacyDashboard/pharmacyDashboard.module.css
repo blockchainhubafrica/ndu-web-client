@@ -1,3 +1,32 @@
 .pharmacyName {
   color: #393939;
 }
+
+.circularButton {
+  position: fixed;
+  width: 58px;
+  height: 57px;
+  right: 1rem;
+  bottom: 150px;
+  background: var(--app-primary-blue);
+  border-radius: 33px;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+
+@media screen and (min-width: 640px) {
+  .circularButton {
+    right: 2rem;
+  }
+}
+
+.circularButton > svg {
+  fill: #fff;
+  height: 50%;
+}
+
+.circularButton > svg > path {
+  fill: #fff;
+}

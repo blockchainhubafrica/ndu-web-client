@@ -1,6 +1,6 @@
 import React from "react";
 import { ActionBox } from "../../components";
-import { DrugsSvg, MicroChipSvg } from "../../assets";
+import { BigScan, DrugsSvg, MicroChipSvg } from "../../assets";
 import { DashboardLayout } from "../../layouts";
 import styles from "./pharmacyDashboard.module.css";
 
@@ -21,6 +21,9 @@ function PharmacyDasboard() {
             <ActionBox title="Drug Inventory" image={DrugsSvg} />
           </div>
         </div>
+      </div>
+      <div className={`${styles.circularButton} flex lg:hidden`}>
+        <BigScan />
       </div>
     </DashboardLayout>
   );
