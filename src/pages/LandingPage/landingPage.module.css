@@ -183,7 +183,7 @@ section.what-to-gain .headers + div {
   font-size: 0.75rem;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1024px) {
   section.what-to-gain .headers + div {
     font-size: 1rem;
   }
@@ -301,7 +301,7 @@ section.subscribe .img-container {
   height: 250px;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1024px) {
   section.subscribe .img-container {
     position: absolute;
     top: -70px;
@@ -324,7 +324,6 @@ section.subscribe .img-container {
 section.subscribe .img-container img {
   height: 100%;
 }
- 
 
 section.subscribe .subscribe-button {
   max-width: 200px;

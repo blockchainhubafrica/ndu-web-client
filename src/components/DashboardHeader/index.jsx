@@ -8,16 +8,16 @@ function DashboardHeader(props) {
   const { shortAddress } = useShortenAddress(walletAddress);
 
   return (
-    <div
-      className={`${styles["walletBalanceCon"]} flex py-3 container shadow-sm lg:hidden`}
-    >
-      <HalfLogoIcon />
-      <div
-        className={`${styles.walletButton} px-5 py-3 flex items-center justify-center`}
-      >
-        <WalletIcon className="" />
-        <h2 className={`${styles.walletAddress} mx-3`}>{shortAddress}</h2>
-        <ArrowDown />
+    <div className={`${styles["walletBalanceCon"]}  py-3 shadow-sm lg:hidden`}>
+      <div className="flex container">
+        <HalfLogoIcon />
+        <div
+          className={`${styles.walletButton} px-5 py-3 flex items-center justify-center`}
+        >
+          <WalletIcon className="" />
+          <h2 className={`${styles.walletAddress} mx-3`}>{shortAddress}</h2>
+          <ArrowDown />
+        </div>
       </div>
     </div>
   );

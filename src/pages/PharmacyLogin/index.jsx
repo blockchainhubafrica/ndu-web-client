@@ -18,7 +18,7 @@ function PharmacyLogin() {
           <RegularButton buttonText="SIGN IN" />
         </Link>
       </div>
-      <div className={`${styles.circularButton}`}>
+      <div className={`${styles.circularButton} flex lg:hidden`}>
         <BigScan />
       </div>
     </DashboardLayout>

@@ -8,7 +8,6 @@
   align-items: center;
   /* justify-content:; */
 }
- 
 
 @media screen and (min-width: 1280px) {
   .sideBarCon {
@@ -66,7 +65,7 @@
   fill: white;
 }
 
-@media screen and (max-width: 992px) {
+@media screen and (max-width: 1024px) {
   .sideBarCon {
     width: 100%;
     height: 104px;

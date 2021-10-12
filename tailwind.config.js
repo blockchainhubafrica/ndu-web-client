@@ -17,5 +17,25 @@ module.exports = {
   variants: {
     extend: {},
   },
-  plugins: [],
+  plugins: [
+    function ({ addComponents }) {
+      addComponents({
+        ".container": {
+          maxWidth: "100%",
+          "@screen sm": {
+            maxWidth: "768px",
+          },
+          "@screen md": {
+            maxWidth: "1024px",
+          },
+          "@screen lg": {
+            maxWidth: "1536px",
+          },
+          "@screen xl": {
+            maxWidth: "1800px",
+          },
+        },
+      });
+    },
+  ],
 };

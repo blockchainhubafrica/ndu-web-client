@@ -85,7 +85,7 @@ function UserDashboard() {
           type={"Expired"}
         />
       </div>
-      <div className={`${styles.circularButton}`}>
+      <div className={`${styles.circularButton} flex lg:hidden`}>
           <BigScan />
         </div>
     </DashboardLayout>
