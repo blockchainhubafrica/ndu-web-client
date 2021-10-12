@@ -26,6 +26,7 @@ import {
   HowItWorksCard,
   HistoryCard,
   Modal,
+  NormalButton,
 } from "./../../components";
 
 function Components(props) {
@@ -170,7 +171,14 @@ function Components(props) {
           </div>
         </section>
         <section id="modal">
-          <div className="container mx-auto">
+          <div className="container mx-auto py-4">
+            <p className="mb-4">This button opens the modal</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-6">
+              <NormalButton onClick={() => setdisplayModal(true)}>
+                <span>Open the modal</span>
+              </NormalButton>
+            </div>
             {/* Modal */}
             <Modal
               type="Original"
@@ -194,9 +202,7 @@ function Components(props) {
             <DashboardLayout>
               <div className="">
                 <div className="mt-20 text-center">
-                  <span className="block">
-                    You know who the greatest is?
-                  </span>
+                  <span className="block">You know who the greatest is?</span>
                   <span>!You</span>
                 </div>
               </div>

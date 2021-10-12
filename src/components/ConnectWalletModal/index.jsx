@@ -15,8 +15,14 @@ function ConnectWalletModal({ displayModal, setDisplayModal }) {
   return (
     <>
       {displayModal ? (
-        <div className={styles.connectWalletModalCon}>
-          <div className={styles.connectWalletModalInnerCon}>
+        <div
+          onClick={() => setDisplayModal(false)}
+          className={styles.connectWalletModalCon}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className={styles.connectWalletModalInnerCon}
+          >
             <div className={styles.top}>
               <h5 className={styles.title}>Connect wallet</h5>
               <WhiteCloseIcon

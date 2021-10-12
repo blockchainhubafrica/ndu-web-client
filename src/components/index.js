@@ -14,3 +14,4 @@ export * from "./InputPassword";
 export * from "./textArea";
 export * from "./DashboardHeader";
 export * from "./DashboardFooter";
+export * from "./DisconnectWalletButton";
