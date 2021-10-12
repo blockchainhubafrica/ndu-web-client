@@ -1,5 +1,4 @@
 import React from "react";
-import { BigScan } from "../../assets";
 import {
   RightBar,
   SideBar,

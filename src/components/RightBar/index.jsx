@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from "react";
+import React from "react";
 import { MainButton } from "..";
-import { ArrowDown, BigScan, HalfLogoIcon, WalletIcon } from "../../assets";
+import { BigScan, HalfLogoIcon } from "../../assets";
 import { useShortenAddress } from "../../hooks";
 import { DisconnectWalletButton } from "../DisconnectWalletButton";
-import { NormalButton } from "../NormalButton";
 import styles from "./rightBar.module.css";
 
 function RightBar() {

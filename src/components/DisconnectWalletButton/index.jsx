@@ -1,20 +1,18 @@
 import React, { useState } from "react";
 import styles from "./disconnect-wallet-button.module.css";
 import { ArrowDown, WalletIcon } from "../../assets";
-import { NormalButton } from "../NormalButton";
 
-function DisconnectWalletButton({ address, type }) {
-  if (!type) type = "primary";
+function DisconnectWalletButton({ address }) {
   const [arrowDown, setArrowDown] = useState(true);
-  let containerClasses = `${styles["container"]} ${styles[type]} `;
+  let containerClasses = `${styles["container"]} `;
   if (!arrowDown) containerClasses += `${styles["active"]}`;
 
   return (
-    <div className={`${containerClasses}`}>
-      <div
-        onClick={() => setArrowDown(!arrowDown)}
-        className={`${styles["wallet-address-box"]} `}
-      >
+    <div
+      onClick={() => setArrowDown(!arrowDown)}
+      className={`${containerClasses}`}
+    >
+      <div className={`${styles["wallet-address-box"]} `}>
         <WalletIcon className="" />
         <h2 className={`${styles["address"]} mx-3`}>{address}</h2>
         <ArrowDown className={`${styles["arrow-down-icon"]}`} />

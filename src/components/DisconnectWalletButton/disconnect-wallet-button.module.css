@@ -34,7 +34,7 @@
 }
 
 .disconnect-btn {
-  transition: all 0.8s ease-in-out;
+  transition: all 0.5s ease-in-out;
   position: absolute;
   left: 0;
   width: 100%;
@@ -44,22 +44,12 @@
   box-shadow: 0 5px 20px -10px rgb(0 0 0);
   border-radius: 25px 25px 15px 15px !important;
   padding: 10px 25px;
-}
-
-.container.primary .disconnect-btn {
   background-color: var(--app-primary-blue);
   color: #ececec;
-  padding: 10px 25px;
-}
-
-.container.secondary .disconnect-btn {
-  color: var(--app-primary-blue);
-  background-color: #ececec;
 }
 
 .disconnect-btn span {
   text-align: center;
-  transition: all 0.5s ease-in-out;
   display: block;
 }
 
