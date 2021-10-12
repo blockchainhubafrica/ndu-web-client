@@ -7,11 +7,7 @@ const Modal = ({ children, type, displayModal, closeModal }) => {
   return (
     <>
       {displayModal ? (
-        <div
-          className={`${styles.container}`}
-          onClick={closeModal}
-          id="wrapper"
-        >
+        <div className={`${styles.container}`} onClick={closeModal}>
           <div
             onClick={(e) => e.stopPropagation()}
             className={`${styles["sub-container"]} `}
