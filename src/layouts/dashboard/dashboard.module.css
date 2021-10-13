@@ -11,6 +11,10 @@
   width: 7px;
 }
 
+.center-con::-webkit-scrollbar-track {
+  background: #ececec;
+}
+
 .center-con::-webkit-scrollbar-thumb {
   background: var(--app-primary-blue);
   border-radius: 20px;
