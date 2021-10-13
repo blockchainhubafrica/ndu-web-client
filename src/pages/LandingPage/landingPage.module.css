@@ -112,9 +112,10 @@ section.how-it-works {
   background-image: url("/src/assets/images/landing-page-bg-1.png");
 }
 
-section.how-it-works .card:nth-child(1)::after {
+section.how-it-works .card:nth-child(1)::before {
   content: "";
   position: relative;
+  left: 200px;
   z-index: 100;
   height: 30px;
   width: 60px;
@@ -275,12 +276,6 @@ section.subscribe .primary-blue-bg {
   border-radius: var(--app-border-radius-md);
   position: relative;
 }
-
-/* @media screen and (min-width: 768px) {
-  section.subscribe .primary-blue-bg {
-    border-radius: var(--app-border-radius-md);
-  }
-} */
 
 .primary-blue-bg {
   background-color: var(--app-primary-blue);

@@ -16,18 +16,18 @@ function RightBar() {
         <h1 className={`${styles.walletBalance} pr-8 pl-2`}>$10.5</h1>
         <DisconnectWalletButton address={shortAddress} />
       </div>
-      <div
-        className={`${styles.rightConDown} flex flex-col items-center mt-20`}
-      >
+      <div className={`${styles.rightConDown} mt-16 mb-10`}>
         <h1>Scan products.</h1>
         <p className="mt-3">
           Place barcode inside the frame to scan. Please keep your device steady
           when scanning to ensure accurate results.
         </p>
-        <div className={`${styles.iconCard} mt-20 mb-12`}>
+        <div className={`${styles.iconCard} mt-16 mb-12 mx-auto`}>
           <BigScan />
         </div>
-        <MainButton buttonText="Scan barcode" mt="mt-15" />
+        <div className="mx-auto flex justify-center">
+          <MainButton buttonText="Scan barcode" mt="mt-15" />
+        </div>
       </div>
     </div>
   );

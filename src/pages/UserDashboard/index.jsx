@@ -14,16 +14,14 @@ import { DashboardLayout } from "../../layouts";
 function UserDashboard() {
   return (
     <DashboardLayout bg="#022655" fill="#fff">
-      <div
-        className={`${styles.userDashboardCon} container flex flex-col pb-10`}
-      >
-        <h1 className={`${styles.greeting} mt-5`}>
+      <div className={`${styles.userDashboardCon} container pb-10`}>
+        <h1 className={`${styles.greeting} mt-6`}>
           Hi<span className={`${styles.welcome}`}>, Welcome</span>
         </h1>
         <div
-          className={`${styles.dashBoardCarousel} pl-10 mt-10 py-6 flex items-center justify-beween`}
+          className={`${styles.dashBoardCarousel} pl-5 xl:pl-10 mt-10 py-6 flex items-center justify-beween`}
         >
-          <div className="flex flex-col justify-center">
+          <div className="">
             <h1 className="mb-2">Carry out check on a drug</h1>
             <h6 className="mb-10">
               Click on the barcode icon to verify the originality of your drug.
@@ -33,7 +31,7 @@ function UserDashboard() {
           <img src={handWithDrug} alt="" />
         </div>
         <div
-          className={`${styles.arrowDown} self-center flex items-center justify-center mt-10`}
+          className={`${styles.arrowDown} mx-auto self-center flex items-center justify-center mt-10`}
         >
           <ArrowDown />
         </div>

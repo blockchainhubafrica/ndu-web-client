@@ -31,17 +31,27 @@
   position: relative;
 }
 
-.dashBoardCarousel > div {
+.dashBoardCarousel > div:first-child {
+  width: 60%;
   height: 100%;
   padding: 20px 0;
   padding-left: 15px;
+}
+
+@media screen and (min-width: 1280px) {
+  .dashBoardCarousel > div:first-child {
+    width: 70%;
+    height: 100%;
+    padding: 20px 0;
+    padding-left: 15px;
+  }
 }
 
 .dashBoardCarousel > div > h1 {
   font-style: normal;
   font-weight: 600;
   font-size: 18px;
-  line-height: 20px;
+  /* line-height: 20px; */
   color: #ffffff;
 }
 
@@ -49,7 +59,7 @@
   font-style: normal;
   font-weight: normal;
   font-size: 12px;
-  line-height: 15px;
+  /* line-height: 15px; */
   color: #ffffff;
   /* margin: 0px; */
 }

@@ -12,7 +12,7 @@ function MainButton({ buttonText, bg, mt, buttonIcon }) {
       }}
     >
       <ButtonScan className={`${styles.buttonScan}`} />
-      <h1 className={`${styles.buttonText}`}>{buttonText}</h1>
+      <span className={`${styles.buttonText}`}>{buttonText}</span>
     </div>
   );
 }

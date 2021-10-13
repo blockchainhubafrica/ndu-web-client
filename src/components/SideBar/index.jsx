@@ -11,8 +11,8 @@ import { Link } from "react-router-dom";
 
 function SideBar() {
   return (
-    <div className={`${styles.sideBarCon} hidden lg:block`}>
-      <NduLogo className={`${styles.nduLogo} mt-10`} />
+    <div className={`${styles.sideBarCon} py-10 hidden lg:block`}>
+      <NduLogo className={`${styles.nduLogo}`} />
       <ul>
         <Link to="/dashboard/user">
           <li>
