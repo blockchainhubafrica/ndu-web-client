@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import styles from "./disconnect-wallet-button.module.css";
+import styles from "./wallet-button.module.css";
 import { ArrowDown, WalletIcon } from "../../assets";
 
 function DisconnectWalletButton({ address }) {

@@ -2,7 +2,7 @@ import React from "react";
 import { MainButton } from "..";
 import { BigScan, HalfLogoIcon } from "../../assets";
 import { useShortenAddress } from "../../hooks";
-import { DisconnectWalletButton } from "../DisconnectWalletButton";
+import { DisconnectWalletButton } from "../WalletButton";
 import styles from "./rightBar.module.css";
 
 function RightBar() {
