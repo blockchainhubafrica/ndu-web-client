@@ -254,7 +254,7 @@ const LandingPage = () => {
           <div className="container mx-auto text-center mb-16 md:mb-20 ">
             <div className={`${styles["primary-blue-bg"]} py-16 md:py-20`}>
               <div className="md:grid md:grid-cols-7 lg:grid-cols-5 xl:grid-cols-3">
-                <div className="px-8 md:px-16 md:col-span-5 lg:col-span-4  lg:col-span-3 relative z-10">
+                <div className="px-8 md:px-16 md:col-span-5 lg:col-span-3 relative z-10">
                   <div className={`${styles["headers"]} text-left `}>
                     <h2 className="text-2xl md:text-3xl mb-10">
                       <span className={styles["green-bg"]}>Subscribe</span>
