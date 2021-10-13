@@ -11,7 +11,7 @@ const PharmacyGenHash = () => {
       <div
         className={`${styles.container} container py-12 px-4 md:px-12 lg:px-14 xl:px-20 mb-20`}
       >
-        <h1 className="mb-16 text-xl sm:text-2xl md:text-4xl font-bold">
+        <h1 className="mb-6 md:mb-10 text-xl sm:text-2xl md:text-4xl font-bold">
           Juhel Pharmacy
         </h1>
         <div>

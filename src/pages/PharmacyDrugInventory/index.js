@@ -47,7 +47,7 @@ const PharmacyDrugInventory = () => {
       <div
         className={`${styles.container} container pt-12 pb-32  px-4 md:px-12 lg:px-14 xl:px-20 mb-20`}
       >
-        <div className="mb-16 ">
+        <div className="mb-6 md:mb-10 ">
           <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">
             Juhel Pharmacy
           </h1>
