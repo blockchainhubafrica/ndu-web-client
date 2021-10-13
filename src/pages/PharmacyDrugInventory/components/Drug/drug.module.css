@@ -8,3 +8,9 @@
   max-width: 80%;
   object-fit: contain;
 }
+
+.container p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}

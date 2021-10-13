@@ -15,3 +15,4 @@ export * from "./textArea";
 export * from "./DashboardHeader";
 export * from "./DashboardFooter";
 export * from "./WalletButton";
+export * from "./Pagination";

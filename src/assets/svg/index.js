@@ -28,6 +28,8 @@ import { ReactComponent as WalletConnect } from "./walletconnect.svg";
 import { ReactComponent as BinanceChain } from "./binancechain.svg";
 import { ReactComponent as UploadDrugImage } from "./uploadDrugImage.svg";
 import { ReactComponent as ArrowLeft } from "./arrowLeft.svg";
+import { ReactComponent as PaginateArrowLeft } from "./paginateArrowLeft.svg";
+import { ReactComponent as PaginateArrowRight } from "./paginateArrowRight.svg";
 import MicroChipSvg from "./micro-chip.svg";
 import DrugsSvg from "./drugs.svg";
 import globeStats from "./globe-stats-2.svg";
@@ -72,4 +74,6 @@ export {
   BinanceChain,
   UploadDrugImage,
   ArrowLeft,
+  PaginateArrowLeft,
+  PaginateArrowRight,
 };

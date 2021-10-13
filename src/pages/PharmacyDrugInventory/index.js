@@ -1,11 +1,44 @@
-import React from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, drug } from "../../assets";
+import { Pagination } from "../../components";
 import { DashboardLayout } from "../../layouts";
 import { Drug } from "./components";
 
 import styles from "./pharmacyDrugInventory.module.css";
 
+const dummyData = [
+  "Acetaminophen",
+  "Adderall",
+  "Amitriptyline",
+  "Doxycycline",
+  "Lisinopril",
+  "Pantoprazole",
+  "Otezla",
+  "Rybelsus",
+  "Tramadol",
+  "Wellbutrin",
+  "Probuphine",
+  "Hydrochlorothiazide",
+  "Ibuprofen",
+  "Cephalexin",
+  "Bunavail",
+];
+
+let PageSize = 6;
+
 const PharmacyDrugInventory = () => {
+  const [currentPage, setCurrentPage] = useState(1);
+
+  const displayData = useMemo(() => {
+    const firstPageIndex = (currentPage - 1) * PageSize;
+    const lastPageIndex = firstPageIndex + PageSize;
+    return dummyData.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage]);
+
+  useEffect(() => {
+    window.scrollTo({ behavior: "smooth", top: "0px" });
+  }, [currentPage]);
+
   return (
     <DashboardLayout>
       <div
@@ -16,23 +49,41 @@ const PharmacyDrugInventory = () => {
             Juhel Pharmacy
           </h1>
         </div>
-        <div className="mb-6">
+        <div className="mb-6 flex flex-wrap justify-between items-center">
           <p className="text-sm">
             <span>
               <ArrowLeft className="inline-block mr-4" />
             </span>
             Back
           </p>
+          {/* Desktop & Tablets */}
+          <div className="hidden md:inline-block">
+            <Pagination
+              currentPage={currentPage}
+              totalCount={dummyData.length}
+              pageSize={PageSize}
+              onPageChange={(page) => setCurrentPage(page)}
+            />
+          </div>
         </div>
         <div className="flex flex-wrap justify-between items-center mb-6">
           <h3 className="font-medium text-xl">Drug Inventory</h3>
         </div>
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`}>
-          {[0, 0, 0, 0, 0, 0].map((item, index) => (
+          {displayData.map((item, index) => (
             <div key={index}>
-              <Drug image={drug} name="Tetracycline" />
+              <Drug image={drug} name={item} />
             </div>
           ))}
+        </div>
+        {/* Mobile Devices */}
+        <div className="mt-10 md:hidden flex justify-center">
+          <Pagination
+            currentPage={currentPage}
+            totalCount={dummyData.length}
+            pageSize={PageSize}
+            onPageChange={(page) => setCurrentPage(page)}
+          />
         </div>
       </div>
     </DashboardLayout>
