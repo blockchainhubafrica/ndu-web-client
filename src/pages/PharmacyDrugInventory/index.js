@@ -45,7 +45,7 @@ const PharmacyDrugInventory = () => {
   return (
     <DashboardLayout>
       <div
-        className={`${styles.container} container py-12 px-4 md:px-12 lg:px-20 mb-20`}
+        className={`${styles.container} container pt-12 pb-32  px-4 md:px-12 lg:px-14 xl:px-20 mb-20`}
       >
         <div className="mb-16 ">
           <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">
@@ -75,7 +75,7 @@ const PharmacyDrugInventory = () => {
         <div className="flex flex-wrap justify-between items-center mb-6">
           <h3 className="font-medium text-xl">Drug Inventory</h3>
         </div>
-        <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`}>
+        <div className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6`}>
           {displayData.map((item, index) => (
             <div
               key={index}

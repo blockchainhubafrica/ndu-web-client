@@ -9,7 +9,7 @@ const PharmacyGenHash = () => {
   return (
     <DashboardLayout>
       <div
-        className={`${styles.container} container py-12 px-4 md:px-12 lg:px-20 mb-20`}
+        className={`${styles.container} container py-12 px-4 md:px-12 lg:px-14 xl:px-20 mb-20`}
       >
         <h1 className="mb-16 text-xl sm:text-2xl md:text-4xl font-bold">
           Juhel Pharmacy
@@ -17,7 +17,7 @@ const PharmacyGenHash = () => {
         <div>
           <h3 className="font-medium mb-4">Generate hash</h3>
           <div className="grid md:grid-cols-3 md:gap-6">
-            <div className="">
+            <div className="lg:col-span-2 xl:col-span-1">
               <div
                 className={`${styles["upload-image"]} flex items-center justify-center mb-6 md:mb-0`}
               >
@@ -25,7 +25,7 @@ const PharmacyGenHash = () => {
                 <input type="file"></input>
               </div>
             </div>
-            <div className="md:col-span-2 mb-6 ">
+            <div className="md:col-span-2 lg:col-span-3 xl:col-span-2 mb-6 ">
               <div className="mb-5">
                 <Input placeHolder="Drug name" className="w-full" />
               </div>
@@ -46,7 +46,7 @@ const PharmacyGenHash = () => {
           />
         </div>
         <div className="flex flex-wrap justify-between items-center my-6">
-          <div className="w-full md:w-auto mb-8 md:mb-0">
+          <div className="w-full md:w-auto mb-8 md:mb-0 lg:mb-8 xl:mb-0">
             <Input
               placeHolder="No. of Hash keys"
               type="number"
