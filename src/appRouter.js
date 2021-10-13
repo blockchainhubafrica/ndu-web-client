@@ -12,6 +12,7 @@ import {
   Components,
   LandingPage,
   PharmacyDasboard,
+  PharmacyDrugInventory,
   PharmacyGenHash,
   PharmacyHashListing,
   PharmacyLogin,
@@ -54,6 +55,11 @@ const AppRouter = () => {
           exact
           path="/dashboard/pharmacy/hash-listing"
           render={() => <PharmacyHashListing />}
+        />
+        <Route
+          exact
+          path="/dashboard/pharmacy/drug-inventory"
+          render={() => <PharmacyDrugInventory />}
         />
         <Route path="/dashboard" render={() => <UserDashboard />} />
         <Route path="/" render={() => <LandingPage />} />

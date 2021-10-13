@@ -5,3 +5,4 @@ export * from "./PharmacyLogin";
 export * from "./PharmacyDashboard";
 export * from "./PharmacyGenHash";
 export * from "./PharmacyHashListing";
+export * from "./PharmacyDrugInventory";
