@@ -13,6 +13,7 @@ import {
   LandingPage,
   PharmacyDasboard,
   PharmacyGenHash,
+  PharmacyHashListing,
   PharmacyLogin,
   UserDashboard,
 } from "./pages";
@@ -48,6 +49,11 @@ const AppRouter = () => {
           exact
           path="/dashboard/pharmacy/generate-hash"
           render={() => <PharmacyGenHash />}
+        />
+        <Route
+          exact
+          path="/dashboard/pharmacy/hash-listing"
+          render={() => <PharmacyHashListing />}
         />
         <Route path="/dashboard" render={() => <UserDashboard />} />
         <Route path="/" render={() => <LandingPage />} />

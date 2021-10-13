@@ -27,6 +27,7 @@ import { ReactComponent as MetaMask } from "./metamask.svg";
 import { ReactComponent as WalletConnect } from "./walletconnect.svg";
 import { ReactComponent as BinanceChain } from "./binancechain.svg";
 import { ReactComponent as UploadDrugImage } from "./uploadDrugImage.svg";
+import { ReactComponent as ArrowLeft } from "./arrowLeft.svg";
 import MicroChipSvg from "./micro-chip.svg";
 import DrugsSvg from "./drugs.svg";
 import globeStats from "./globe-stats-2.svg";
@@ -70,4 +71,5 @@ export {
   WalletConnect,
   BinanceChain,
   UploadDrugImage,
+  ArrowLeft,
 };

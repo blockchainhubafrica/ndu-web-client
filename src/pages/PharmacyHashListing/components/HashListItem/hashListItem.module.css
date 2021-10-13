@@ -1,0 +1,15 @@
+.container {
+  background: #f9f9f9;
+  border-radius: 30px;
+}
+
+.container p:nth-of-type(1) {
+  font-size: 14px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.container p:nth-of-type(2) {
+  color: #f93e03;
+  font-size: 12px;
+}
