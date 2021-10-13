@@ -14,3 +14,7 @@
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+
+.container:hover {
+  transform: scale(1.13);
+}

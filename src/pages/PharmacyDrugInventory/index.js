@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useState } from "react";
+import { useHistory } from "react-router-dom";
 import { ArrowLeft, drug } from "../../assets";
 import { Pagination } from "../../components";
 import { DashboardLayout } from "../../layouts";
@@ -29,6 +30,8 @@ let PageSize = 6;
 const PharmacyDrugInventory = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
+  const history = useHistory();
+
   const displayData = useMemo(() => {
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
@@ -50,11 +53,14 @@ const PharmacyDrugInventory = () => {
           </h1>
         </div>
         <div className="mb-6 flex flex-wrap justify-between items-center">
-          <p className="text-sm">
+          <p
+            className="text-sm cursor-pointer"
+            onClick={() => history.replace("/dashboard/pharmacy")}
+          >
             <span>
               <ArrowLeft className="inline-block mr-4" />
             </span>
-            Back
+            <span className="text-sm">Back</span>
           </p>
           {/* Desktop & Tablets */}
           <div className="hidden md:inline-block">
@@ -71,7 +77,11 @@ const PharmacyDrugInventory = () => {
         </div>
         <div className={`grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6`}>
           {displayData.map((item, index) => (
-            <div key={index}>
+            <div
+              key={index}
+              className="cursor-pointer"
+              onClick={() => history.push("/dashboard/pharmacy/drugs/1")}
+            >
               <Drug image={drug} name={item} />
             </div>
           ))}

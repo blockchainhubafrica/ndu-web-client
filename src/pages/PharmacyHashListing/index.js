@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { ArrowLeft } from "../../assets";
 import { Input } from "../../components";
 import { DashboardLayout } from "../../layouts";
@@ -12,19 +13,17 @@ const PharmacyHashListing = () => {
       <div
         className={`${styles.container}  container py-12 px-4 md:px-12 lg:px-20 mb-20`}
       >
-        <div className="flex flex-wrap justify-between mb-16 ">
-          <h1 className="text-xl sm:text-2xl md:text-4xl font-bold mb-4 md:mb-0">
+        <div className="flex flex-wrap justify-between mb-14">
+          <h1 className="text-xl sm:text-2xl md:text-4xl font-bold mb-4 md:mb-2">
             Juhel Pharmacy
           </h1>
           <Input placeHolder="Search hash address" />
         </div>
         <div className="mb-6">
-          <p className="text-sm">
-            <span>
-              <ArrowLeft className="inline-block mr-4" />
-            </span>
-            Back
-          </p>
+          <Link to="/dashboard/pharmacy/drugs">
+            <ArrowLeft className="inline-block mr-4" />
+            <span className="text-sm">Back</span>
+          </Link>
         </div>
         <div className="flex flex-wrap justify-between items-center mb-4">
           <h3 className="font-medium text-xl">Tetracycline</h3>

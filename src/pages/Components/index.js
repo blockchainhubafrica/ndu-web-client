@@ -82,10 +82,14 @@ function Components(props) {
               <p className="mb-4">These are the Action Boxes</p>
               <div className="flex flex-wrap flex-1 gap-7">
                 <div className="my-3">
-                  <ActionBox title="Generate Hash" image={MicroChipSvg} />
+                  <ActionBox title="Generate Hash">
+                    <MicroChipSvg />
+                  </ActionBox>
                 </div>
                 <div className="my-3">
-                  <ActionBox title="Drug Inventory" image={DrugsSvg} />
+                  <ActionBox title="Generate Hash">
+                    <DrugsSvg />
+                  </ActionBox>
                 </div>
               </div>
             </div>
