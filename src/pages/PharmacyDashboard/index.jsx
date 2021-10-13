@@ -8,8 +8,10 @@ import { Link } from "react-router-dom";
 function PharmacyDasboard() {
   return (
     <DashboardLayout circularButtonDisplay="none">
-      <div className="container mb-32 lg:md-0">
-        <h2 className={`${styles.pharmacyName} font-semibold text-4xl my-10`}>
+      <div className="container py-6 md:py-12 px-4 md:px-12 lg:px-20 mb-20">
+        <h2
+          className={`${styles.pharmacyName} text-xl sm:text-2xl md:text-4xl font-bold mb-6 md:mb-10`}
+        >
           Juhel Pharmacy
         </h2>
         <div
