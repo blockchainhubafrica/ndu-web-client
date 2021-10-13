@@ -11,7 +11,7 @@ const PharmacyHashListing = () => {
   return (
     <DashboardLayout>
       <div
-        className={`${styles.container}  container py-12 px-4 md:px-12 lg:px-20 mb-20`}
+        className={`${styles.container}  container  pt-12  px-4 md:px-12 lg:px-14 xl:px-20 mb-20`}
       >
         <div className="flex flex-wrap justify-between mb-14">
           <h1 className="text-xl sm:text-2xl md:text-4xl font-bold mb-4 md:mb-2">
