@@ -53,13 +53,13 @@ const AppRouter = () => {
         />
         <Route
           exact
-          path="/dashboard/pharmacy/hash-listing"
-          render={() => <PharmacyHashListing />}
+          path="/dashboard/pharmacy/drugs"
+          render={() => <PharmacyDrugInventory />}
         />
         <Route
           exact
-          path="/dashboard/pharmacy/drug-inventory"
-          render={() => <PharmacyDrugInventory />}
+          path="/dashboard/pharmacy/drugs/:id"
+          render={() => <PharmacyHashListing />}
         />
         <Route path="/dashboard" render={() => <UserDashboard />} />
         <Route path="/" render={() => <LandingPage />} />
