@@ -1,11 +1,10 @@
-import React, { useEffect } from "react";
+import React from "react";
 import styles from "./userDashboard.module.css";
 import {
   ArrowDown,
   BigScan,
   handWithDrug,
   SheildIcon,
-  SquareBarCode,
   TboltIcon,
   WarningIcon,
 } from "../../assets";

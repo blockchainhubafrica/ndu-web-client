@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 
 function useShortenAddress(address) {
   const [shortAddress, setShortAddress] = useState("******");
@@ -21,7 +21,7 @@ function useShortenAddress(address) {
         }`
       );
     }
-  }, []);
+  }, [address]);
 
   return { shortAddress };
 }

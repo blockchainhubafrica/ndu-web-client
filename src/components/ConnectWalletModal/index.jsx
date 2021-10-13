@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import {
   BinanceChain,
-  CloseIcon,
   MetaMask,
   TrustWallet,
   WalletConnect,
@@ -11,7 +10,6 @@ import {
 import styles from "./connectWalletModal.module.css";
 
 function ConnectWalletModal({ displayModal, setDisplayModal }) {
-  //   const [display, setDisplay] = useState("none");
   return (
     <>
       {displayModal ? (
