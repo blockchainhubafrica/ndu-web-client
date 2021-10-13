@@ -19,12 +19,12 @@ const PharmacyHashListing = () => {
           </h1>
           <Input placeHolder="Search hash address" />
         </div>
-        <Link to="/dashboard/pharmacy/drugs">
-          <div className="mb-6">
+        <div className="mb-6">
+          <Link to="/dashboard/pharmacy/drugs">
             <ArrowLeft className="inline-block mr-4" />
             <span className="text-sm">Back</span>
-          </div>
-        </Link>
+          </Link>
+        </div>
         <div className="flex flex-wrap justify-between items-center mb-4">
           <h3 className="font-medium text-xl">Tetracycline</h3>
           <h4 className="text-sm">Generated: Fri 01 Oct. 2021</h4>

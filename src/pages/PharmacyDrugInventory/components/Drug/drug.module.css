@@ -8,3 +8,13 @@
   max-width: 80%;
   object-fit: contain;
 }
+
+.container p {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.container:hover {
+  transform: scale(1.13);
+}
