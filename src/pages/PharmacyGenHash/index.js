@@ -8,7 +8,9 @@ import styles from "./pharmacy.module.css";
 const PharmacyGenHash = () => {
   return (
     <DashboardLayout>
-      <div className={`${styles.container} py-12 px-4 md:px-12 lg:px-20 mb-20`}>
+      <div
+        className={`${styles.container} container py-12 px-4 md:px-12 lg:px-20 mb-20`}
+      >
         <h1 className="mb-16 text-xl sm:text-2xl md:text-4xl font-bold">
           Juhel Pharmacy
         </h1>

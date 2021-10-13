@@ -184,18 +184,18 @@ function Components(props) {
               </NormalButton>
             </div>
             {/* Modal */}
-            <Modal
-              type="Original"
-              displayModal={displayModal}
-              closeModal={() => setdisplayModal(false)}
-            >
-              <div>
-                <h1 className="text-center">Modal items go into here</h1>
-                <h2 style={{ fontSize: "50px" }} className="text-center mt-5">
-                  😎
-                </h2>
-              </div>
-            </Modal>
+            {displayModal ? (
+              <Modal type="Original" closeModal={() => setdisplayModal(false)}>
+                <div>
+                  <h1 className="text-center">Modal items go into here</h1>
+                  <h2 style={{ fontSize: "50px" }} className="text-center mt-5">
+                    😎
+                  </h2>
+                </div>
+              </Modal>
+            ) : (
+              ""
+            )}
           </div>
         </section>
         <section id="sidebar">
