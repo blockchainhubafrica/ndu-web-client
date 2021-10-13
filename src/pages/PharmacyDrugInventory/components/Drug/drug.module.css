@@ -1,0 +1,10 @@
+.container {
+  border-radius: 20px;
+  background: #f8fafc;
+  height: 190px;
+}
+
+.container img {
+  max-width: 80%;
+  object-fit: contain;
+}
