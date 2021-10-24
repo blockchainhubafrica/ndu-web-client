@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styles from "./userDashboard.module.css";
 import {
   ArrowDown,
@@ -10,8 +10,14 @@ import {
 } from "../../assets";
 import { HistoryCard, MainButton } from "../../components";
 import { DashboardLayout } from "../../layouts";
+import UserType from "../../hooks/useCheckUserType"
 
 function UserDashboard() {
+
+  const a =  UserType()
+  // console.log(a)
+
+
   return (
     <DashboardLayout bg="#022655" fill="#fff">
       <div className={`${styles.userDashboardCon} container pb-10`}>
