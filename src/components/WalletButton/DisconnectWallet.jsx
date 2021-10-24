@@ -5,11 +5,16 @@ import { useDisconnectWallet } from "ethereal-react";
 import { useShortenAddress } from "../../hooks";
 import { useUserAddress, useBalance } from "ethereal-react";
 import { useHistory } from "react-router-dom";
+import { useWalletContext } from "../../contexts/walletContext";
 
 function DisconnectWalletButton({ onDisconnect }) {
   const history = useHistory();
   const address = useUserAddress();
   const balance = useBalance();
+
+  const { setWalletAddress } = useWalletContext();
+
+  setWalletAddress(address);
 
   console.log(address, balance);
   const walletAddress = "*****";
