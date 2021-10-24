@@ -1,5 +1,5 @@
 import AppRouter from "./appRouter";
-import { WalletProvider } from "./contexts/walletContext";
+import { WalletProvider } from "./contexts/userContext";
 
 function App() {
   return (
