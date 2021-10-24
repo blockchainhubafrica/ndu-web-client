@@ -1,5 +1,10 @@
 
 
-const nduBaseContractAddress = '0xeBf55A4eF099080B7f2aedcDfB3cac2b225068e7';
+const nduBaseContractAddress = '0x72A23806ae0BeE0b07e594121cbCA56718e14BEc';
 
-const registerContractAddress = '0x6fe05E4993E0D65bf23A92ebe60d7eE4a4f11593';
+const registerContractAddress = '0xB0CB4D3F05EA3e63C458748e934844e18c0495D1';
+
+export {
+    registerContractAddress, 
+    nduBaseContractAddress
+}
