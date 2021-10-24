@@ -2,7 +2,7 @@ import React from "react";
 import { MainButton } from "..";
 import { BigScan, HalfLogoIcon } from "../../assets";
 import { useShortenAddress } from "../../hooks";
-import { DisconnectWalletButton } from "../WalletButton";
+import { WalletButton } from "../WalletButton";
 import styles from "./rightBar.module.css";
 
 function RightBar() {
@@ -13,8 +13,10 @@ function RightBar() {
     <div className={`${styles.rightContainer} hidden lg:block`}>
       <div className={`${styles.walletBalanceCon} mt-10`}>
         <HalfLogoIcon />
-        <h1 className={`${styles.walletBalance} pr-8 pl-2`}>$10.5</h1>
-        <DisconnectWalletButton address={shortAddress} />
+        <h1 className={`${styles.walletBalance} pr-8 ml-4`}>$10.5</h1>
+        <div className="ml-auto">
+          <WalletButton />
+        </div>
       </div>
       <div className={`${styles.rightConDown} mt-16 mb-10`}>
         <h1>Scan products.</h1>
@@ -26,7 +28,11 @@ function RightBar() {
           <BigScan />
         </div>
         <div className="mx-auto flex justify-center">
-          <MainButton buttonText="Scan barcode" mt="mt-15" />
+          <MainButton
+            onClick={() => alert("Scanning...")}
+            buttonText="Scan barcode"
+            mt="mt-15"
+          />
         </div>
       </div>
     </div>

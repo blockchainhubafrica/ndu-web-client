@@ -2,10 +2,10 @@ import React from "react";
 import { ButtonScan } from "../../assets";
 import styles from "./mainButton.module.css";
 
-function MainButton({ buttonText, bg, mt, buttonIcon }) {
+function MainButton({ buttonText, bg, mt, buttonIcon, onClick }) {
   return (
     <div
-      onClick={() => console.log("Clicked")}
+      onClick={onClick}
       className={`${styles.mainButton} shadow-lg`}
       style={{
         backgroundColor: bg ? bg : "#022655",

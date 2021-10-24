@@ -1,30 +1,17 @@
-import React, { useState } from "react";
-import styles from "./wallet-button.module.css";
-import { ArrowDown, WalletIcon } from "../../assets";
+import React, { Suspense } from "react";
+import { WalletIcon } from "../../assets";
+import { WalletProvider } from "ethereal-react";
+import { ConnectButton } from "./ConnectButton";
+import { DisconnectWalletButton } from "./DisconnectWallet";
 
-function DisconnectWalletButton({ address }) {
-  const [arrowDown, setArrowDown] = useState(true);
-  let containerClasses = `${styles["container"]} `;
-  if (!arrowDown) containerClasses += `${styles["active"]}`;
-
+function WalletButton({ setDisplay }) {
   return (
-    <div
-      onClick={() => setArrowDown(!arrowDown)}
-      className={`${containerClasses}`}
-    >
-      <div className={`${styles["wallet-address-box"]} `}>
-        <WalletIcon className="" />
-        <h2 className={`${styles["address"]} mx-3`}>{address}</h2>
-        <ArrowDown className={`${styles["arrow-down-icon"]}`} />
-      </div>
-      <button
-        onClick={() => alert("Wallet Disconnected")}
-        className={`${styles["disconnect-btn"]} shadow-l`}
-      >
-        <span>Disconnect</span>
-      </button>
-    </div>
+    <WalletProvider fallback={<ConnectButton />} cacheProvider>
+      <Suspense fallback={<div>Loading...</div>}>
+        <DisconnectWalletButton />
+      </Suspense>
+    </WalletProvider>
   );
 }
 
-export { DisconnectWalletButton };
+export { WalletButton };

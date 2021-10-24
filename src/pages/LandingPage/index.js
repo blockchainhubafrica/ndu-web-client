@@ -14,12 +14,7 @@ import {
   mainframe,
   rightArc,
 } from "../../assets";
-import {
-  Header,
-  HowItWorksCard,
-  Footer,
-  NormalButton,
-} from "../../components";
+import { Header, HowItWorksCard, Footer, NormalButton } from "../../components";
 import ConnectWalletModal from "../../components/ConnectWalletModal";
 import { InputWithButton } from "../../components/InputWithButton";
 
@@ -102,7 +97,10 @@ const LandingPage = () => {
             </div>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 ">
               <div className={`${styles["card"]} my-3`}>
-               
+                <HowItWorksCard
+                  Icon={HowItWorksIconA}
+                  text={"Inscribe and ID a product with unique hash values."}
+                />
               </div>
               <div className={`${styles["card"]} my-3`}>
                 <HowItWorksCard
