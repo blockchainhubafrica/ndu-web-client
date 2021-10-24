@@ -3,6 +3,8 @@
   border-radius: var(--app-border-radius-sm);
   background-color: #fafafa;
   color: #838181;
+  display: flex;
+  flex-direction: column;
 }
 
 @media screen and (min-width: 400px) {
@@ -13,4 +15,15 @@
 
 .container input:focus {
   outline: none;
+}
+
+.container.error input {
+  outline: 1px solid red;
+}
+
+.error-message {
+  position: absolute;
+  margin-top: 3px;
+  color: red;
+  font-size: 0.8rem;
 }

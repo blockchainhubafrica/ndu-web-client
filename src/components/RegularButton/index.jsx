@@ -1,8 +1,12 @@
 import React from "react";
 import styles from "./regularButton.module.css";
 
-function RegularButton({ buttonText }) {
-  return <div className={`${styles.regularButton}`}>{buttonText}</div>;
+function RegularButton({ text, onClick, children }) {
+  return (
+    <button onClick={onClick} className={`${styles.regularButton}`}>
+      {text ?? children}
+    </button>
+  );
 }
 
 export { RegularButton };

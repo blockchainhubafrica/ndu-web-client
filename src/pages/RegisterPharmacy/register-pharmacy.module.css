@@ -1,7 +1,7 @@
 .loginCon {
-  display: flex;
+  /* display: flex; */
   flex-direction: column;
-  align-items: center;
+  /* align-items: center; */
   background-color: var(--app-primary-blue);
   width: 100%;
   min-height: calc(100vh - 70px);

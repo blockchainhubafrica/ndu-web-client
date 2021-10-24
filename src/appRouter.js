@@ -15,7 +15,7 @@ import {
   PharmacyDrugInventory,
   PharmacyGenHash,
   PharmacyHashListing,
-  PharmacyLogin,
+  RegisterPharmacy,
   UserDashboard,
 } from "./pages";
 
@@ -44,7 +44,7 @@ const AppRouter = () => {
         <Route
           exact
           path="/dashboard/pharmacy/login"
-          render={() => <PharmacyLogin />}
+          render={() => <RegisterPharmacy />}
         />
         <Route
           exact

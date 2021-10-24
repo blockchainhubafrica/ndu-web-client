@@ -1,0 +1,13 @@
+.container .inputs {
+}
+
+.container .inputs label {
+  color: #fff;
+  display: block;
+}
+
+.container .inputs input {
+  width: 100%;
+  border-radius: 2px;
+  color: var(--app-grey);
+}
