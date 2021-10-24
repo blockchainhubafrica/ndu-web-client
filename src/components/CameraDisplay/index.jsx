@@ -12,7 +12,7 @@ function CameraDisplay() {
       </h5>
       <div className={`${styles.cameraView}`}>
         <div className={`${styles.cameraOverlay}`}>
-            <ScanTracker />
+          <ScanTracker />
         </div>
       </div>
       <MainButton buttonText="Stop Scanning" bg="#707173" />
@@ -20,4 +20,4 @@ function CameraDisplay() {
   );
 }
 
-export  {CameraDisplay};
+export { CameraDisplay };

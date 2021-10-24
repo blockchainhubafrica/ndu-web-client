@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import {
   BinanceChain,
   MetaMask,
@@ -10,6 +10,7 @@ import {
 import styles from "./connectWalletModal.module.css";
 
 function ConnectWalletModal({ displayModal, setDisplayModal }) {
+  const history = useHistory();
   return (
     <>
       {displayModal ? (
@@ -33,18 +34,37 @@ function ConnectWalletModal({ displayModal, setDisplayModal }) {
             <div
               className={`${styles.main} w-6/6 h-auto flex items-center justify-evenly`}
             >
-              <Link to="/dashboard/user">
+              <button
+                className="flex flex-col items-center"
+                onClick={() => history.push("/dashboard/user")}
+              >
                 <TrustWallet />
-              </Link>
-              <Link to="/dashboard/user">
+                <span className="mt-4">Trust wallet</span>
+              </button>
+
+              <button
+                className="flex flex-col items-center"
+                onClick={() => history.push("/dashboard/user")}
+              >
                 <MetaMask />
-              </Link>
-              <Link to="/dashboard/user">
+                <span className="mt-4">Meta Mask</span>
+              </button>
+
+              <button
+                className="flex flex-col items-center"
+                onClick={() => history.push("/dashboard/user")}
+              >
                 <WalletConnect />
-              </Link>
-              <Link to="/dashboard/user">
+                <span className="mt-6">Wallet Connect</span>
+              </button>
+
+              <button
+                className="flex flex-col items-center"
+                onClick={() => history.push("/dashboard/user")}
+              >
                 <BinanceChain />
-              </Link>
+                <span className="mt-4">Binance Chain</span>
+              </button>
             </div>
           </div>
         </div>

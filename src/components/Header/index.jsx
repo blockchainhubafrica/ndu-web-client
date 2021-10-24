@@ -2,6 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { NormalButton } from "..";
 import { FullLogoIcon, WalletIcon } from "../../assets";
+import { WalletButton } from "../WalletButton";
 import styles from "./header.module.css";
 
 function Header({ setDisplay }) {
@@ -11,15 +12,7 @@ function Header({ setDisplay }) {
         <Link to="/">
           <FullLogoIcon />
         </Link>
-        <NormalButton
-          bg="#022655"
-          onClick={() => {
-            setDisplay(true);
-          }}
-        >
-          <span className="hidden md:block">Connect Wallet</span>
-          <WalletIcon className={`${styles["wallet-icon"]} md:hidden`} />
-        </NormalButton>
+        <WalletButton />
       </div>
     </header>
   );

@@ -26,7 +26,11 @@ function UserDashboard() {
             <h6 className="mb-10">
               Click on the barcode icon to verify the originality of your drug.
             </h6>
-            <MainButton bg="#00D6A3" buttonText="Scan barcode" />
+            <MainButton
+              onClick={() => alert("Scanning...")}
+              bg="#00D6A3"
+              buttonText="Scan barcode"
+            />
           </div>
           <img src={handWithDrug} alt="" />
         </div>

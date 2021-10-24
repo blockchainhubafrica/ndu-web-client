@@ -1,7 +1,7 @@
 import React from "react";
 import styles from "./normalButton.module.css";
 
-function NormalButton({ children, buttonText, className, bg, onClick }) {
+function NormalButton({ children, buttonText, className, bg, ...rest }) {
   let classes = styles.normalButton;
   if (className) classes += ` ${className}`;
 
@@ -9,7 +9,7 @@ function NormalButton({ children, buttonText, className, bg, onClick }) {
     <div
       className={classes}
       style={{ backgroundColor: bg ? bg : null }}
-      onClick={onClick}
+      {...rest}
     >
       {children ?? buttonText}
     </div>
