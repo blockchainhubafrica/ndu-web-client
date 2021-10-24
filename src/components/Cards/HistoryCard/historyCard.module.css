@@ -1,3 +1,7 @@
+.container{
+  cursor: pointer;
+}
+
 .container svg {
   width: 15px;
   height: 15px;
