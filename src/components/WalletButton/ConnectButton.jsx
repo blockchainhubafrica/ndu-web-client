@@ -17,12 +17,26 @@ function ConnectButton({ setDisplay }) {
   };
   return (
     <div>
+      {error && !error.message && (
+        <div className="">
+          <a
+            rel="noreferrer"
+            referrerPolicy="no-referrer"
+            target="_blank"
+            href="https://metamask.io/download"
+          >
+            <NormalButton buttonText="Get Meta mask" />
+          </a>
+        </div>
+      )}
       {error && <div>Error connecting to wallet: {error.message}</div>}
 
-      <NormalButton bg="#022655" onClick={handleConnect} disabled={loading}>
-        <span className="hidden md:block">Connect Wallet</span>
-        <WalletIcon className={`${styles["wallet-icon"]} md:hidden`} />
-      </NormalButton>
+      {!error && (
+        <NormalButton bg="#022655" onClick={handleConnect} disabled={loading}>
+          <span className="hidden md:block">Connect Wallet</span>
+          <WalletIcon className={`${styles["wallet-icon"]} md:hidden`} />
+        </NormalButton>
+      )}
     </div>
   );
 }
