@@ -1,7 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { NormalButton } from "..";
-import { FullLogoIcon, WalletIcon } from "../../assets";
+import { FullLogoIcon } from "../../assets";
 import { WalletButton } from "../WalletButton";
 import styles from "./header.module.css";
 

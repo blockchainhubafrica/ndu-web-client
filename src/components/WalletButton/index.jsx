@@ -1,5 +1,4 @@
 import React, { Suspense } from "react";
-import { WalletIcon } from "../../assets";
 import { WalletProvider } from "ethereal-react";
 import { ConnectButton } from "./ConnectButton";
 import { DisconnectWalletButton } from "./DisconnectWallet";

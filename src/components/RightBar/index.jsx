@@ -1,14 +1,10 @@
 import React from "react";
 import { MainButton } from "..";
 import { BigScan, HalfLogoIcon } from "../../assets";
-import { useShortenAddress } from "../../hooks";
 import { WalletButton } from "../WalletButton";
 import styles from "./rightBar.module.css";
 
 function RightBar() {
-  const walletAddress = "0x285C21a2dCF5d779d03300191E76d2907A69Cc80";
-  const { shortAddress } = useShortenAddress(walletAddress);
-
   return (
     <div className={`${styles.rightContainer} hidden lg:block`}>
       <div className={`${styles.walletBalanceCon} mt-10`}>

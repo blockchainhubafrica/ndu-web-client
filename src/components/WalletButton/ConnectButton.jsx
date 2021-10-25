@@ -8,7 +8,7 @@ import { useHistory } from "react-router-dom";
 function ConnectButton({ setDisplay }) {
   const history = useHistory();
   const [connect, { loading, error }] = useConnectToWallet();
-  console.log(error);
+
   const handleConnect = () => {
     connect();
     setTimeout(() => {
