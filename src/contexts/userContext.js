@@ -1,6 +1,6 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import { abi } from "../contract/abis/Register.json";
-import { checkForPharmacyContractAddress } from "../utils";
+import { registerPharmacyContractAddress } from "../utils";
 import { ethers } from "ethers";
 
 const userContext = createContext();
@@ -18,7 +18,7 @@ export function WalletProvider({ children }) {
           const provider = new ethers.providers.Web3Provider(ethereum);
           const signer = provider.getSigner();
           const contract = new ethers.Contract(
-            checkForPharmacyContractAddress,
+            registerPharmacyContractAddress,
             abi,
             signer
           );
