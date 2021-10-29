@@ -28,7 +28,7 @@ export function WalletProvider({ children }) {
 
   const setAddress = useCallback(
     (address) => {
-      return (async () => {
+      return (() => {
         let updatedUser = { ...user };
         updatedUser.address = address;
         setUser(updatedUser);
