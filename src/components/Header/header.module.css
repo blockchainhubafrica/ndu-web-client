@@ -7,10 +7,10 @@
   position: sticky;
   z-index: 1000;
   top: 0;
-  padding: 20px 0px;
 }
 
-svg.wallet-icon, svg.wallet-icon path {
+svg.wallet-icon,
+svg.wallet-icon path {
   fill: #fff;
   stroke: #fff;
 }

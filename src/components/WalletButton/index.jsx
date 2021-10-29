@@ -1,16 +1,12 @@
-import React, { Suspense } from "react";
-import { WalletProvider } from "ethereal-react";
+import React from "react";
 import { ConnectButton } from "./ConnectButton";
 import { DisconnectWalletButton } from "./DisconnectWallet";
+import { useUserContext } from "../../contexts/userContext";
 
-function WalletButton({ setDisplay }) {
-  return (
-    <WalletProvider fallback={<ConnectButton />} cacheProvider>
-      <Suspense fallback={<div>Loading...</div>}>
-        <DisconnectWalletButton />
-      </Suspense>
-    </WalletProvider>
-  );
+function WalletButton({}) {
+  const { isConnected } = useUserContext();
+  
+  return isConnected ? <DisconnectWalletButton /> : <ConnectButton />;
 }
 
 export { WalletButton };

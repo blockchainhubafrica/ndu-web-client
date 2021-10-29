@@ -1,29 +1,21 @@
 import { useEffect, useState } from "react";
 
 function useShortenAddress(address) {
-  const [shortAddress, setShortAddress] = useState("******");
+  const [shortForm, setShortForm] = useState("*****");
 
   useEffect(() => {
     if (window.innerWidth > 768) {
-      setShortAddress(
-        `${
-          address.substring(0, 3) +
-          "..." +
-          address.substring(address.length - 4)
-        }`
-      );
-    } else {
-      setShortAddress(
-        `${
-          address.substring(0, 2) +
-          "..." +
-          address.substring(address.length - 2)
-        }`
+      setShortForm(
+        `${address.substring(0, 3)}...${address.substring(address.length - 4)}`
       );
     }
+
+    setShortForm(
+      `${address.substring(0, 2)}...${address.substring(address.length - 2)}`
+    );
   }, [address]);
 
-  return { shortAddress };
+  return shortForm;
 }
 
 export { useShortenAddress };

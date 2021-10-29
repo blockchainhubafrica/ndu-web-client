@@ -1,37 +1,21 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import styles from "./wallet-button.module.css";
 import { ArrowDown, WalletIcon } from "../../assets";
-import { useDisconnectWallet } from "ethereal-react";
 import { useShortenAddress } from "../../hooks";
-import { useUserAddress } from "ethereal-react";
-import { useHistory } from "react-router-dom";
 import { useUserContext } from "../../contexts/userContext";
 
-function DisconnectWalletButton({ onDisconnect }) {
-  const history = useHistory();
-  const address = useUserAddress();
-  const { user, setUser } = useUserContext();
-
-  useEffect(() => {
-    if (!address) return;
-    const userState = { ...user };
-    userState.address = address;
-    setUser(userState);
-  }, [address]);
-
-  const walletAddress = "*****";
-  const { shortAddress } = useShortenAddress(address ?? walletAddress);
-  const disconnect = useDisconnectWallet();
+function DisconnectWalletButton() {
+  const { user, handleWalletDisconnect } = useUserContext();
+  const shortAddress = useShortenAddress(user?.address);
 
   const [arrowDown, setArrowDown] = useState(true);
   let containerClasses = `${styles["container"]} `;
   if (!arrowDown) containerClasses += `${styles["active"]}`;
+
   const handleDisconnect = () => {
-    disconnect();
-    setTimeout(() => {
-      history.push("/");
-    }, 2000);
+    handleWalletDisconnect();
   };
+
   return (
     <div
       onClick={() => setArrowDown(!arrowDown)}

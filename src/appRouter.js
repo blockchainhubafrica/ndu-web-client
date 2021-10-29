@@ -1,4 +1,5 @@
 import React, { useEffect } from "react";
+import { WalletProvider } from "./contexts/userContext";
 
 import {
   BrowserRouter as Router,
@@ -33,38 +34,44 @@ const AppRouter = () => {
   return (
     <Router basename={"/"}>
       <ScrollToTop />
-      <Switch>
-        <Route exact path="/components" render={() => <Components />} />
-        <Route exact path="/dashboard/user" render={() => <UserDashboard />} />
-        <Route
-          exact
-          path="/dashboard/pharmacy"
-          render={() => <PharmacyDasboard />}
-        />
-        <Route
-          exact
-          path="/dashboard/pharmacy/login"
-          render={() => <RegisterPharmacy />}
-        />
-        <Route
-          exact
-          path="/dashboard/pharmacy/generate-hash"
-          render={() => <PharmacyGenHash />}
-        />
-        <Route
-          exact
-          path="/dashboard/pharmacy/drugs"
-          render={() => <PharmacyDrugInventory />}
-        />
-        <Route
-          exact
-          path="/dashboard/pharmacy/drugs/:id"
-          render={() => <PharmacyHashListing />}
-        />
-        <Route path="/dashboard" render={() => <UserDashboard />} />
-        <Route path="/" render={() => <LandingPage />} />
-        <Route path="*" render={() => <Redirect to="/" />} />
-      </Switch>
+      <WalletProvider>
+        <Switch>
+          <Route exact path="/components" render={(props) => <Components />} />
+          <Route
+            exact
+            path="/dashboard/user"
+            render={(props) => <UserDashboard />}
+          />
+          <Route
+            exact
+            path="/dashboard/pharmacy"
+            render={(props) => <PharmacyDasboard />}
+          />
+          <Route
+            exact
+            path="/dashboard/pharmacy/login"
+            render={(props) => <RegisterPharmacy />}
+          />
+          <Route
+            exact
+            path="/dashboard/pharmacy/generate-hash"
+            render={(props) => <PharmacyGenHash />}
+          />
+          <Route
+            exact
+            path="/dashboard/pharmacy/drugs"
+            render={(props) => <PharmacyDrugInventory />}
+          />
+          <Route
+            exact
+            path="/dashboard/pharmacy/drugs/:id"
+            render={(props) => <PharmacyHashListing />}
+          />
+          <Route path="/dashboard" render={(props) => <UserDashboard />} />
+          <Route path="/" render={(props) => <LandingPage />} />
+          <Route path="*" render={(props) => <Redirect to="/" />} />
+        </Switch>
+      </WalletProvider>
     </Router>
   );
 };

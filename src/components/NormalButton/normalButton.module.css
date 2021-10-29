@@ -1,4 +1,5 @@
 .normalButton {
+  text-align: center;
   padding: 10px 25px;
   background: #1c1b72;
   border-radius: var(--app-border-radius-sm);

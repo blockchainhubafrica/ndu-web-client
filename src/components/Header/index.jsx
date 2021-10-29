@@ -6,8 +6,8 @@ import styles from "./header.module.css";
 
 function Header({ setDisplay }) {
   return (
-    <header className={`${styles.container}`}>
-      <div className="container flex flex-wrap justify-between mx-auto">
+    <header className={`${styles.container} py-3`}>
+      <div className="container items-center flex flex-wrap justify-between mx-auto">
         <Link to="/">
           <FullLogoIcon />
         </Link>
