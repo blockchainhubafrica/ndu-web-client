@@ -4,7 +4,7 @@ function useShortenAddress(address) {
   const [shortForm, setShortForm] = useState("*****");
 
   useEffect(() => {
-    if (window.innerWidth > 768) {
+    if (window.innerWidth >= 768) {
       setShortForm(
         `${address.substring(0, 3)}...${address.substring(address.length - 4)}`
       );
