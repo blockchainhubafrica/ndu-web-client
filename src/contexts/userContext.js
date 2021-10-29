@@ -19,12 +19,11 @@ export function WalletProvider({ children }) {
   const [hasMetaMask, setHasMetaMask] = useState(true);
 
   const [user, setUser] = useState({ address: null, activePharmacy: null });
-
   const handleWalletConnect = async () => {
     const connectionStatus = await connectToMetaMask();
     if (connectionStatus.error) return false;
 
-    const address = await getActiveWallet();
+    const address = getActiveWallet();
     setAddress(address);
 
     setIsConnected(true);
@@ -44,18 +43,30 @@ export function WalletProvider({ children }) {
   };
 
   const handleAccountChanged = (address) => {
-    if (address) return handleWalletDisconnect();
+    if (!address) return handleWalletDisconnect();
     setAddress(address);
   };
 
   useEffect(() => {
-    if (!isConnected)
+    if (!isInitiallyFetched) return;
+    if (isConnected) {
+      localStorage.setItem("wallet-connection", true);
+      setTimeout(() => {
+        history.replace("/dashboard/user");
+      }, 300);
+    }
+    if (!isConnected) {
+      localStorage.removeItem("wallet-connection");
+
       setTimeout(() => {
         history.replace("/");
       }, 300);
-  }, [isConnected, history]);
+    }
+  }, [isConnected, history, isInitiallyFetched]);
 
   useEffect(() => {
+    if (!isInitiallyFetched) return;
+
     if (!hasEthereum()) return;
     listenToAccountChanges(handleAccountChanged);
 
@@ -63,13 +74,14 @@ export function WalletProvider({ children }) {
   });
 
   useEffect(() => {
+    if (isInitiallyFetched) return;
     if (!hasEthereum()) return setHasMetaMask(false);
-  }, [isInitiallyFetched]);
+    const isInjected = localStorage.getItem("wallet-connection");
+    if (!isInjected) return setIsInitiallyFetched(true);
 
-  // useEffect(() => {
-  //   if (isInitiallyFetched && address)
-  //     localStorage.setItem("wallet-status", address);
-  // }, [address, isInitiallyFetched]);
+    handleWalletConnect();
+    setIsInitiallyFetched(true);
+  });
 
   // useEffect(() => {
   //   if (!user.address) return;

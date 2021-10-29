@@ -1,6 +1,6 @@
 export const connectToMetaMask = async (setLoading, setError) => {
   try {
-    if (!hasEthereum()) return;
+    if (!hasEthereum()) return { error: "no meta mask" };
 
     if (setLoading) setLoading(true);
     await window.ethereum.request({ method: "eth_requestAccounts" });
@@ -13,25 +13,25 @@ export const connectToMetaMask = async (setLoading, setError) => {
   }
 };
 
-export async function getActiveWallet() {
+export function getActiveWallet() {
   const ethTarget = { ...window.ethereum };
   if (!ethTarget.selectedAddress) return null;
   const address = ethTarget.selectedAddress;
   return address;
 }
 
-export async function hasEthereum() {
+export function hasEthereum() {
   return window.ethereum ? true : false;
 }
 
 export function listenToAccountChanges(handler) {
+  if (!hasEthereum()) return false;
+
   window.ethereum.on("accountsChanged", async (accounts) => {
     handler(accounts[0]);
   });
 }
 
-
 export async function unmountEthListeners() {
   window.ethereum.removeListener("accountsChanged", () => {});
 }
-
