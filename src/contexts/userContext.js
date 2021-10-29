@@ -1,4 +1,10 @@
-import { createContext, useContext, useState, useEffect } from "react";
+import {
+  createContext,
+  useContext,
+  useState,
+  useEffect,
+  useCallback,
+} from "react";
 
 import {
   connectToMetaMask,
@@ -19,50 +25,51 @@ export function WalletProvider({ children }) {
   const [hasMetaMask, setHasMetaMask] = useState(true);
 
   const [user, setUser] = useState({ address: null, activePharmacy: null });
-  const handleWalletConnect = async () => {
-    const connectionStatus = await connectToMetaMask();
-    if (connectionStatus.error) return false;
 
-    const address = getActiveWallet();
-    setAddress(address);
+  const setAddress = useCallback(
+    (address) => {
+      return (async () => {
+        let updatedUser = { ...user };
+        updatedUser.address = address;
+        setUser(updatedUser);
+        setIsConnected(true);
+      })();
+    },
+    [user]
+  );
 
-    setIsConnected(true);
+  const handleWalletConnect = useCallback(() => {
+    (async () => {
+      const connectionStatus = await connectToMetaMask();
+      if (connectionStatus.error) return false;
 
-    return true;
-  };
+      const address = getActiveWallet();
+      setAddress(address);
+
+      setIsConnected(true);
+
+      localStorage.setItem("wallet-connection", true);
+
+      setTimeout(() => {
+        history.replace("/dashboard/user");
+      }, 300);
+
+      return true;
+    })();
+  }, [setAddress, history]);
 
   const handleWalletDisconnect = () => {
     setIsConnected(false);
-  };
-
-  const setAddress = (address) => {
-    let updatedUser = { ...user };
-    updatedUser.address = address;
-    setUser(updatedUser);
-    setIsConnected(true);
+    localStorage.removeItem("wallet-connection");
+    setTimeout(() => {
+      history.replace("/");
+    }, 300);
   };
 
   const handleAccountChanged = (address) => {
     if (!address) return handleWalletDisconnect();
     setAddress(address);
   };
-
-  useEffect(() => {
-    if (!isInitiallyFetched) return;
-    if (isConnected) {
-      localStorage.setItem("wallet-connection", true);
-      setTimeout(() => {
-        history.replace("/dashboard/user");
-      }, 300);
-    }
-    if (!isConnected) {
-      localStorage.removeItem("wallet-connection");
-
-      setTimeout(() => {
-        history.replace("/");
-      }, 300);
-    }
-  }, [isConnected, history, isInitiallyFetched]);
 
   useEffect(() => {
     if (!isInitiallyFetched) return;
@@ -81,7 +88,7 @@ export function WalletProvider({ children }) {
 
     handleWalletConnect();
     setIsInitiallyFetched(true);
-  });
+  }, [handleWalletConnect, isInitiallyFetched]);
 
   // useEffect(() => {
   //   if (!user.address) return;
