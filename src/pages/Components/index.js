@@ -40,7 +40,7 @@ function Components(props) {
           <div className="container mx-auto">
             <div className="my-10">
               <p className="mb-4">This is an Input box</p>
-              <Input type="text" placeHolder="Drug name" />
+              <Input type="text" placeholder="Drug name" />
             </div>
           </div>
         </section>
@@ -49,7 +49,7 @@ function Components(props) {
             <div className="mb-10">
               <p className="mb-4">This is an Input box with button</p>
               <div style={{ maxWidth: "500px" }}>
-                <InputWithButton placeHolder="Enter your email address" />
+                <InputWithButton placeholder="Enter your email address" />
               </div>
             </div>
           </div>

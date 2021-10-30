@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { useUserContext } from "../contexts/userContext";
-import { abi } from "../contract/abis/Register.json";
-import { registerPharmacyContractAddress } from "../utils";
+import { Registerabi } from "../contract/abis/";
+import { registrationContractAddress } from "../utils";
 import { ethers } from "ethers";
 
 const useCheckUserType = () => {
@@ -22,7 +22,7 @@ const useCheckUserType = () => {
   //       const provider = new ethers.providers.Web3Provider(ethereum);
   //       const signer = provider.getSigner();
   //       const contract = new ethers.Contract(
-  //         registerPharmacyContractAddress,
+  //         registrationContractAddress,
   //         abi,
   //         signer
   //       );
@@ -44,7 +44,7 @@ export default useCheckUserType;
 
 // import { useWalletContext } from "../contexts/walletContext";
 // import jsonInterface from "../contract/abis/Register.json"
-// import { registerPharmacyContractAddress } from "../utils";
+// import { registrationContractAddress } from "../utils";
 // import {Web3} from 'web3';
 
 // const CheckUserType = async () =>{
@@ -57,7 +57,7 @@ export default useCheckUserType;
 
 //     // const web3 = new Web3(Web3.givenProvider || "http://localhost:8545")
 
-//     const contract = new Contract(jsonInterface, registerPharmacyContractAddress);
+//     const contract = new Contract(jsonInterface, registrationContractAddress);
 
 //     const result = await contract.methods.registered(userWalletAddress).call();
 

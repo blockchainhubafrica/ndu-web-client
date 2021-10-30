@@ -17,3 +17,4 @@ export * from "./DashboardFooter";
 export * from "./WalletButton";
 export * from "./Pagination";
 export * from "./WalletButton"
+export * from "./Forms"

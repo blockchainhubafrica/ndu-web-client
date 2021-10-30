@@ -23,7 +23,7 @@ function DashboardFooter(props) {
           </Link>
         </li>
         <li>
-          <Link to="/dashboard/pharmacy/login">
+          <Link to="/dashboard/pharmacy/signup">
             <CartIcon />
           </Link>
         </li>

@@ -263,7 +263,7 @@ const LandingPage = () => {
                   </div>
                   <form action="" onSubmit={() => false}>
                     <div className="mb-10 md:mb-0">
-                      <InputWithButton placeHolder="Enter your email address" />
+                      <InputWithButton placeholder="Enter your email address" />
                     </div>
                     <NormalButton
                       buttonText="Subscribe"

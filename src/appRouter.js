@@ -49,7 +49,7 @@ const AppRouter = () => {
           />
           <Route
             exact
-            path="/dashboard/pharmacy/login"
+            path="/dashboard/pharmacy/signup"
             render={(props) => <RegisterPharmacy />}
           />
           <Route

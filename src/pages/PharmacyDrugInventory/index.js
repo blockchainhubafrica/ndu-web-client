@@ -2,6 +2,7 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { ArrowLeft, drug } from "../../assets";
 import { Pagination } from "../../components";
+import { useUserContext } from "../../contexts/userContext";
 import { DashboardLayout } from "../../layouts";
 import { Drug } from "./components";
 
@@ -28,6 +29,7 @@ const dummyData = [
 let PageSize = 6;
 
 const PharmacyDrugInventory = () => {
+  const { user } = useUserContext();
   const [currentPage, setCurrentPage] = useState(1);
 
   const history = useHistory();
@@ -49,11 +51,11 @@ const PharmacyDrugInventory = () => {
       >
         <div className="mb-6 md:mb-10 ">
           <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">
-            Juhel Pharmacy
+          {user?.pharmacyDetails?.name}
           </h1>
         </div>
         <div className="mb-6 flex flex-wrap justify-between items-center">
-          <p
+          <div
             className="text-sm cursor-pointer"
             onClick={() => history.replace("/dashboard/pharmacy")}
           >
@@ -61,7 +63,7 @@ const PharmacyDrugInventory = () => {
               <ArrowLeft className="inline-block mr-4" />
             </span>
             <span className="text-sm">Back</span>
-          </p>
+          </div>
           {/* Desktop & Tablets */}
           <div className="hidden md:inline-block">
             <Pagination

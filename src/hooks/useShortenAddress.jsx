@@ -8,7 +8,7 @@ const smallCutText = (text) =>
 
 function useShortenAddress(address) {
   const [shortForm, setShortForm] = useState("*****");
-
+  if (!address) address = shortForm;
   useEffect(() => {
     if (window.innerWidth >= 768) setShortForm(largeCutText(address));
     if (window.innerWidth < 768) setShortForm(smallCutText(address));

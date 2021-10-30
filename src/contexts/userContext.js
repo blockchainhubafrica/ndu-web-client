@@ -12,6 +12,7 @@ import {
   listenToAccountChanges,
   hasEthereum,
   unmountEthListeners,
+  getCompanyDetails,
 } from "../services/web3Services";
 
 import { useHistory } from "react-router-dom";
@@ -24,7 +25,7 @@ export function WalletProvider({ children }) {
   const [isConnected, setIsConnected] = useState(false);
   const [hasMetaMask, setHasMetaMask] = useState(true);
 
-  const [user, setUser] = useState({ address: null, activePharmacy: null });
+  const [user, setUser] = useState({ address: null, pharmacyDetails: null });
 
   const setAddress = useCallback(
     (address) => {
@@ -38,6 +39,17 @@ export function WalletProvider({ children }) {
     [user]
   );
 
+  const setPharmacy = useCallback(() => {
+    (async () => {
+      const pharmacyDetails = await getCompanyDetails();
+
+      let updatedUser = { ...user };
+      updatedUser.pharmacyDetails = pharmacyDetails;
+      updatedUser.address = getActiveWallet();
+      setUser(updatedUser);
+    })();
+  }, [user]);
+
   const handleWalletConnect = useCallback(() => {
     (async () => {
       const connectionStatus = await connectToMetaMask();
@@ -46,24 +58,26 @@ export function WalletProvider({ children }) {
       const address = getActiveWallet();
       setAddress(address);
 
+      setPharmacy();
+
       setIsConnected(true);
 
       localStorage.setItem("wallet-connection", true);
 
       setTimeout(() => {
-        history.replace("/dashboard/user");
-      }, 300);
+        // history.replace("/dashboard/user");
+      }, 0);
 
       return true;
     })();
-  }, [setAddress, history]);
+  }, [setAddress, setPharmacy]);
 
   const handleWalletDisconnect = () => {
     setIsConnected(false);
     localStorage.removeItem("wallet-connection");
     setTimeout(() => {
       history.replace("/");
-    }, 300);
+    }, 0);
   };
 
   const handleAccountChanged = (address) => {
@@ -91,31 +105,9 @@ export function WalletProvider({ children }) {
   }, [handleWalletConnect, isInitiallyFetched]);
 
   // useEffect(() => {
-  //   if (!user.address) return;
-  //   const check = async () => {
-  //     const { ethereum } = window;
-
-  //     try {
-  //       if (ethereum) {
-  //         const provider = new ethers.providers.Web3Provider(ethereum);
-  //         const signer = provider.getSigner();
-  //         const contract = new ethers.Contract(
-  //           registerPharmacyContractAddress,
-  //           abi,
-  //           signer
-  //         );
-  //         console.log(contract);
-  //         const hasRegisteredPharmacy = await contract.registered(user.address);
-  //         console.log({ hasRegisteredPharmacy });
-  //       } else {
-  //         return "Not logged in";
-  //       }
-  //     } catch (error) {
-  //       console.log(error);
-  //     }
-  //   };
-  //   check();
-  // }, [user.address]);
+  //   if (!isInitiallyFetched) return;
+  //   console.log(user);
+  // }, [user, isInitiallyFetched]);
 
   return (
     <userContext.Provider

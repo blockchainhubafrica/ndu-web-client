@@ -9,7 +9,7 @@ function RightBar() {
     <div className={`${styles.rightContainer} hidden lg:block`}>
       <div className={`${styles.walletBalanceCon} mt-10`}>
         <HalfLogoIcon />
-        <h1 className={`${styles.walletBalance} pr-8 ml-4`}>$10.5</h1>
+        <h1 className={`hidden pr-8 ml-4`}>$10.5</h1>
         <div className="ml-auto">
           <WalletButton />
         </div>

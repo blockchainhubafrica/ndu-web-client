@@ -1,12 +1,12 @@
-const nduBaseContractAddress = "0x72A23806ae0BeE0b07e594121cbCA56718e14BEc";
+const nduBaseContractAddress = "0x3ea1b85F833bca2F48773cac209eab1832B6e699";
 
-const registerPharmacyContractAddress =
-  "0x8D45a64Ad0363c35330CbDFEefa378074e1Da616";
+const registrationContractAddress =
+  "0x86f23C1059f8660bDB0B30cd415f5e1C2146070F";
 
-const nduTokenContractAddress = "0xFa02F2457C508019849d09f36A88A3a9F5a71A4E";
+const nduTokenContractAddress = "0x24aa6AF24bd268B464330440123FC67803fa26d4";
 
 export {
-  registerPharmacyContractAddress,
+  registrationContractAddress,
   nduBaseContractAddress,
   nduTokenContractAddress,
 };
