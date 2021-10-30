@@ -4,7 +4,6 @@ import {
   drugPark,
   dude,
   globeStats,
-  greenArc1,
   HowItWorksIconA,
   HowItWorksIconB,
   HowItWorksIconC,
@@ -22,12 +21,7 @@ import styles from "./landingPage.module.css";
 
 const LandingPage = () => {
   const [display, setdisplay] = useState(false);
-  // useEffect(() => {
-  //   effect
-  //   return () => {
-  //     cleanup
-  //   }
-  // }, [input])
+
   return (
     <>
       <ConnectWalletModal setDisplayModal={setdisplay} displayModal={display} />

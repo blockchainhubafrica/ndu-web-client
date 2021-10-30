@@ -17,6 +17,10 @@
   --app-border-radius-sm: 10px;
   --app-border-radius-md: 15px;
   --app-border-radius-lg: 30px;
+  --scan-icon-z-index: 500;
+  --header-z-index:1000;
+  --overlay-z-index: 1500;
+  --modal-z-index: 1500;
 }
 
 * {

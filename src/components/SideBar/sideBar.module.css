@@ -36,16 +36,15 @@
   padding: 0px;
 }
 
-.sideBarCon > ul > a > li {
-  list-style: none;
+.sideBarCon > ul > li {
   display: flex;
-  flex-direction: column;
-  align-items: center;
   justify-content: center;
-  margin: 40px 0px 0px 0px;
+  text-align: center;
 }
 
-.sideBarCon > ul > a > li > h6 {
+
+.sideBarCon > ul li span {
+  display: block;
   font-style: normal;
   font-weight: 500;
   font-size: 12px;
@@ -59,22 +58,32 @@
   background: #eceff7;
   border-radius: 10px;
   cursor: pointer;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: inline-flex;
   padding: 15px;
 }
 
-.iconCon:hover {
+.iconCon.active {
+  background: #eceff7;
+  border-radius: 10px;
+  cursor: pointer;
+  display: inline-flex;
+  padding: 15px;
+}
+
+.sideBarCon > ul > li a {
+  padding: 5px 10px;
+}
+
+.sideBarCon > ul > li a:hover .iconCon,
+.iconCon.active {
   background: #022655;
   box-shadow: 0px 10px 20px rgba(88, 92, 229, 0.25);
   color: #1c295d;
 }
 
-.iconCon:hover .sideBarIcon > path {
-  fill: white;
-}
-
-.iconCon:hover .sideBarIcon > rect {
+.sideBarCon > ul > li a:hover .iconCon .sideBarIcon > path,
+.sideBarCon > ul > li a:hover .iconCon .sideBarIcon > rect,
+.iconCon.active .sideBarIcon > path,
+.iconCon.active .sideBarIcon > rect {
   fill: white;
 }

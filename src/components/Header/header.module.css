@@ -5,7 +5,7 @@
   background: rgba(228, 241, 253, 0.56);
   backdrop-filter: blur(4px);
   position: sticky;
-  z-index: 1000;
+  z-index: var(--header-z-index);
   top: 0;
 }
 

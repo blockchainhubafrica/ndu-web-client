@@ -96,9 +96,9 @@ export async function getCompanyDetails() {
   }
 }
 
-export async function registerPharmacy(details, onRegistered) {
+export async function registerPharmacy(details, Loading, onRegistered) {
   if (!hasEthereum()) return false;
-
+  Loading(true);
   try {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
@@ -117,7 +117,9 @@ export async function registerPharmacy(details, onRegistered) {
     );
 
     await registrationContract.on("companyRegister", onRegistered);
+    Loading(false);
   } catch (error) {
+    Loading(false);
     console.log(error);
   }
 }

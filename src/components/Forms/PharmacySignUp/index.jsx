@@ -9,6 +9,8 @@ import { useHistory } from "react-router-dom";
 import { registerPharmacy } from "../../../services/web3Services";
 import sha256 from "sha256";
 import { randomNumber } from "../../../utils";
+import { useLoadingContext } from "../../../contexts/loadingContext";
+import { toast } from "./../../Toasts/index";
 
 const description = (name, address) => {
   return `The name of the pharmacy is ${name} and it is located in ${address}`;
@@ -33,19 +35,21 @@ const initialValues = {
 };
 
 function PharmacySignUpForm() {
+  const { setIsLoading } = useLoadingContext();
   const history = useHistory();
   const handleSubmit = (values) => {
-    (async () => {
-      const details = {
-        id: randomNumber(),
-        name: values.name,
-        isoNumber: uuidv4(),
-        ipfsHash: sha256(description(values.name, values.address).toString()),
-      };
-      await registerPharmacy(details, () =>
-        history.push("/dashboard/pharmacy")
-      );
-    })();
+    const details = {
+      id: randomNumber(),
+      name: values.name,
+      isoNumber: uuidv4(),
+      ipfsHash: sha256(description(values.name, values.address).toString()),
+    };
+    // toast.success(`${values.name} was successfully registered`);
+    // (async () => {
+    //   await registerPharmacy(details, setIsLoading, () => {
+    //     history.push("/dashboard/pharmacy");
+    //   });
+    // })();
   };
 
   const formik = useFormik({
@@ -54,28 +58,30 @@ function PharmacySignUpForm() {
     onSubmit: handleSubmit,
   });
   return (
-    <form className={`${styles["container"]}`} onSubmit={formik.handleSubmit}>
-      <Input
-        name="name"
-        formik={formik}
-        label="Pharmacy Name"
-        className={`${styles["inputs"]} mb-8`}
-      />
-      <Input
-        name="address"
-        formik={formik}
-        label="Address / Location"
-        className={`${styles["inputs"]} mb-8`}
-      />
-      <Input
-        name="pin"
-        formik={formik}
-        type="password"
-        label="Pharmacy Identification Number"
-        className={`${styles["inputs"]} mb-10`}
-      />
-      <RegularButton>Submit</RegularButton>
-    </form>
+    <>
+      <form className={`${styles["container"]}`} onSubmit={formik.handleSubmit}>
+        <Input
+          name="name"
+          formik={formik}
+          label="Pharmacy Name"
+          className={`${styles["inputs"]} mb-8`}
+        />
+        <Input
+          name="address"
+          formik={formik}
+          label="Address / Location"
+          className={`${styles["inputs"]} mb-8`}
+        />
+        <Input
+          name="pin"
+          formik={formik}
+          type="password"
+          label="Pharmacy Identification Number"
+          className={`${styles["inputs"]} mb-10`}
+        />
+        <RegularButton>Submit</RegularButton>
+      </form>
+    </>
   );
 }
 

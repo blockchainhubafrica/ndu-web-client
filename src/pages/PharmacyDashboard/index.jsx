@@ -1,15 +1,16 @@
 import React from "react";
 import { ActionBox } from "../../components";
-import { BigScan, DrugsSvg, MicroChipSvg } from "../../assets";
+import { DrugsSvg, MicroChipSvg } from "../../assets";
 import { DashboardLayout } from "../../layouts";
 import styles from "./pharmacyDashboard.module.css";
 import { Link } from "react-router-dom";
 import { useUserContext } from "../../contexts/userContext";
+import ScanButton from "../../components/ScanIcon";
 
 function PharmacyDasboard() {
   const { user } = useUserContext();
   return (
-    <DashboardLayout circularButtonDisplay="none">
+    <DashboardLayout>
       <div className="container py-6 md:py-12 px-4 md:px-12 lg:px-20 mb-20">
         <h2
           className={`${styles.pharmacyName} text-xl sm:text-2xl md:text-4xl font-bold mb-6 md:mb-10`}
@@ -35,9 +36,7 @@ function PharmacyDasboard() {
           </Link>
         </div>
       </div>
-      <div className={`${styles.circularButton} flex lg:hidden`}>
-        <BigScan />
-      </div>
+      <ScanButton />
     </DashboardLayout>
   );
 }

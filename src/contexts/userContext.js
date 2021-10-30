@@ -16,10 +16,12 @@ import {
 } from "../services/web3Services";
 
 import { useHistory } from "react-router-dom";
+import { useLoadingContext } from "./loadingContext";
 
 const userContext = createContext();
 
 export function WalletProvider({ children }) {
+  const { setIsLoading } = useLoadingContext();
   const history = useHistory();
   const [isInitiallyFetched, setIsInitiallyFetched] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
@@ -52,13 +54,14 @@ export function WalletProvider({ children }) {
 
   const handleWalletConnect = useCallback(() => {
     return (async () => {
+      setIsLoading(true);
       const connectionStatus = await connectToMetaMask();
       if (connectionStatus.error) return false;
 
       const address = getActiveWallet();
       setAddress(address);
 
-      setPharmacy();
+      await setPharmacy();
 
       setIsConnected(true);
 
@@ -68,9 +71,11 @@ export function WalletProvider({ children }) {
         // history.replace("/dashboard/user");
       }, 0);
 
+      setIsLoading(false);
+
       return true;
     })();
-  }, [setAddress, setPharmacy]);
+  }, [setAddress, setPharmacy, setIsLoading]);
 
   const handleWalletDisconnect = () => {
     setIsConnected(false);
@@ -103,11 +108,6 @@ export function WalletProvider({ children }) {
     handleWalletConnect();
     setIsInitiallyFetched(true);
   }, [handleWalletConnect, isInitiallyFetched]);
-
-  // useEffect(() => {
-  //   if (!isInitiallyFetched) return;
-  //   console.log(user);
-  // }, [user, isInitiallyFetched]);
 
   return (
     <userContext.Provider

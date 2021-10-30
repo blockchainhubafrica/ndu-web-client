@@ -1,0 +1,28 @@
+.success-toast {
+  position: fixed;
+  width: 100%;
+  top: -100px;
+  perspective: 100px;
+  perspective-origin: left;
+  left: calc(50% - 200px);
+  max-width: 400px;
+  padding: 20px 25px;
+  transition: top 1s ease-in;
+  background-color: var(--app-primary-green);
+  color: #fff;
+  z-index: var(--modal-z-index);
+  box-shadow: 4px 5px 13px 0px rgba(0, 0, 0, 0.35);
+}
+
+.active {
+  top: 40px;
+}
+
+.heading {
+  font-weight: 550;
+  font-size: 18px;
+}
+
+.message {
+  font-weight: 100;
+}
