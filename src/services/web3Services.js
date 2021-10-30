@@ -41,7 +41,7 @@ export function listenToAccountChanges(handler) {
 }
 
 export async function unmountEthListeners() {
-  window.ethereum.removeListener("accountsChanged", () => {});
+  window.ethereum.removeListener("accountsChanged", () => { });
 }
 
 export async function getRegisterContract(signer) {
