@@ -5,7 +5,7 @@ import { Input, TextArea } from "../../../components";
 import { createJsonFile } from './../../../utils/files';
 import ipfs from "../../../utils/ipfs";
 
-function DrugRegistration(props) {
+const DrugRegistration = (props) => {
   // state variables
   const [drugName, setDrugName] = useState("")
   const [ drugExpiry, setDrugExpiry ] =  useState("")
@@ -16,9 +16,10 @@ function DrugRegistration(props) {
   const onSubmit = async () => {
     try{
       console.log('name', drugName)
-      console.log('name', drugExpiry)
-      console.log('name', drugManufactureDate)
-      console.log('name', drugDescription)
+      console.log('Expiry', drugExpiry)
+      console.log('Manufacture Date', drugManufactureDate)
+      console.log('Description', drugDescription)
+
       const result = await ipfs.addJSON({ 
         DrugName: drugName, 
         DrugExpiry: drugExpiry, 
@@ -26,9 +27,10 @@ function DrugRegistration(props) {
         DrugDescription: drugDescription
       });
 
-      
       setIpfsHash(result)
       console.log("ipfshash", ipfsHash)
+
+
     } catch(err) {
       console.log(err)
     }
@@ -93,11 +95,12 @@ function DrugRegistration(props) {
         <button className="px-5 py-3 md:px-10 md:py-4 ml-auto md:mt-0 md:ml-0" onClick={onSubmit}>
           Generate
         </button>
-        <div><h4>Ipfs Hash: {ipfsHash}</h4></div>
+        <br></br>
+        <h4>Ipfs Hash: {ipfsHash}</h4>
         <a href={`https://ipfs.io/ipfs/${ipfsHash}`}>Click to view ipfs details</a>
       </div>
     </form>
   );
 }
 
-export { DrugRegistration };
+export default DrugRegistration;
