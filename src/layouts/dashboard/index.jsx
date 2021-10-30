@@ -4,20 +4,29 @@ import {
   SideBar,
   DashboardHeader,
   DashboardFooter,
+  CameraDisplay,
 } from "../../components";
 import styles from "./dashboard.module.css";
+import { useUserContext } from "../../contexts/userContext";
 
 function DashboardLayout({ children }) {
+  const { scanner } = useUserContext();
+  console.log(scanner);
   return (
-    <>
-      <DashboardHeader />
-      <div className={`${styles["container"]} flex`}>
-        <SideBar />
-        <div className={`${styles["center-con"]} lg:h-screen`}>{children}</div>
-        <RightBar />
-      </div>
-      <DashboardFooter />
-    </>
+    <div className={`${styles.dashboardCon}`}>
+        <CameraDisplay display={scanner ? "flex" : "none"} />
+        <>
+          <DashboardHeader />
+          <div className={`${styles["container"]} flex`}>
+            <SideBar />
+            <div className={`${styles["center-con"]} lg:h-screen`}>
+              {children}
+            </div>
+            <RightBar />
+          </div>
+          <DashboardFooter />
+        </>
+    </div>
   );
 }
 

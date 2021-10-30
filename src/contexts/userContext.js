@@ -24,6 +24,7 @@ export function WalletProvider({ children }) {
   const [isInitiallyFetched, setIsInitiallyFetched] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   const [hasMetaMask, setHasMetaMask] = useState(true);
+  const [scanner, setScanner] = useState(false)
 
   const [user, setUser] = useState({ address: null, pharmacyDetails: null });
 
@@ -119,6 +120,8 @@ export function WalletProvider({ children }) {
         handleWalletConnect,
         handleWalletDisconnect,
         hasMetaMask,
+        scanner,
+        setScanner
       }}
     >
       {children}
