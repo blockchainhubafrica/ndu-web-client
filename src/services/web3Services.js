@@ -1,6 +1,10 @@
 import { ethers } from "ethers";
-import { NduAbi, RegisterAbi } from "../contract/abis";
-import { nduBaseContractAddress, registrationContractAddress } from "../utils";
+import { NduAbi, RegisterAbi, NduTokenAbi } from "../contract/abis";
+import {
+  nduBaseContractAddress,
+  registrationContractAddress,
+  nduTokenContractAddress,
+} from "../utils";
 
 export const connectToMetaMask = async (setLoading, setError) => {
   try {
@@ -50,6 +54,12 @@ export async function getRegisterContract(signer) {
   );
 }
 
+export async function getNduTokenContract(signer) {
+  if (!hasEthereum()) return false;
+
+  return new ethers.Contract(nduTokenContractAddress, NduTokenAbi.abi, signer);
+}
+
 export async function getNduBaseContract(signer) {
   if (!hasEthereum()) return false;
 
@@ -65,6 +75,7 @@ export async function getCompanyDetails() {
 
     const registrationContract = await getRegisterContract(signer);
     const address = getActiveWallet();
+
     const hasPharmacy = await registrationContract.registered(address);
     if (!hasPharmacy) return null;
 
@@ -93,6 +104,10 @@ export async function registerPharmacy(details, onRegistered) {
     const signer = provider.getSigner();
 
     const registrationContract = await getRegisterContract(signer);
+
+    const nduTokenContract = await getNduTokenContract(signer);
+
+    await nduTokenContract.approve(registrationContract.address, "100");
 
     await registrationContract.registerCompany(
       details.id,

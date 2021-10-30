@@ -11,11 +11,8 @@ function ConnectButton() {
 
   async function connect() {
     const connectionStatus = await handleWalletConnect();
-
     if (!connectionStatus) return;
-    setTimeout(() => {
-      history.push("/dashboard/user");
-    }, 300);
+    history.push("/dashboard/user");
   }
 
   return (

@@ -51,7 +51,7 @@ export function WalletProvider({ children }) {
   }, [user]);
 
   const handleWalletConnect = useCallback(() => {
-    (async () => {
+    return (async () => {
       const connectionStatus = await connectToMetaMask();
       if (connectionStatus.error) return false;
 
