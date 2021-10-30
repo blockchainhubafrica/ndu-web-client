@@ -8,53 +8,50 @@ import { v4 as uuidv4 } from "uuid";
 import { useHistory } from "react-router-dom";
 import { registerPharmacy } from "../../../services/web3Services";
 import sha256 from "sha256";
-
-const getId = () => {
-  let range = Array.from(Array(10).keys());
-  let token = "";
-  for (let i = 0; i < 10; i++) {
-    let randomIndex = Math.floor(Math.random() * range.length);
-    token += range[randomIndex];
-  }
-  return token;
-};
+import { randomNumber } from "../../../utils";
 
 const description = (name, address) => {
   return `The name of the pharmacy is ${name} and it is located in ${address}`;
 };
 
+const validationSchema = Yup.object({
+  name: Yup.string()
+    .min(3, "Pharmacy Name is too short")
+    .required("Pharmacy Name is required"),
+  address: Yup.string()
+    .min(3, "This Address is too short")
+    .required("Your Address is required"),
+  pin: Yup.string()
+    .min(5, "Must be up to 5 characters")
+    .required("Your Pharmacy Identitification number is required"),
+});
+
+const initialValues = {
+  name: "",
+  address: "",
+  pin: "",
+};
+
 function PharmacySignUpForm() {
   const history = useHistory();
+  const handleSubmit = (values) => {
+    (async () => {
+      const details = {
+        id: randomNumber(),
+        name: values.name,
+        isoNumber: uuidv4(),
+        ipfsHash: sha256(description(values.name, values.address).toString()),
+      };
+      await registerPharmacy(details, () =>
+        history.push("/dashboard/pharmacy")
+      );
+    })();
+  };
+
   const formik = useFormik({
-    initialValues: {
-      name: "",
-      address: "",
-      pin: "",
-    },
-    validationSchema: Yup.object({
-      name: Yup.string()
-        .min(3, "Pharmacy Name is too short")
-        .required("Pharmacy Name is required"),
-      address: Yup.string()
-        .min(3, "This Address is too short")
-        .required("Your Address is required"),
-      pin: Yup.string()
-        .min(5, "Must be up to 5 characters")
-        .required("Your Pharmacy Identitification number is required"),
-    }),
-    onSubmit: (values) => {
-      (async () => {
-        const details = {
-          id: getId(),
-          name: values.name,
-          isoNumber: uuidv4(),
-          ipfsHash: sha256(description(values.name, values.address).toString()),
-        };
-        await registerPharmacy(details, () =>
-          history.push("/dashboard/pharmacy")
-        );
-      })();
-    },
+    initialValues,
+    validationSchema,
+    onSubmit: handleSubmit,
   });
   return (
     <form className={`${styles["container"]}`} onSubmit={formik.handleSubmit}>
