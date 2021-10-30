@@ -64,8 +64,10 @@ export async function getCompanyDetails() {
     const signer = provider.getSigner();
 
     const registrationContract = await getRegisterContract(signer);
-
     const address = getActiveWallet();
+    const hasPharmacy = await registrationContract.registered(address);
+    if (!hasPharmacy) return null;
+
     let pharmacyId = (await registrationContract.companyId(address)).toString();
 
     const nduBaseContract = await getNduBaseContract(signer);
@@ -86,13 +88,12 @@ export async function getCompanyDetails() {
 export async function registerPharmacy(details, onRegistered) {
   if (!hasEthereum()) return false;
 
-  // try {
+  try {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
 
     const registrationContract = await getRegisterContract(signer);
 
-    console.log(details, registrationContract);
     await registrationContract.registerCompany(
       details.id,
       details.name,
@@ -101,7 +102,7 @@ export async function registerPharmacy(details, onRegistered) {
     );
 
     await registrationContract.on("companyRegister", onRegistered);
-  // } catch (error) {
-  //   console.log(error);
-  // }
+  } catch (error) {
+    console.log(error);
+  }
 }
