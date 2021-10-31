@@ -12,9 +12,9 @@ import { useUserContext } from "../../contexts/userContext";
 
 function SideBar() {
   const activeRoute = useLocation().pathname;
-
   const { user } = useUserContext();
   const hasPharmacy = user.pharmacyDetails;
+  
   const linkClass = (route) => {
     if (activeRoute.includes(route))
       return `${styles["iconCon"]} ${styles["active"]}`;

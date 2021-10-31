@@ -6,13 +6,13 @@ function NormalButton({ children, buttonText, className, bg, ...rest }) {
   if (className) classes += ` ${className}`;
 
   return (
-    <div
+    <button
       className={classes}
       style={{ backgroundColor: bg ? bg : null }}
       {...rest}
     >
       {children ?? buttonText}
-    </div>
+    </button>
   );
 }
 

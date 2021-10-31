@@ -59,30 +59,28 @@ function PharmacySignUpForm() {
     onSubmit: handleSubmit,
   });
   return (
-    <>
-      <form className={`${styles["container"]}`} onSubmit={formik.handleSubmit}>
-        <Input
-          name="name"
-          formik={formik}
-          label="Pharmacy Name"
-          className={`${styles["inputs"]} mb-8`}
-        />
-        <Input
-          name="address"
-          formik={formik}
-          label="Address / Location"
-          className={`${styles["inputs"]} mb-8`}
-        />
-        <Input
-          name="pin"
-          formik={formik}
-          type="password"
-          label="Pharmacy Identification Number"
-          className={`${styles["inputs"]} mb-10`}
-        />
-        <RegularButton>Submit</RegularButton>
-      </form>
-    </>
+    <form className={`${styles["container"]}`} onSubmit={formik.handleSubmit}>
+      <Input
+        name="name"
+        formik={formik}
+        label="Pharmacy Name"
+        className={`${styles["inputs"]} mb-8`}
+      />
+      <Input
+        name="address"
+        formik={formik}
+        label="Address / Location"
+        className={`${styles["inputs"]} mb-8`}
+      />
+      <Input
+        name="pin"
+        formik={formik}
+        type="password"
+        label="Pharmacy Identification Number"
+        className={`${styles["inputs"]} mb-10`}
+      />
+      <RegularButton>Submit</RegularButton>
+    </form>
   );
 }
 

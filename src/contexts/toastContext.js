@@ -3,18 +3,18 @@ import { createContext, useContext, useState } from "react";
 const toastContext = createContext();
 
 export function ToastProvider({ children }) {
-  const [isActive, setIsActive] = useState(false);
+  const [isDisplayingToast, setIsDisplayingToast] = useState(false);
   const [toastType, setToastType] = useState("success");
   const [toastMessage, setToastMessage] = useState("Hello");
 
   const toast = {
     error: (message) => {
-      setIsActive(true);
+      setIsDisplayingToast(true);
       setToastType("error");
       setToastMessage(message);
     },
     success: (message) => {
-      setIsActive(true);
+      setIsDisplayingToast(true);
       setToastType("success");
       setToastMessage(message);
     },
@@ -28,8 +28,8 @@ export function ToastProvider({ children }) {
         setToastType,
         toastMessage,
         setToastMessage,
-        isActive,
-        setIsActive,
+        isDisplayingToast,
+        setIsDisplayingToast,
       }}
     >
       {children}

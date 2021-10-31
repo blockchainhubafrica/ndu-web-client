@@ -29,8 +29,6 @@ function ConnectButton() {
           </a>
         </div>
       )}
-      {!hasMetaMask && <div>Error connecting to wallet</div>}
-
       {hasMetaMask && (
         <NormalButton bg="#022655" onClick={connect} disabled={loading}>
           <span className="hidden md:block">Connect Wallet</span>

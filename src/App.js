@@ -11,13 +11,13 @@ function App() {
     <div className="App">
       <Router basename={"/"}>
         <LoadingProvider>
-          <WalletProvider>
-            <ToastProvider>
+          <ToastProvider>
+            <WalletProvider>
               <Loader />
               <Toast />
               <AppRouter />
-            </ToastProvider>
-          </WalletProvider>
+            </WalletProvider>
+          </ToastProvider>
         </LoadingProvider>
       </Router>
     </div>

@@ -1,8 +1,12 @@
+.container {
+  position: relative;
+}
 .container textarea {
   padding: 10px 10px;
   border-radius: var(--app-border-radius-sm);
   background-color: #fafafa;
   color: #838181;
+  width: 100%;
 }
 
 @media screen and (min-width: 400px) {
@@ -13,4 +17,15 @@
 
 .container textarea:focus {
   outline: none;
+}
+
+.container.error textarea {
+  outline: 2px solid red;
+}
+
+.error-message {
+  position: absolute;
+  margin-top: 3px;
+  color: red;
+  font-size: 0.8rem;
 }

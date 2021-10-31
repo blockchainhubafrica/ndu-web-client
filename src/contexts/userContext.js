@@ -16,11 +16,13 @@ import {
 } from "../services/web3Services";
 
 import { useHistory } from "react-router-dom";
+import { useToastContext } from "./toastContext";
 import { useLoadingContext } from "./loadingContext";
 
 const userContext = createContext();
 
 export function WalletProvider({ children }) {
+  const { toast } = useToastContext();
   const { setIsLoading } = useLoadingContext();
   const history = useHistory();
   const [isInitiallyFetched, setIsInitiallyFetched] = useState(false);
@@ -101,13 +103,16 @@ export function WalletProvider({ children }) {
 
   useEffect(() => {
     if (isInitiallyFetched) return;
-    if (!hasEthereum()) return setHasMetaMask(false);
+    if (!hasEthereum()) {
+      toast.error("Please Install Meta Mask");
+      return setHasMetaMask(false);
+    }
     const isInjected = localStorage.getItem("wallet-connection");
     if (!isInjected) return setIsInitiallyFetched(true);
 
     handleWalletConnect();
     setIsInitiallyFetched(true);
-  }, [handleWalletConnect, isInitiallyFetched]);
+  }, [handleWalletConnect, isInitiallyFetched, toast]);
 
   return (
     <userContext.Provider

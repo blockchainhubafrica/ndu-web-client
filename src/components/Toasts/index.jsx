@@ -4,26 +4,28 @@ import { WhiteCloseIcon } from "../../assets";
 import { useEffect } from "react";
 
 function Toast() {
-  const { toastType, toastMessage, isActive, setIsActive } = useToastContext();
+  const { toastType, toastMessage, isDisplayingToast, setIsDisplayingToast } =
+    useToastContext();
 
   const containerClass = (() => {
-    if (!isActive) return `${styles["container"]} ${styles[toastType]}`;
+    if (!isDisplayingToast)
+      return `${styles["container"]} ${styles[toastType]}`;
 
     return `${styles["container"]} ${styles[toastType]} ${styles["active"]}`;
   })();
 
   useEffect(() => {
-    if (!isActive) return;
+    if (!isDisplayingToast) return;
     setTimeout(() => {
-      setIsActive(false);
+      setIsDisplayingToast(false);
     }, 3000);
-  }, [isActive, setIsActive]);
+  }, [isDisplayingToast, setIsDisplayingToast]);
 
   return (
     <div className={containerClass}>
       <WhiteCloseIcon
         className={styles["close-btn"]}
-        onClick={() => setIsActive(false)}
+        onClick={() => setIsDisplayingToast(false)}
       />
       <p className={`${styles["heading"]} mb-2`}>{toastType}</p>
       <p className={`${styles["message"]}`}>{toastMessage}</p>
