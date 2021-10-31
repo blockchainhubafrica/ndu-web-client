@@ -4,13 +4,28 @@
   top: -120px;
   perspective: 100px;
   perspective-origin: left;
-  left: calc(50% - 225px);
-  max-width: 450px;
+  left: calc(0px);
+  max-width: 100%;
   padding: 20px 25px;
   transition: top 0.3s ease-in;
   color: #fff;
   z-index: var(--modal-z-index);
   box-shadow: 4px 5px 13px 0px rgba(0, 0, 0, 0.35);
+}
+
+.container.active {
+  top: 0px;
+}
+
+@media screen and (min-width: 640px) {
+  .container {
+    left: calc(50% - 225px);
+    max-width: 450px;
+  }
+
+  .container.active {
+    top: 40px;
+  }
 }
 
 .container.error {
@@ -19,10 +34,6 @@
 
 .container.success {
   background-color: var(--app-primary-green);
-}
-
-.container.active {
-  top: 40px;
 }
 
 .heading {
