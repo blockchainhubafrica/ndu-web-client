@@ -1,6 +1,6 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { ArrowLeft, drug } from "../../assets";
+import { ArrowLeft } from "../../assets";
 import { Pagination } from "../../components";
 import { useUserContext } from "../../contexts/userContext";
 import { DashboardLayout } from "../../layouts";
@@ -147,7 +147,9 @@ const PharmacyDrugInventory = () => {
             <div
               key={index + item.name}
               className="cursor-pointer"
-              onClick={() => history.push("/dashboard/pharmacy/drugs/1")}
+              onClick={() =>
+                history.push(`/dashboard/pharmacy/drugs/${index + 1}`)
+              }
             >
               <Drug
                 image={`https://ipfs.io/ipfs/${item.imageHash}`}

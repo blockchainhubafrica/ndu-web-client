@@ -58,7 +58,7 @@ export function WalletProvider({ children }) {
     return (async () => {
       setIsLoading(true);
       const connectionStatus = await connectToMetaMask();
-      if (connectionStatus.error) return false;
+      if (!connectionStatus) return false;
 
       const address = getActiveWallet();
       setAddress(address);
@@ -107,12 +107,14 @@ export function WalletProvider({ children }) {
       toast.error("Please Install Meta Mask");
       return setHasMetaMask(false);
     }
+    console.log("a");
     const isInjected = localStorage.getItem("wallet-connection");
     if (!isInjected) return setIsInitiallyFetched(true);
 
     handleWalletConnect();
     setIsInitiallyFetched(true);
-  }, [handleWalletConnect, isInitiallyFetched, toast]);
+    return;
+  }, [handleWalletConnect, isInitiallyFetched]);
 
   return (
     <userContext.Provider

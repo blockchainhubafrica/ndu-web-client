@@ -6,13 +6,12 @@ import {
   nduTokenContractAddress,
 } from "../utils";
 
-export const connectToMetaMask = async (setLoading, setError) => {
+export const connectToMetaMask = async (setError) => {
   try {
-    if (!hasEthereum()) return { error: "no meta mask" };
+    if (!hasEthereum()) return false
 
-    if (setLoading) setLoading(true);
     await window.ethereum.request({ method: "eth_requestAccounts" });
-    if (setLoading) setLoading(false);
+
     return true;
   } catch (error) {
     console.log(error);
@@ -156,4 +155,3 @@ export async function registerPharmacy(details, Loading, onRegistered) {
 //     console.log(error);
 //   }
 // }
-

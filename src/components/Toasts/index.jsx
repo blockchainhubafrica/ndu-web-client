@@ -23,10 +23,12 @@ function Toast() {
 
   return (
     <div className={containerClass}>
-      <WhiteCloseIcon
-        className={styles["close-btn"]}
+      <button
+        className={`${styles["close-btn"]} p-3`}
         onClick={() => setIsDisplayingToast(false)}
-      />
+      >
+        <WhiteCloseIcon />
+      </button>
       <p className={`${styles["heading"]} mb-2`}>{toastType}</p>
       <p className={`${styles["message"]}`}>{toastMessage}</p>
       <div className={styles["progress-bar"]}></div>
