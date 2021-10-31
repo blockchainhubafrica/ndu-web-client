@@ -4,17 +4,22 @@ import { UploadDrugImage } from "../../../assets";
 import { Input, TextArea, NormalButton } from "../../../components";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import ipfs from "../../../utils/ipfs";
+import { ipfsApi, ipfsMini } from "../../../services/ipfs";
+import { ethers } from "ethers";
+import { getRegisterContract } from "../../../services/web3Services";
+import { randomNumber } from "../../../utils";
+import { useToastContext } from "../../../contexts/toastContext";
+import { useLoadingContext } from "../../../contexts/loadingContext";
 
 const validationSchema = Yup.object({
   file: Yup.mixed().required("Please include an image"),
   name: Yup.string()
     .min(2, "Drug Name Name is too short")
     .required("Drug Name is required"),
-  "manufactury-date": Yup.string().required("Manufactury Date is required"),
-  "expiry-date": Yup.string().required("Manufactury Date is required"),
-  "hash-number": Yup.string().required(
-    "Must input the no. of drugs to register"
+  "manufacture-date": Yup.string().required("Manufacture Date is required"),
+  "expiry-date": Yup.string().required("Manufacture Date is required"),
+  "no-of-serials": Yup.string().required(
+    "Input the no. of serials to generate"
   ),
   description: Yup.string()
     .min(5, "Description is too short")
@@ -24,20 +29,74 @@ const validationSchema = Yup.object({
 const initialValues = {
   file: null,
   name: "",
-  "manufactury-date": "",
+  "manufacture-date": "",
   "expiry-date": "",
-  "hash-number": "",
+  "no-of-serials": "",
   description: "",
 };
 
 function DrugRegistration(props) {
+  const { toast } = useToastContext();
+  const { setIsLoading } = useLoadingContext();
   const [image, setImage] = useState(null);
 
-  const handleSubmit = (values) => {
+  const handleSubmit = (values, { resetForm }) => {
     console.log(values);
-    
+    const fileReader = new FileReader();
+    setIsLoading(true);
+    try {
+      fileReader.readAsArrayBuffer(values.file);
+      fileReader.onloadend = () => {
+        let buffer = Buffer(fileReader.result);
+
+        ipfsApi.files?.add(buffer, async (error, result) => {
+          if (error) {
+            console.log(error);
+            return;
+          }
+          console.log(result[0].hash);
+          const drugIpfsHash = await ipfsMini.addJSON({
+            imageHash: result[0].hash,
+            name: values.name,
+            "manufacture-date": values["manufacture-date"],
+            "expiry-date": values["expiry-date"],
+            "no-of-serials": values["no-of-serials"],
+            description: values.description,
+          });
+          console.log({ drugIpfsHash });
+          // (async () => {
+          const provider = new ethers.providers.Web3Provider(window.ethereum);
+          const signer = provider.getSigner();
+
+          const registrationContract = await getRegisterContract(signer);
+          console.log(registrationContract);
+          const serialNo = randomNumber();
+          console.log({ serialNo });
+
+          await registrationContract.registerSerialNumber(
+            serialNo,
+            drugIpfsHash
+          );
+
+          await registrationContract.on("drugRegister", () => {
+            // onRegistered();
+            // console.log("Drug was registered")
+            setIsLoading(false);
+
+            toast.success(`${values.name} was registered successfully!`);
+            resetForm()
+            // Loading(false);
+          });
+        });
+      };
+
+      // })()
+    } catch (error) {
+      // Loading(false);
+      console.log(error);
+    }
+
     // (async () => {
-    //   const result = await ipfs.addJSON({...values});
 
     // })()
     // const details = {
@@ -79,8 +138,10 @@ function DrugRegistration(props) {
                 onChange={(event) => {
                   const file = event?.currentTarget?.files[0];
                   formik.setFieldValue("file", file);
-                  const url = URL.createObjectURL(file);
-                  setImage(url);
+                  if (file) {
+                    const url = URL.createObjectURL(file);
+                    setImage(url);
+                  }
                 }}
               ></Input>
               {!image && (
@@ -99,9 +160,9 @@ function DrugRegistration(props) {
             />
             <Input
               isdate="true"
-              name="manufactury-date"
+              name="manufacture-date"
               formik={formik}
-              placeholder="Manufactury Date"
+              placeholder="Manufacture Date"
               className={`w-full mb-8`}
             />
             <Input
@@ -127,8 +188,8 @@ function DrugRegistration(props) {
         <div className="w-full md:w-auto mb-8 md:mb-0">
           <Input
             formik={formik}
-            name="hash-number"
-            placeholder="No. of Hash keys"
+            name="no-of-serials"
+            placeholder="No. of Serial keys"
             type="number"
             className="w-full md:w-auto"
           />

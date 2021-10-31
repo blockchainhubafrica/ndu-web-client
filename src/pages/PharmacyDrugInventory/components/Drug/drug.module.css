@@ -1,20 +1,37 @@
 .container {
   border-radius: 20px;
   background: #f8fafc;
-  height: 190px;
+  height: 220px;
 }
 
 .container img {
-  max-width: 80%;
+  /* max-width: 80%; */
+  height: 160px;
   object-fit: contain;
 }
 
-.container p {
+.container div {
+  /* padding: 15px 20px; */
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+}
+
+.container span {
+  /* padding: 15px 20px; */
+  /* display: block; */
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 .container:hover {
-  transform: scale(1.13);
+  background: #d6d7d9;
+}
+
+.container:hover div {
+  color: #fff;
+  background-color: var(--app-primary-blue);
 }

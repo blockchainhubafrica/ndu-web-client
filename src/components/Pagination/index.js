@@ -13,16 +13,17 @@ const Pagination = (props) => {
     currentPage,
     pageSize,
     className,
+    items,
   } = props;
-
   const paginationRange = usePagination({
     currentPage,
     totalCount,
     siblingCount,
     pageSize,
   });
+  if (!totalCount) return null;
 
-  if (currentPage === 0 || paginationRange.length < 2) {
+  if (currentPage === 0 || paginationRange?.length < 2) {
     return null;
   }
 
@@ -34,7 +35,7 @@ const Pagination = (props) => {
     onPageChange(currentPage - 1);
   };
 
-  let lastPage = paginationRange[paginationRange.length - 1];
+  let lastPage = paginationRange[paginationRange?.length - 1];
   return (
     <div className={`${styles.container} ${className}`}>
       <button
@@ -47,7 +48,7 @@ const Pagination = (props) => {
         <PaginateArrowLeft className={`inline-block`} />
       </button>
 
-      {paginationRange.map((pageNumber, index) => {
+      {paginationRange?.map((pageNumber, index) => {
         if (pageNumber === "...") {
           return <span className="pagination-item dots">&#8230;</span>;
         }

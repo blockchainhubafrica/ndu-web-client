@@ -126,3 +126,34 @@ export async function registerPharmacy(details, Loading, onRegistered) {
     console.log(error);
   }
 }
+
+// export async function drugRegistration(details, Loading) {
+//   if (!hasEthereum()) return false;
+//   Loading(true);
+//   try {
+//     const provider = new ethers.providers.Web3Provider(window.ethereum);
+//     const signer = provider.getSigner();
+
+//     const registrationContract = await getRegisterContract(signer);
+
+//     const nduTokenContract = await getNduTokenContract(signer);
+
+//     await nduTokenContract.approve(registrationContract.address, "100");
+
+//     await registrationContract.registerCompany(
+//       details.id,
+//       details.name,
+//       details.isoNumber,
+//       details.ipfsHash
+//     );
+
+//     await registrationContract.on("companyRegister", () => {
+//       onRegistered();
+//       Loading(false);
+//     });
+//   } catch (error) {
+//     Loading(false);
+//     console.log(error);
+//   }
+// }
+
