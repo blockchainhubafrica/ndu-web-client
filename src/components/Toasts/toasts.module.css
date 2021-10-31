@@ -1,28 +1,47 @@
-.success-toast {
+.container {
   position: fixed;
   width: 100%;
-  top: -100px;
+  top: -120px;
   perspective: 100px;
   perspective-origin: left;
-  left: calc(50% - 200px);
-  max-width: 400px;
+  left: calc(50% - 225px);
+  max-width: 450px;
   padding: 20px 25px;
-  transition: top 1s ease-in;
-  background-color: var(--app-primary-green);
+  transition: top 0.3s ease-in;
   color: #fff;
   z-index: var(--modal-z-index);
   box-shadow: 4px 5px 13px 0px rgba(0, 0, 0, 0.35);
 }
 
-.active {
+.container.error {
+  background-color: var(--app-primary-red);
+}
+
+.container.success {
+  background-color: var(--app-primary-green);
+}
+
+.container.active {
   top: 40px;
 }
 
 .heading {
+  text-transform: capitalize;
   font-weight: 550;
   font-size: 18px;
 }
 
 .message {
   font-weight: 100;
+}
+
+.close-btn {
+  position: absolute;
+  right: 30px;
+  cursor: pointer;
+  transition: scale 0.1s ease-in-out;
+}
+
+.close-btn:hover {
+  transform: scale(1.2, 1.2);
 }

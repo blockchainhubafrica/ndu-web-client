@@ -10,7 +10,7 @@ import { registerPharmacy } from "../../../services/web3Services";
 import sha256 from "sha256";
 import { randomNumber } from "../../../utils";
 import { useLoadingContext } from "../../../contexts/loadingContext";
-import { toast } from "./../../Toasts/index";
+import { useToastContext } from "../../../contexts/toastContext";
 
 const description = (name, address) => {
   return `The name of the pharmacy is ${name} and it is located in ${address}`;
@@ -36,6 +36,7 @@ const initialValues = {
 
 function PharmacySignUpForm() {
   const { setIsLoading } = useLoadingContext();
+  const { toast } = useToastContext();
   const history = useHistory();
   const handleSubmit = (values) => {
     const details = {
@@ -44,12 +45,12 @@ function PharmacySignUpForm() {
       isoNumber: uuidv4(),
       ipfsHash: sha256(description(values.name, values.address).toString()),
     };
-    // toast.success(`${values.name} was successfully registered`);
-    // (async () => {
-    //   await registerPharmacy(details, setIsLoading, () => {
-    //     history.push("/dashboard/pharmacy");
-    //   });
-    // })();
+    (async () => {
+      await registerPharmacy(details, setIsLoading, () => {
+        toast.success(`${values.name} was successfully registered`);
+        history.push("/dashboard/pharmacy");
+      });
+    })();
   };
 
   const formik = useFormik({

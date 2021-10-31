@@ -41,7 +41,8 @@ export function listenToAccountChanges(handler) {
 }
 
 export async function unmountEthListeners() {
-  window.ethereum.removeListener("accountsChanged", () => { });
+  window.ethereum.removeListener("accountsChanged", () => {});
+  window.ethereum.removeListener("message", () => {});
 }
 
 export async function getRegisterContract(signer) {
@@ -116,8 +117,10 @@ export async function registerPharmacy(details, Loading, onRegistered) {
       details.ipfsHash
     );
 
-    await registrationContract.on("companyRegister", onRegistered);
-    Loading(false);
+    await registrationContract.on("companyRegister", () => {
+      onRegistered();
+      Loading(false);
+    });
   } catch (error) {
     Loading(false);
     console.log(error);

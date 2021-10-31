@@ -8,6 +8,7 @@
 
 :root {
   --app-primary-blue: #022655;
+  --app-primary-red: #fa5f1c;
   --app-blue-fade: #ebf3ff;
   --app-blue-light: #f8fafc;
   --app-grey: #717171;
@@ -18,7 +19,7 @@
   --app-border-radius-md: 15px;
   --app-border-radius-lg: 30px;
   --scan-icon-z-index: 500;
-  --header-z-index:1000;
+  --header-z-index: 1000;
   --overlay-z-index: 1500;
   --modal-z-index: 1500;
 }
@@ -30,7 +31,6 @@
     "Segoe UI", Roboto, Oxygen, Ubuntu, Cantarell, "Open Sans", "Helvetica Neue",
     sans-serif;
 }
-
 
 ul,
 ol {

@@ -1,11 +1,9 @@
 import { BrowserRouter as Router } from "react-router-dom";
-import { ToastContainer } from "react-toastify";
-import "react-toastify/dist/ReactToastify.css";
 
 import AppRouter from "./appRouter";
-import { Loader } from "./components";
-import { SuccessToast } from "./components/Toasts/success";
+import { Loader, Toast } from "./components";
 import { LoadingProvider } from "./contexts/loadingContext";
+import { ToastProvider } from "./contexts/toastContext";
 import { WalletProvider } from "./contexts/userContext";
 
 function App() {
@@ -14,10 +12,11 @@ function App() {
       <Router basename={"/"}>
         <LoadingProvider>
           <WalletProvider>
-            <Loader />
-            <SuccessToast message={`Chidi was successfully registered`} />
-            <ToastContainer position="top-center" autoClose={3000} />
-            <AppRouter />
+            <ToastProvider>
+              <Loader />
+              <Toast />
+              <AppRouter />
+            </ToastProvider>
           </WalletProvider>
         </LoadingProvider>
       </Router>
