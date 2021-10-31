@@ -29,6 +29,7 @@ function Toast() {
       />
       <p className={`${styles["heading"]} mb-2`}>{toastType}</p>
       <p className={`${styles["message"]}`}>{toastMessage}</p>
+      <div className={styles["progress-bar"]}></div>
     </div>
   );
 }

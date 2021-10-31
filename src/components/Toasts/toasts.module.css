@@ -45,3 +45,19 @@
 .close-btn:hover {
   transform: scale(1.2, 1.2);
 }
+
+.container .progress-bar {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  border-radius: 0px 20px 20px 0px;
+  content: "";
+  width: 100%;
+  height: 5px;
+  background-color: #fff;
+  transition: width 3s ease-in;
+}
+
+.container.active .progress-bar {
+  width: 0%;
+}
