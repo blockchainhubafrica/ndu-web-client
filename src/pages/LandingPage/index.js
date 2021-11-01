@@ -4,7 +4,6 @@ import {
   drugPark,
   dude,
   globeStats,
-  greenArc1,
   HowItWorksIconA,
   HowItWorksIconB,
   HowItWorksIconC,
@@ -22,12 +21,7 @@ import styles from "./landingPage.module.css";
 
 const LandingPage = () => {
   const [display, setdisplay] = useState(false);
-  // useEffect(() => {
-  //   effect
-  //   return () => {
-  //     cleanup
-  //   }
-  // }, [input])
+
   return (
     <>
       <ConnectWalletModal setDisplayModal={setdisplay} displayModal={display} />
@@ -37,14 +31,20 @@ const LandingPage = () => {
           <div className="container mx-auto text-center py-16 md:py-20">
             <div className={styles["headers"]}>
               <h1 className="text-2xl md:text-3xl lg:text-4xl mb-4">
-                Time to combat and eradicate <br className="hidden lg:block" />
-                <span className={styles["green-bg"]}>conterfeit drugs</span>
-                using blockchain
+                Ndu combines the decentralized power
+                <br className="hidden lg:block" /> of the blockchain to combat
+                and eradicate
+                <span className={styles["green-bg"]}>conterfeit drugs.</span>
               </h1>
               <p>
-                Since washing powder contains caustic soda & some minerals which
-                is harmful for clothes, <br className="hidden lg:block" />{" "}
-                Jainson Daily wash takes care of clothes & making
+                The rise in sale of counterfeit drugs in Africa
+                <br className="hidden lg:block" /> has become an overwhelming
+                problem. In Nigeria alone, <br className="hidden lg:block" />
+                NAFDAC in 2002 found that nearly 41% of pharmaceuticals were
+                counterfeit, and 70% were unregistered.
+                <br className="hidden lg:block" />
+                Though there have been efforts to combat the presence of
+                counterfeit drugs, the amount of fake drugs sold remains high
               </p>
             </div>
             <div className={styles["intro-image-div"]}>
@@ -77,11 +77,9 @@ const LandingPage = () => {
                   Why <span className="italic font-bold">ndu</span>
                 </h2>
                 <p className="text-white">
-                  Since washing powder contains caustic soda & some minerals
-                  which is harmful for clothes, Jainson Daily wash takes care of
-                  clothes & making Since washing powder contains caustic soda &
-                  some minerals which is harmful for clothes, Jainson Daily wash
-                  takes care of clothes & making.
+                  Ndu runs on the blockchain technology allowing relevant data
+                  about drug production, distribution and sales to be immutable
+                  and safely stored.
                 </p>
                 <div className={styles["landing-image-3-container"]}>
                   <img src={rightArc} alt="" />
@@ -135,13 +133,12 @@ const LandingPage = () => {
                 <h2 className="text-2xl md:text-3xl lg:text-4xl mb-10 text-center lg:text-left">
                   <span className="">Your drugs could be </span>
                   <br />
-                  <span className={`${styles["green-underscore"]}`}>there</span>
+                  <span className={`${styles["green-underscore"]}`}>here</span>
                   <span> too</span>
                 </h2>
                 <p className="">
-                  Since washing powder contains caustic soda & some minerals
-                  which is harmful for clothes, Jainson Daily wash takes care of
-                  clothes & making.
+                  With Ndu, you are in sole control of the records of
+                  production, distribution and sales of your drug product.
                 </p>
               </div>
             </div>
@@ -157,22 +154,25 @@ const LandingPage = () => {
             <div className="grid grid:col-1 md:grid-cols-5">
               <div className="col-span-1 md:col-span-3 lg:col-span-2">
                 <p className={`${styles["paragraph"]} mb-12`}>
-                  Since washing powder contains caustic soda & some minerals
-                  which is harmful for clothes, Jainson Daily wash takes care of
-                  clothes & making
+                  Ndu runs on the blockchain technology allowing relevant data
+                  about drug production, distribution and sales to be immutable
+                  and safely stored.
                 </p>
                 <ul className={styles["special-bullet-list"]}>
                   <li>
-                    <span>Since washing powder.</span>
+                    <span>
+                      Inscribes and identifies a drug product with unique hash
+                      values
+                    </span>
                   </li>
                   <li>
-                    <span>Since washing powder.</span>
+                    <span>Stores hash values in blockchain.</span>
                   </li>
                   <li>
-                    <span>Since washing powder.</span>
+                    <span>Generates barcode with hash values.</span>
                   </li>
                   <li>
-                    <span>Since washing powder.</span>
+                    <span>Now you can verify your drugs anywhere.</span>
                   </li>
                 </ul>
               </div>

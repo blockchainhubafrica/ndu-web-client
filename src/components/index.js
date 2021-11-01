@@ -18,3 +18,5 @@ export * from "./WalletButton";
 export * from "./Pagination";
 export * from "./WalletButton"
 export * from "./Forms"
+export * from "./Loader"
+export * from "./Toasts"

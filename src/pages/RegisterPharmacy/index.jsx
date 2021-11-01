@@ -1,14 +1,14 @@
 import React from "react";
-import { BigScan } from "../../assets";
 import { DashboardLayout } from "../../layouts";
 import styles from "./register-pharmacy.module.css";
 import PharmacySignUpForm from "./../../components/Forms/PharmacySignUp/index";
+import ScanButton from "../../components/ScanIcon";
 
 function RegisterPharmacy() {
   return (
     <DashboardLayout>
       <div
-        className={`${styles.loginCon}  pt-4 sm:pt-10 lg:pt-20   justify-center`}
+        className={`${styles.container}  pt-4 sm:pt-10 lg:pt-20   justify-center`}
       >
         <div className="container sm:px-24  2xl:px-48  ">
           <div className="text-xl text-white text-center mb-8 sm:mb-12">
@@ -20,9 +20,7 @@ function RegisterPharmacy() {
           <PharmacySignUpForm />
         </div>
       </div>
-      <div className={`${styles.circularButton} flex lg:hidden`}>
-        <BigScan />
-      </div>
+      <ScanButton bgColor="blue" />
     </DashboardLayout>
   );
 }

@@ -7,53 +7,61 @@ import {
   NduLogo,
   UserIcon,
 } from "../../assets";
-import { NavLink } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { useUserContext } from "../../contexts/userContext";
 
 function SideBar() {
+  const activeRoute = useLocation().pathname;
   const { user } = useUserContext();
   const hasPharmacy = user.pharmacyDetails;
+  
+  const linkClass = (route) => {
+    if (activeRoute.includes(route))
+      return `${styles["iconCon"]} ${styles["active"]}`;
+
+    return `${styles["iconCon"]}`;
+  };
 
   return (
     <div className={`${styles.sideBarCon} py-10 hidden lg:block`}>
       <NduLogo className={`${styles.nduLogo}`} />
       <ul>
-        <NavLink to="/dashboard/user">
-          <li>
-            <span className={`${styles.iconCon}`}>
+        <li className="flex mb-8">
+          <Link to="/dashboard/user">
+            <div className={linkClass("/dashboard/user")}>
               <DashBoardIcon className={`${styles.sideBarIcon}`} />
-            </span>
-            <h6>Dashboard</h6>
-          </li>
-        </NavLink>
-        <NavLink to="/dashboard/user">
-          <li>
-            <span className={`${styles.iconCon}`}>
+            </div>
+            <span>Dashboard</span>
+          </Link>
+        </li>
+        <li className="flex mb-8">
+          <Link to="/dashboard/user">
+            <div className={linkClass("/dashboard/user/profile")}>
               <UserIcon className={`${styles.sideBarIcon}`} />
-            </span>
-            <h6>Profile</h6>
-          </li>
-        </NavLink>
-        <NavLink to="/dashboard/user">
-          <li>
-            <span className={`${styles.iconCon}`}>
+            </div>
+            <span>Profile</span>
+          </Link>
+        </li>
+        <li className="flex mb-8">
+          <Link to="/dashboard/user">
+            <div className={linkClass("/dashboard/user/transactions")}>
               <MoneyIcon className={`${styles.sideBarIcon}`} />
-            </span>
-            <h6>Transactions</h6>
-          </li>
-        </NavLink>
-        <NavLink
-          to={
-            hasPharmacy ? "/dashboard/pharmacy" : "/dashboard/pharmacy/signup"
-          }
-        >
-          <li>
-            <span className={`${styles.iconCon}`}>
+            </div>
+            <span>Transactions</span>
+          </Link>
+        </li>
+        <li className="flex mb-8">
+          <Link
+            to={
+              hasPharmacy ? "/dashboard/pharmacy" : "/dashboard/pharmacy/signup"
+            }
+          >
+            <div className={linkClass("/dashboard/pharmacy")}>
               <CartIcon className={`${styles.sideBarIcon}`} />
-            </span>
-            <h6>Pharmacy</h6>
-          </li>
-        </NavLink>
+            </div>
+            <span>Pharmacy</span>
+          </Link>
+        </li>
       </ul>
     </div>
   );

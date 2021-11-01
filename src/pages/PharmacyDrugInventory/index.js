@@ -1,44 +1,109 @@
 import React, { useEffect, useMemo, useState } from "react";
 import { useHistory } from "react-router-dom";
-import { ArrowLeft, drug } from "../../assets";
+import { ArrowLeft } from "../../assets";
 import { Pagination } from "../../components";
 import { useUserContext } from "../../contexts/userContext";
 import { DashboardLayout } from "../../layouts";
+import { getNduBaseContract } from "../../services/web3Services";
 import { Drug } from "./components";
 
 import styles from "./pharmacyDrugInventory.module.css";
+import { ethers } from "ethers";
+import { useLoadingContext } from "../../contexts/loadingContext";
+import { useToastContext } from "../../contexts/toastContext";
 
-const dummyData = [
-  "Acetaminophen",
-  "Adderall",
-  "Amitriptyline",
-  "Doxycycline",
-  "Lisinopril",
-  "Pantoprazole",
-  "Otezla",
-  "Rybelsus",
-  "Tramadol",
-  "Wellbutrin",
-  "Probuphine",
-  "Hydrochlorothiazide",
-  "Ibuprofen",
-  "Cephalexin",
-  "Bunavail",
+const serials = [
+  "7847632117",
+  "4122104531",
+  "9622091297",
+  "2022677414",
+  "0008592241",
+  "1032848671",
+  "7667566563",
 ];
+// const dummyData = [
+//   "Acetaminophen",
+//   "Adderall",
+//   "Amitriptyline",
+//   "Doxycycline",
+//   "Lisinopril",
+//   "Pantoprazole",
+//   "Otezla",
+//   "Rybelsus",
+//   "Tramadol",
+//   "Wellbutrin",
+//   "Probuphine",
+//   "Hydrochlorothiazide",
+//   "Ibuprofen",
+//   "Cephalexin",
+//   "Bunavail",
+// ];
 
 let PageSize = 6;
 
 const PharmacyDrugInventory = () => {
+  const { setIsLoading } = useLoadingContext();
+  const { toast } = useToastContext();
+  const [drugs, setDrugs] = useState(null);
   const { user } = useUserContext();
   const [currentPage, setCurrentPage] = useState(1);
 
   const history = useHistory();
 
   const displayData = useMemo(() => {
+    if (!drugs) return [];
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    return dummyData.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage]);
+    return drugs?.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, drugs]);
+
+  useEffect(() => {
+    if (drugs) return;
+    setIsLoading(true);
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+
+    (async () => {
+      const NduBaseContract = await getNduBaseContract(signer);
+      // console.log(NduBaseContract);
+      // const serialNo = randomNumber();
+      // console.log({ serialNo });
+      const drugRequests = serials.map((serial) =>
+        NduBaseContract.drugDetails(serial)
+      );
+
+      // console.log(drugRequests);
+      const hashPromises = await Promise.allSettled(drugRequests);
+      const hashes = hashPromises.map((drug) => {
+        if (drug.status === "fulfilled") return drug.value;
+        return drug;
+      });
+
+      const drugDataFromIPFS = hashes.map((hash) =>
+        fetch(`https://ipfs.io/ipfs/${hash}`).then((data) => data.json())
+      );
+
+      const retrievedDrugPromises = await Promise.allSettled(drugDataFromIPFS);
+
+      const retrievedDrugs = retrievedDrugPromises.map((drug) => {
+        if (drug.status === "fulfilled") return drug.value;
+        return drug;
+      });
+
+      setDrugs(retrievedDrugs);
+      setIsLoading(false);
+      toast.success("All Drugs were retrieved successfully");
+
+      console.log(retrievedDrugs);
+
+      // await registrationContract.on("drugRegister", () => {
+      //   // onRegistered();
+      //   // console.log("Drug was registered")
+      //   toast.success("Drug was registered successfully!");
+      //   // Loading(false);
+      // });
+    })();
+  }, [drugs, setIsLoading, toast]);
 
   useEffect(() => {
     window.scrollTo({ behavior: "smooth", top: "0px" });
@@ -51,7 +116,7 @@ const PharmacyDrugInventory = () => {
       >
         <div className="mb-6 md:mb-10 ">
           <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">
-          {user?.pharmacyDetails?.name}
+            {user?.pharmacyDetails?.name}
           </h1>
         </div>
         <div className="mb-6 flex flex-wrap justify-between items-center">
@@ -68,7 +133,7 @@ const PharmacyDrugInventory = () => {
           <div className="hidden md:inline-block">
             <Pagination
               currentPage={currentPage}
-              totalCount={dummyData.length}
+              totalCount={drugs?.length}
               pageSize={PageSize}
               onPageChange={(page) => setCurrentPage(page)}
             />
@@ -80,11 +145,16 @@ const PharmacyDrugInventory = () => {
         <div className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6`}>
           {displayData.map((item, index) => (
             <div
-              key={index}
+              key={index + item.name}
               className="cursor-pointer"
-              onClick={() => history.push("/dashboard/pharmacy/drugs/1")}
+              onClick={() =>
+                history.push(`/dashboard/pharmacy/drugs/${index + 1}`)
+              }
             >
-              <Drug image={drug} name={item} />
+              <Drug
+                image={`https://ipfs.io/ipfs/${item.imageHash}`}
+                name={item.name}
+              />
             </div>
           ))}
         </div>
@@ -92,7 +162,7 @@ const PharmacyDrugInventory = () => {
         <div className="mt-10 md:hidden flex justify-center">
           <Pagination
             currentPage={currentPage}
-            totalCount={dummyData.length}
+            totalCount={drugs?.length}
             pageSize={PageSize}
             onPageChange={(page) => setCurrentPage(page)}
           />

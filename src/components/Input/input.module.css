@@ -1,11 +1,14 @@
+.container {
+  position: relative;
+}
+
 .container input {
   width: 100%;
   padding: 10px 10px;
   border-radius: var(--app-border-radius-sm);
   background-color: #fafafa;
   color: #838181;
-  display: flex;
-  flex-direction: column;
+  min-height: 46px;
 }
 
 @media screen and (min-width: 400px) {

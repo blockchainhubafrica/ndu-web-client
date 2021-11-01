@@ -16,10 +16,14 @@ import {
 } from "../services/web3Services";
 
 import { useHistory } from "react-router-dom";
+import { useToastContext } from "./toastContext";
+import { useLoadingContext } from "./loadingContext";
 
 const userContext = createContext();
 
 export function WalletProvider({ children }) {
+  const { toast } = useToastContext();
+  const { setIsLoading } = useLoadingContext();
   const history = useHistory();
   const [isInitiallyFetched, setIsInitiallyFetched] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
@@ -53,13 +57,14 @@ export function WalletProvider({ children }) {
 
   const handleWalletConnect = useCallback(() => {
     return (async () => {
+      setIsLoading(true);
       const connectionStatus = await connectToMetaMask();
-      if (connectionStatus.error) return false;
+      if (!connectionStatus) return false;
 
       const address = getActiveWallet();
       setAddress(address);
 
-      setPharmacy();
+      await setPharmacy();
 
       setIsConnected(true);
 
@@ -69,9 +74,11 @@ export function WalletProvider({ children }) {
         // history.replace("/dashboard/user");
       }, 0);
 
+      setIsLoading(false);
+
       return true;
     })();
-  }, [setAddress, setPharmacy]);
+  }, [setAddress, setPharmacy, setIsLoading]);
 
   const handleWalletDisconnect = () => {
     setIsConnected(false);
@@ -97,18 +104,18 @@ export function WalletProvider({ children }) {
 
   useEffect(() => {
     if (isInitiallyFetched) return;
-    if (!hasEthereum()) return setHasMetaMask(false);
+    if (!hasEthereum()) {
+      toast.error("Please Install Meta Mask");
+      return setHasMetaMask(false);
+    }
+    console.log("a");
     const isInjected = localStorage.getItem("wallet-connection");
     if (!isInjected) return setIsInitiallyFetched(true);
 
     handleWalletConnect();
     setIsInitiallyFetched(true);
+    return;
   }, [handleWalletConnect, isInitiallyFetched]);
-
-  // useEffect(() => {
-  //   if (!isInitiallyFetched) return;
-  //   console.log(user);
-  // }, [user, isInitiallyFetched]);
 
   return (
     <userContext.Provider

@@ -6,13 +6,12 @@ import {
   nduTokenContractAddress,
 } from "../utils";
 
-export const connectToMetaMask = async (setLoading, setError) => {
+export const connectToMetaMask = async (setError) => {
   try {
-    if (!hasEthereum()) return { error: "no meta mask" };
+    if (!hasEthereum()) return false
 
-    if (setLoading) setLoading(true);
     await window.ethereum.request({ method: "eth_requestAccounts" });
-    if (setLoading) setLoading(false);
+
     return true;
   } catch (error) {
     console.log(error);
@@ -42,6 +41,7 @@ export function listenToAccountChanges(handler) {
 
 export async function unmountEthListeners() {
   window.ethereum.removeListener("accountsChanged", () => {});
+  window.ethereum.removeListener("message", () => {});
 }
 
 export async function getRegisterContract(signer) {
@@ -96,9 +96,9 @@ export async function getCompanyDetails() {
   }
 }
 
-export async function registerPharmacy(details, onRegistered) {
+export async function registerPharmacy(details, Loading, onRegistered) {
   if (!hasEthereum()) return false;
-
+  Loading(true);
   try {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
@@ -116,8 +116,42 @@ export async function registerPharmacy(details, onRegistered) {
       details.ipfsHash
     );
 
-    await registrationContract.on("companyRegister", onRegistered);
+    await registrationContract.on("companyRegister", () => {
+      onRegistered();
+      Loading(false);
+    });
   } catch (error) {
+    Loading(false);
     console.log(error);
   }
 }
+
+// export async function drugRegistration(details, Loading) {
+//   if (!hasEthereum()) return false;
+//   Loading(true);
+//   try {
+//     const provider = new ethers.providers.Web3Provider(window.ethereum);
+//     const signer = provider.getSigner();
+
+//     const registrationContract = await getRegisterContract(signer);
+
+//     const nduTokenContract = await getNduTokenContract(signer);
+
+//     await nduTokenContract.approve(registrationContract.address, "100");
+
+//     await registrationContract.registerCompany(
+//       details.id,
+//       details.name,
+//       details.isoNumber,
+//       details.ipfsHash
+//     );
+
+//     await registrationContract.on("companyRegister", () => {
+//       onRegistered();
+//       Loading(false);
+//     });
+//   } catch (error) {
+//     Loading(false);
+//     console.log(error);
+//   }
+// }

@@ -1,6 +1,6 @@
 import React from "react";
 import { ArrowLeft } from "../../assets";
-import { DrugRegistration } from "../../components/Forms/DrugRegistration";
+import DrugRegistration from "../../components/Forms/DrugRegistration";
 import { useUserContext } from "../../contexts/userContext";
 import { DashboardLayout } from "../../layouts";
 

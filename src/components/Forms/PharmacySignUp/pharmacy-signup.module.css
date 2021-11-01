@@ -1,6 +1,3 @@
-.container .inputs {
-}
-
 .container .inputs label {
   color: #fff;
   display: block;
@@ -10,4 +7,9 @@
   width: 100%;
   border-radius: 2px;
   color: var(--app-grey);
+}
+
+.success-toast {
+  background-color: var(--app-primary-green);
+  color: #fff;
 }

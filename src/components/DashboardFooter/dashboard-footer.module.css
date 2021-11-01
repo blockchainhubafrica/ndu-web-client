@@ -22,16 +22,19 @@
   padding: 7px;
 }
 
-.container li a:hover {
+.container li a:hover,
+.container li.active a {
   background: #022655;
   box-shadow: 0px 10px 20px rgba(88, 92, 229, 0.25);
   color: #1c295d;
 }
 
-.container li a:hover svg > path {
+.container li a:hover svg > path,
+.container li.active a svg > path {
   fill: white;
 }
 
-.container li a:hover svg > rect {
+.container li a:hover svg > rect,
+.container li.active a svg > rect {
   fill: white;
 }

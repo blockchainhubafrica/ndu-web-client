@@ -1,5 +1,5 @@
 import React from "react";
-import { Link, useHistory } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { ArrowLeft } from "../../assets";
 import { Input } from "../../components";
 import { useUserContext } from "../../contexts/userContext";
@@ -17,7 +17,7 @@ const PharmacyHashListing = () => {
       >
         <div className="flex flex-wrap justify-between mb-14">
           <h1 className="text-xl sm:text-2xl md:text-4xl font-bold mb-4 md:mb-2">
-          {user?.pharmacyDetails?.name}
+            {user?.pharmacyDetails?.name}
           </h1>
 
           <Input placeholder="Search hash address" />
