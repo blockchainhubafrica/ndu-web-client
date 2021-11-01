@@ -2,6 +2,10 @@
   /* height: calc(100vh - 70px); */
 }
 
+.dashboardCon{
+  position: relative;
+}
+
 .center-con {
   width: 100%;
   overflow-y: auto;

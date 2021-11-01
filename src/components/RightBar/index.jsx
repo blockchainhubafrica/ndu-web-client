@@ -3,8 +3,10 @@ import { MainButton } from "..";
 import { BigScan, HalfLogoIcon } from "../../assets";
 import { WalletButton } from "../WalletButton";
 import styles from "./rightBar.module.css";
+import {useUserContext} from "../../contexts/userContext"
 
 function RightBar() {
+  const { setScanner } = useUserContext();
   return (
     <div className={`${styles.rightContainer} hidden lg:block`}>
       <div className={`${styles.walletBalanceCon} mt-10`}>
@@ -25,7 +27,7 @@ function RightBar() {
         </div>
         <div className="mx-auto flex justify-center">
           <MainButton
-            onClick={() => alert("Scanning...")}
+            onClick={() => setScanner(true)}
             buttonText="Scan barcode"
             mt="mt-15"
           />

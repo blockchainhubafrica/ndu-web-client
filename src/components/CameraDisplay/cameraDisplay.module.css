@@ -1,3 +1,14 @@
+.cameralDisplayOuterCon{
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.548);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    z-index: 7000;
+}
+
 .cameraDisplayCon{
     max-width: 481px;
     /* height: 543px; */
@@ -28,7 +39,7 @@
     width: 238px;
     height: 276px;
     border-radius: 20px;
-    background: url("../../assets/svg/drugContainer.svg") no-repeat center;
+    /* background: url("../../assets/svg/drugContainer.svg") no-repeat center; */
 }
 
 .cameraOverlay{
