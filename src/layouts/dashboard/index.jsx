@@ -14,18 +14,18 @@ function DashboardLayout({ children }) {
   console.log(scanner);
   return (
     <div className={`${styles.dashboardCon}`}>
-        <CameraDisplay display={scanner ? "flex" : "none"} />
-        <>
-          <DashboardHeader />
-          <div className={`${styles["container"]} flex`}>
-            <SideBar />
-            <div className={`${styles["center-con"]} lg:h-screen`}>
-              {children}
-            </div>
-            <RightBar />
+      {scanner && <CameraDisplay />}
+      <>
+        <DashboardHeader />
+        <div className={`${styles["container"]} flex`}>
+          <SideBar />
+          <div className={`${styles["center-con"]} lg:h-screen`}>
+            {children}
           </div>
-          <DashboardFooter />
-        </>
+          <RightBar />
+        </div>
+        <DashboardFooter />
+      </>
     </div>
   );
 }

@@ -1,2 +1,2 @@
-export * from "./contractConstants"
+export * from "./constants"
 export * from "./toolkit"

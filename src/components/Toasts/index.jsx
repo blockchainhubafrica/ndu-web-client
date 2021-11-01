@@ -17,6 +17,7 @@ function Toast() {
   useEffect(() => {
     if (!isDisplayingToast) return;
     setTimeout(() => {
+      if (!isDisplayingToast) return;
       setIsDisplayingToast(false);
     }, 3000);
   }, [isDisplayingToast, setIsDisplayingToast]);

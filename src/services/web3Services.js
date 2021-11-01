@@ -8,7 +8,7 @@ import {
 
 export const connectToMetaMask = async (setError) => {
   try {
-    if (!hasEthereum()) return false
+    if (!hasEthereum()) return false;
 
     await window.ethereum.request({ method: "eth_requestAccounts" });
 
@@ -96,9 +96,14 @@ export async function getCompanyDetails() {
   }
 }
 
-export async function registerPharmacy(details, Loading, onRegistered) {
+export async function registerPharmacy(
+  details,
+  loading,
+  raiseError,
+  onRegistered
+) {
   if (!hasEthereum()) return false;
-  Loading(true);
+  loading(true);
   try {
     const provider = new ethers.providers.Web3Provider(window.ethereum);
     const signer = provider.getSigner();
@@ -118,10 +123,11 @@ export async function registerPharmacy(details, Loading, onRegistered) {
 
     await registrationContract.on("companyRegister", () => {
       onRegistered();
-      Loading(false);
+      loading(false);
     });
   } catch (error) {
-    Loading(false);
+    loading(false);
+    raiseError("Something went wrong, Please Try Again.");
     console.log(error);
   }
 }

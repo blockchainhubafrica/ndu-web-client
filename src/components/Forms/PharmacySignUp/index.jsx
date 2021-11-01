@@ -11,6 +11,7 @@ import sha256 from "sha256";
 import { randomNumber } from "../../../utils";
 import { useLoadingContext } from "../../../contexts/loadingContext";
 import { useToastContext } from "../../../contexts/toastContext";
+import { useUserContext } from "../../../contexts/userContext";
 
 const description = (name, address) => {
   return `The name of the pharmacy is ${name} and it is located in ${address}`;
@@ -35,6 +36,9 @@ const initialValues = {
 };
 
 function PharmacySignUpForm() {
+  const { setUser } = useUserContext();
+  const setPharmacyDetails = (details) => {};
+  
   const { setIsLoading } = useLoadingContext();
   const { toast } = useToastContext();
   const history = useHistory();
@@ -46,7 +50,7 @@ function PharmacySignUpForm() {
       ipfsHash: sha256(description(values.name, values.address).toString()),
     };
     (async () => {
-      await registerPharmacy(details, setIsLoading, () => {
+      await registerPharmacy(details, setIsLoading, toast.error, () => {
         toast.success(`${values.name} was successfully registered`);
         history.push("/dashboard/pharmacy");
       });

@@ -11,6 +11,7 @@ import styles from "./pharmacyDrugInventory.module.css";
 import { ethers } from "ethers";
 import { useLoadingContext } from "../../contexts/loadingContext";
 import { useToastContext } from "../../contexts/toastContext";
+import { ipfsBaseUrl } from "../../utils";
 
 const serials = [
   "7847632117",
@@ -72,15 +73,21 @@ const PharmacyDrugInventory = () => {
         NduBaseContract.drugDetails(serial)
       );
 
-      // console.log(drugRequests);
       const hashPromises = await Promise.allSettled(drugRequests);
-      const hashes = hashPromises.map((drug) => {
-        if (drug.status === "fulfilled") return drug.value;
-        return drug;
+
+      const hashes = [];
+      hashPromises.forEach((drug) => {
+        if (drug.status === "fulfilled" && drug.value !== "")
+          hashes.push(drug.value);
       });
 
+      if (!hashes.length) {
+        setDrugs([]);
+        return setIsLoading(false);
+      }
+
       const drugDataFromIPFS = hashes.map((hash) =>
-        fetch(`https://ipfs.io/ipfs/${hash}`).then((data) => data.json())
+        fetch(`${ipfsBaseUrl}/${hash}`).then((data) => data.json())
       );
 
       const retrievedDrugPromises = await Promise.allSettled(drugDataFromIPFS);
@@ -95,13 +102,6 @@ const PharmacyDrugInventory = () => {
       toast.success("All Drugs were retrieved successfully");
 
       console.log(retrievedDrugs);
-
-      // await registrationContract.on("drugRegister", () => {
-      //   // onRegistered();
-      //   // console.log("Drug was registered")
-      //   toast.success("Drug was registered successfully!");
-      //   // Loading(false);
-      // });
     })();
   }, [drugs, setIsLoading, toast]);
 
@@ -142,6 +142,9 @@ const PharmacyDrugInventory = () => {
         <div className="flex flex-wrap justify-between items-center mb-6">
           <h3 className="font-medium text-xl">Drug Inventory</h3>
         </div>
+        {drugs && !drugs.length && (
+          <div className="text-lg">No Drugs are registered.</div>
+        )}
         <div className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6`}>
           {displayData.map((item, index) => (
             <div
@@ -158,7 +161,6 @@ const PharmacyDrugInventory = () => {
             </div>
           ))}
         </div>
-        {/* Mobile Devices */}
         <div className="mt-10 md:hidden flex justify-center">
           <Pagination
             currentPage={currentPage}

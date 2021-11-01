@@ -21,7 +21,7 @@ import { useLoadingContext } from "./loadingContext";
 
 const userContext = createContext();
 
-export function WalletProvider({ children }) {
+export function UserProvider({ children }) {
   const { toast } = useToastContext();
   const { setIsLoading } = useLoadingContext();
   const history = useHistory();
@@ -108,7 +108,6 @@ export function WalletProvider({ children }) {
       toast.error("Please Install Meta Mask");
       return setHasMetaMask(false);
     }
-    console.log("a");
     const isInjected = localStorage.getItem("wallet-connection");
     if (!isInjected) return setIsInitiallyFetched(true);
 
@@ -140,7 +139,7 @@ export function useUserContext() {
   const context = useContext(userContext);
 
   if (!context)
-    throw new Error("useWallet must be used inside a `WalletProvider`");
+    throw new Error("useWallet must be used inside a `UserProvider`");
 
   return context;
 }

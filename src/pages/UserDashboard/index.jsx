@@ -10,8 +10,10 @@ import {
 import { HistoryCard, MainButton } from "../../components";
 import { DashboardLayout } from "../../layouts";
 import ScanButton from "../../components/ScanIcon";
+import { useUserContext } from "../../contexts/userContext";
 
 function UserDashboard() {
+  const { setScanner } = useUserContext();
   return (
     <DashboardLayout bg="#022655" fill="#fff">
       <div className={`${styles.userDashboardCon} container pb-10`}>
@@ -27,7 +29,7 @@ function UserDashboard() {
               Click on the barcode icon to verify the originality of your drug.
             </h6>
             <MainButton
-              onClick={() => alert("Scanning...")}
+              onClick={() => setScanner(true)}
               bg="#00D6A3"
               buttonText="Scan barcode"
             />
@@ -85,7 +87,7 @@ function UserDashboard() {
           type={"Expired"}
         />
       </div>
-      <ScanButton />
+      <ScanButton onClick={() => setScanner(true)} />
     </DashboardLayout>
   );
 }

@@ -1,19 +1,32 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import styles from "./cameraDisplay.module.css";
 import { ScanTracker } from "../../assets";
 import { MainButton } from "..";
 import { useUserContext } from "../../contexts/userContext";
 import QrReader from "react-qr-scanner";
+import { useToastContext } from "../../contexts/toastContext";
 
-function CameraDisplay({ display }) {
+function CameraDisplay() {
   const [data, setData] = useState("Not Found");
-
+  // const [isShowing, setIs]
   const { scanner, setScanner } = useUserContext();
+  const { toast } = useToastContext();
+
+  let containerClass = `${styles.cameralDisplayOuterCon}`;
+  if (!scanner) containerClass = "hidden";
+
+  // useEffect(() => {
+  //   if (scanner) {
+  //     setTimeout(() => {
+  //       if (!scanner) return;
+  //       // toast.error("Scanner has timed out");
+  //       setScanner(false);
+  //     }, 10000);
+  //   }
+  // });
+
   return (
-    <div
-      className={`${styles.cameralDisplayOuterCon}`}
-      style={{ display: display }}
-    >
+    <div className={containerClass}>
       <div className={`${styles.cameraDisplayCon}`}>
         <h5 className={`${styles.barCodeDescription}`}>
           Place barcode inside the frame to scan. Please keep your device steady
@@ -25,13 +38,14 @@ function CameraDisplay({ display }) {
             {scanner && (
               <QrReader
                 delay={500}
-                onError={(err) => console.log(err)}
-                onScan={(data) => {
-                  setData(data);
-                  if(data) {
-                    setScanner(false);
-                  }
-                  console.log(data);
+                onError={(err) => {
+                  console.log(err);
+                  alert(err);
+                  toast.error("Something went wrong. Please try again");
+                }}
+                onScan={(output) => {
+                  if (output) setData(output);
+                  console.log(output);
                 }}
               />
             )}

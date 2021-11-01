@@ -8,7 +8,9 @@ import { useUserContext } from "../../contexts/userContext";
 import ScanButton from "../../components/ScanIcon";
 
 function PharmacyDasboard() {
+  const { setScanner } = useUserContext();
   const { user } = useUserContext();
+  
   return (
     <DashboardLayout>
       <div className="container py-6 md:py-12 px-4 md:px-12 lg:px-20 mb-20">
@@ -36,7 +38,7 @@ function PharmacyDasboard() {
           </Link>
         </div>
       </div>
-      <ScanButton />
+      <ScanButton onClick={() => setScanner(true)} />
     </DashboardLayout>
   );
 }
