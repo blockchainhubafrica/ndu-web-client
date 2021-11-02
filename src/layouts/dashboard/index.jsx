@@ -11,7 +11,7 @@ import { useUserContext } from "../../contexts/userContext";
 
 function DashboardLayout({ children }) {
   const { scanner } = useUserContext();
-  console.log(scanner);
+  // console.log(scanner);
   return (
     <div className={`${styles.dashboardCon}`}>
       {scanner && <CameraDisplay />}

@@ -82,7 +82,6 @@ export async function getCompanyDetails() {
     if (!hasPharmacy) return null;
 
     let pharmacyId = (await registrationContract.companyId(address)).toString();
-    console.log({ address, hasPharmacy, pharmacyId });
 
     const nduBaseContract = await getNduBaseContract(signer);
 
@@ -175,9 +174,7 @@ export async function getDrugInventory() {
       if (drug.status === "fulfilled" && drug.value !== "")
         retrievedDrugs.push(drug.value);
     });
-
-    console.log(resultofPromises);
-
+    console.log(retrievedDrugs)
     return retrievedDrugs;
   } catch (error) {
     console.log(error);

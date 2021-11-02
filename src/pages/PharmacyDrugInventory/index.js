@@ -57,8 +57,8 @@ const PharmacyDrugInventory = () => {
 
   useEffect(() => {
     if (drugs || !pharmacyId) return;
-    if (pharmacyDrugs.length > 0) return setDrugs(pharmacyDrugs);
     setIsLoading(true);
+    if (pharmacyDrugs?.length > 0) return setDrugs(pharmacyDrugs);
     (async () => {
       const inventory = await getDrugInventory();
       setDrugs(inventory);
@@ -66,7 +66,6 @@ const PharmacyDrugInventory = () => {
         toast.success("All Drugs were retrieved successfully");
       setPharmacyDrugs(drugs);
       setIsLoading(false);
-      console.log("b");
     })();
   }, [drugs, setIsLoading, toast, pharmacyId, pharmacyDrugs, setPharmacyDrugs]);
 
