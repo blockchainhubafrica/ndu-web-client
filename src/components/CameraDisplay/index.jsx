@@ -5,9 +5,10 @@ import { MainButton } from "..";
 import { useUserContext } from "../../contexts/userContext";
 import QrReader from "react-qr-scanner";
 import { useToastContext } from "../../contexts/toastContext";
+import { scanDrug } from "../../utils";
 
 function CameraDisplay() {
-  const [data, setData] = useState("Not Found");
+  // const [data, setData] = useState("Not Found");
   // const [isShowing, setIs]
   const { scanner, setScanner } = useUserContext();
   const { toast } = useToastContext();
@@ -44,8 +45,12 @@ function CameraDisplay() {
                   toast.error("Something went wrong. Please try again");
                 }}
                 onScan={(output) => {
-                  if (output) setData(output);
-                  console.log(output);
+                  if (output){
+                    // setData(output);
+                    console.log(output);
+                    scanDrug(output);
+                    setScanner(false);
+                  }
                 }}
               />
             )}
