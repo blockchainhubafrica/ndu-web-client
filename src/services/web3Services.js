@@ -4,6 +4,7 @@ import {
   nduBaseContractAddress,
   registrationContractAddress,
   nduTokenContractAddress,
+  ipfsBaseUrl,
 } from "../utils";
 
 export const connectToMetaMask = async (setError) => {
@@ -21,6 +22,7 @@ export const connectToMetaMask = async (setError) => {
 };
 
 export function getActiveWallet() {
+  if (!hasEthereum()) return false;
   const ethTarget = { ...window.ethereum };
   if (!ethTarget.selectedAddress) return null;
   const address = ethTarget.selectedAddress;
@@ -80,6 +82,7 @@ export async function getCompanyDetails() {
     if (!hasPharmacy) return null;
 
     let pharmacyId = (await registrationContract.companyId(address)).toString();
+    console.log({ address, hasPharmacy, pharmacyId });
 
     const nduBaseContract = await getNduBaseContract(signer);
 
@@ -91,6 +94,24 @@ export async function getCompanyDetails() {
       isoNumber: company.ISOnumber,
       ipfsHash: company.ipfsHashOfCompanyDetails,
     };
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function userHasPharmacy() {
+  try {
+    if (!hasEthereum()) return false;
+
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+
+    const registrationContract = await getRegisterContract(signer);
+    const address = getActiveWallet();
+
+    const hasPharmacy = await registrationContract.registered(address);
+    if (!hasPharmacy) return null;
+    return true;
   } catch (error) {
     console.log(error);
   }
@@ -132,32 +153,51 @@ export async function registerPharmacy(
   }
 }
 
-// export async function drugRegistration(details, Loading) {
-//   if (!hasEthereum()) return false;
-//   Loading(true);
-//   try {
-//     const provider = new ethers.providers.Web3Provider(window.ethereum);
-//     const signer = provider.getSigner();
+export async function getDrugInventory() {
+  if (!hasEthereum()) return false;
 
-//     const registrationContract = await getRegisterContract(signer);
+  try {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
 
-//     const nduTokenContract = await getNduTokenContract(signer);
+    const RegistrationContract = await getRegisterContract(signer);
 
-//     await nduTokenContract.approve(registrationContract.address, "100");
+    const drugHashes = await RegistrationContract.getAllHashesRegistered();
 
-//     await registrationContract.registerCompany(
-//       details.id,
-//       details.name,
-//       details.isoNumber,
-//       details.ipfsHash
-//     );
+    const promises = drugHashes.map((hash) =>
+      fetch(`${ipfsBaseUrl}/${hash}`).then((data) => data.json())
+    );
+    const resultofPromises = await Promise.allSettled(promises);
 
-//     await registrationContract.on("companyRegister", () => {
-//       onRegistered();
-//       Loading(false);
-//     });
-//   } catch (error) {
-//     Loading(false);
-//     console.log(error);
-//   }
-// }
+    const retrievedDrugs = [];
+
+    resultofPromises.forEach((drug) => {
+      if (drug.status === "fulfilled" && drug.value !== "")
+        retrievedDrugs.push(drug.value);
+    });
+
+    console.log(resultofPromises);
+
+    return retrievedDrugs;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function getAllDrugSerials(hash) {
+  if (!hasEthereum()) return false;
+
+  try {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+
+    const RegistrationContract = await getRegisterContract(signer);
+
+    const serials = await RegistrationContract.getAllSerials(hash);
+    console.log(serials);
+
+    return serials;
+  } catch (error) {
+    console.log(error);
+  }
+}

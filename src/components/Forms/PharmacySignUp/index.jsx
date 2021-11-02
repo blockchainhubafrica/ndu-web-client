@@ -11,7 +11,7 @@ import sha256 from "sha256";
 import { randomNumber } from "../../../utils";
 import { useLoadingContext } from "../../../contexts/loadingContext";
 import { useToastContext } from "../../../contexts/toastContext";
-import { useUserContext } from "../../../contexts/userContext";
+import { usePharmacyContext } from "../../../contexts/pharmacyContext";
 
 const description = (name, address) => {
   return `The name of the pharmacy is ${name} and it is located in ${address}`;
@@ -36,9 +36,8 @@ const initialValues = {
 };
 
 function PharmacySignUpForm() {
-  const { setUser } = useUserContext();
-  const setPharmacyDetails = (details) => {};
-  
+  const { setPharmacyDetails } = usePharmacyContext();
+
   const { setIsLoading } = useLoadingContext();
   const { toast } = useToastContext();
   const history = useHistory();
@@ -52,6 +51,7 @@ function PharmacySignUpForm() {
     (async () => {
       await registerPharmacy(details, setIsLoading, toast.error, () => {
         toast.success(`${values.name} was successfully registered`);
+        setPharmacyDetails(details);
         history.push("/dashboard/pharmacy");
       });
     })();

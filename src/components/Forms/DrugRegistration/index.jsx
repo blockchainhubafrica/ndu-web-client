@@ -7,9 +7,10 @@ import * as Yup from "yup";
 import { ipfsApi, ipfsMini } from "../../../services/ipfs";
 import { ethers } from "ethers";
 import { getRegisterContract } from "../../../services/web3Services";
-import { randomNumber } from "../../../utils";
+import { arrayOfrandomNumbers, randomNumber } from "../../../utils";
 import { useToastContext } from "../../../contexts/toastContext";
 import { useLoadingContext } from "../../../contexts/loadingContext";
+import { useUserContext } from "../../../contexts/userContext";
 
 const validationSchema = Yup.object({
   file: Yup.mixed().required("Please include an image"),
@@ -41,7 +42,10 @@ function DrugRegistration(props) {
   const [image, setImage] = useState(null);
 
   const handleSubmit = (values, { resetForm }) => {
-    console.log(values);
+    console.log({ values });
+    let serialCount = values["no-of-serials"];
+    const serialsArray = arrayOfrandomNumbers(serialCount);
+    console.log(serialsArray);
     const fileReader = new FileReader();
     setIsLoading(true);
     try {
@@ -70,11 +74,9 @@ function DrugRegistration(props) {
 
           const registrationContract = await getRegisterContract(signer);
           console.log(registrationContract);
-          const serialNo = randomNumber();
-          console.log({ serialNo });
 
           await registrationContract.registerSerialNumber(
-            serialNo,
+            serialsArray,
             drugIpfsHash
           );
 
@@ -84,7 +86,8 @@ function DrugRegistration(props) {
             setIsLoading(false);
 
             toast.success(`${values.name} was registered successfully!`);
-            resetForm()
+            resetForm();
+            setImage(null);
             // Loading(false);
           });
         });
@@ -92,25 +95,9 @@ function DrugRegistration(props) {
 
       // })()
     } catch (error) {
-      // Loading(false);
+      setIsLoading(false);
       console.log(error);
     }
-
-    // (async () => {
-
-    // })()
-    // const details = {
-    //   id: randomNumber(),
-    //   name: values.name,
-    //   isoNumber: uuidv4(),
-    //   ipfsHash: sha256(description(values.name, values.address).toString()),
-    // };
-    (async () => {
-      // await registerPharmacy(details, setIsLoading, () => {
-      //   toast.success(`${values.name} was successfully registered`);
-      //   history.push("/dashboard/pharmacy");
-      // });
-    })();
   };
 
   const formik = useFormik({

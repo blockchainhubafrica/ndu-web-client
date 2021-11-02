@@ -1,6 +1,8 @@
 import React, { useEffect } from "react";
 
 import { Redirect, Route, Switch, useLocation } from "react-router-dom";
+import { usePharmacyContext } from "./contexts/pharmacyContext";
+import { useUserContext } from "./contexts/userContext";
 
 import {
   Components,
@@ -24,6 +26,9 @@ function ScrollToTop() {
 }
 
 const AppRouter = () => {
+  const { user } = useUserContext();
+  const hasPharmacy = user?.hasPharmacy;
+  
   return (
     <>
       <ScrollToTop />

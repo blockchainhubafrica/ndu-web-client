@@ -1,14 +1,16 @@
 import React from "react";
 import { ArrowLeft } from "../../assets";
 import DrugRegistration from "../../components/Forms/DrugRegistration";
-import { useUserContext } from "../../contexts/userContext";
+
 import { DashboardLayout } from "../../layouts";
 
 import styles from "./pharmacy.module.css";
 import { useHistory } from "react-router-dom";
+import { usePharmacyContext } from "../../contexts/pharmacyContext";
 
 const PharmacyGenHash = () => {
-  const { user } = useUserContext();
+  const { pharmacyDetails } = usePharmacyContext();
+
   const history = useHistory();
   return (
     <DashboardLayout>
@@ -17,7 +19,7 @@ const PharmacyGenHash = () => {
       >
         <div className="mb-6 md:mb-10">
           <h1 className=" text-xl sm:text-2xl md:text-4xl font-bold">
-            {user?.pharmacyDetails?.name}
+            {pharmacyDetails?.name}
           </h1>
           <div
             className="cursor-pointer inline-block mt-4"

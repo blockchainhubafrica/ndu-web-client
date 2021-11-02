@@ -2,14 +2,14 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { ArrowLeft } from "../../assets";
 import { Input } from "../../components";
-import { useUserContext } from "../../contexts/userContext";
+import { usePharmacyContext } from "../../contexts/pharmacyContext";
 import { DashboardLayout } from "../../layouts";
 import { HashListItem } from "./components";
 
 import styles from "./pharmacyHashListing.module.css";
 
 const PharmacyHashListing = () => {
-  const { user } = useUserContext();
+  const { pharmacyDetails } = usePharmacyContext();
   return (
     <DashboardLayout>
       <div
@@ -17,7 +17,7 @@ const PharmacyHashListing = () => {
       >
         <div className="flex flex-wrap justify-between mb-14">
           <h1 className="text-xl sm:text-2xl md:text-4xl font-bold mb-4 md:mb-2">
-            {user?.pharmacyDetails?.name}
+            {pharmacyDetails?.name}
           </h1>
 
           <Input placeholder="Search hash address" />

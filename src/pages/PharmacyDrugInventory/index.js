@@ -4,7 +4,11 @@ import { ArrowLeft } from "../../assets";
 import { Pagination } from "../../components";
 import { useUserContext } from "../../contexts/userContext";
 import { DashboardLayout } from "../../layouts";
-import { getNduBaseContract } from "../../services/web3Services";
+import {
+  getDrugInventory,
+  getNduBaseContract,
+  getRegisterContract,
+} from "../../services/web3Services";
 import { Drug } from "./components";
 
 import styles from "./pharmacyDrugInventory.module.css";
@@ -12,16 +16,8 @@ import { ethers } from "ethers";
 import { useLoadingContext } from "../../contexts/loadingContext";
 import { useToastContext } from "../../contexts/toastContext";
 import { ipfsBaseUrl } from "../../utils";
+import { usePharmacyContext } from "../../contexts/pharmacyContext";
 
-const serials = [
-  "7847632117",
-  "4122104531",
-  "9622091297",
-  "2022677414",
-  "0008592241",
-  "1032848671",
-  "7667566563",
-];
 // const dummyData = [
 //   "Acetaminophen",
 //   "Adderall",
@@ -46,9 +42,10 @@ const PharmacyDrugInventory = () => {
   const { setIsLoading } = useLoadingContext();
   const { toast } = useToastContext();
   const [drugs, setDrugs] = useState(null);
-  const { user } = useUserContext();
+  const { pharmacyDetails, pharmacyDrugs, setPharmacyDrugs } =
+    usePharmacyContext();
   const [currentPage, setCurrentPage] = useState(1);
-
+  const pharmacyId = parseInt(pharmacyDetails?.id);
   const history = useHistory();
 
   const displayData = useMemo(() => {
@@ -59,51 +56,19 @@ const PharmacyDrugInventory = () => {
   }, [currentPage, drugs]);
 
   useEffect(() => {
-    if (drugs) return;
+    if (drugs || !pharmacyId) return;
+    if (pharmacyDrugs.length > 0) return setDrugs(pharmacyDrugs);
     setIsLoading(true);
-    const provider = new ethers.providers.Web3Provider(window.ethereum);
-    const signer = provider.getSigner();
-
     (async () => {
-      const NduBaseContract = await getNduBaseContract(signer);
-      // console.log(NduBaseContract);
-      // const serialNo = randomNumber();
-      // console.log({ serialNo });
-      const drugRequests = serials.map((serial) =>
-        NduBaseContract.drugDetails(serial)
-      );
-
-      const hashPromises = await Promise.allSettled(drugRequests);
-
-      const hashes = [];
-      hashPromises.forEach((drug) => {
-        if (drug.status === "fulfilled" && drug.value !== "")
-          hashes.push(drug.value);
-      });
-
-      if (!hashes.length) {
-        setDrugs([]);
-        return setIsLoading(false);
-      }
-
-      const drugDataFromIPFS = hashes.map((hash) =>
-        fetch(`${ipfsBaseUrl}/${hash}`).then((data) => data.json())
-      );
-
-      const retrievedDrugPromises = await Promise.allSettled(drugDataFromIPFS);
-
-      const retrievedDrugs = retrievedDrugPromises.map((drug) => {
-        if (drug.status === "fulfilled") return drug.value;
-        return drug;
-      });
-
-      setDrugs(retrievedDrugs);
+      const inventory = await getDrugInventory();
+      setDrugs(inventory);
+      if (inventory.length > 0)
+        toast.success("All Drugs were retrieved successfully");
+      setPharmacyDrugs(drugs);
       setIsLoading(false);
-      toast.success("All Drugs were retrieved successfully");
-
-      console.log(retrievedDrugs);
+      console.log("b");
     })();
-  }, [drugs, setIsLoading, toast]);
+  }, [drugs, setIsLoading, toast, pharmacyId, pharmacyDrugs, setPharmacyDrugs]);
 
   useEffect(() => {
     window.scrollTo({ behavior: "smooth", top: "0px" });
@@ -116,7 +81,7 @@ const PharmacyDrugInventory = () => {
       >
         <div className="mb-6 md:mb-10 ">
           <h1 className="text-xl sm:text-2xl md:text-4xl font-bold">
-            {user?.pharmacyDetails?.name}
+            {pharmacyDetails?.name}
           </h1>
         </div>
         <div className="mb-6 flex flex-wrap justify-between items-center">

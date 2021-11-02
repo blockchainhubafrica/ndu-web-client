@@ -12,25 +12,28 @@ import {
   listenToAccountChanges,
   hasEthereum,
   unmountEthListeners,
+  userHasPharmacy,
   getCompanyDetails,
 } from "../services/web3Services";
 
 import { useHistory } from "react-router-dom";
 import { useToastContext } from "./toastContext";
 import { useLoadingContext } from "./loadingContext";
+import { usePharmacyContext } from "./pharmacyContext";
 
 const userContext = createContext();
 
 export function UserProvider({ children }) {
   const { toast } = useToastContext();
   const { setIsLoading } = useLoadingContext();
+  const { setPharmacyDetails } = usePharmacyContext();
   const history = useHistory();
   const [isInitiallyFetched, setIsInitiallyFetched] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
   const [hasMetaMask, setHasMetaMask] = useState(true);
-  const [scanner, setScanner] = useState(false)
+  const [scanner, setScanner] = useState(false);
 
-  const [user, setUser] = useState({ address: null, pharmacyDetails: null });
+  const [user, setUser] = useState({ address: null, hasPharmacy: false });
 
   const setAddress = useCallback(
     (address) => {
@@ -44,16 +47,15 @@ export function UserProvider({ children }) {
     [user]
   );
 
-  const setPharmacy = useCallback(() => {
-    (async () => {
-      const pharmacyDetails = await getCompanyDetails();
-
+  const setHasPharmacy = useCallback(
+    (hasPharmacy) => {
       let updatedUser = { ...user };
-      updatedUser.pharmacyDetails = pharmacyDetails;
       updatedUser.address = getActiveWallet();
+      updatedUser.hasPharmacy = hasPharmacy;
       setUser(updatedUser);
-    })();
-  }, [user]);
+    },
+    [user]
+  );
 
   const handleWalletConnect = useCallback(() => {
     return (async () => {
@@ -64,7 +66,11 @@ export function UserProvider({ children }) {
       const address = getActiveWallet();
       setAddress(address);
 
-      await setPharmacy();
+      const hasPharmacy = await userHasPharmacy();
+      setHasPharmacy(hasPharmacy);
+
+      const details = await getCompanyDetails();
+      setPharmacyDetails(details);
 
       setIsConnected(true);
 
@@ -78,7 +84,7 @@ export function UserProvider({ children }) {
 
       return true;
     })();
-  }, [setAddress, setPharmacy, setIsLoading]);
+  }, [setAddress, setIsLoading, setHasPharmacy, setPharmacyDetails]);
 
   const handleWalletDisconnect = () => {
     setIsConnected(false);
@@ -127,7 +133,7 @@ export function UserProvider({ children }) {
         handleWalletDisconnect,
         hasMetaMask,
         scanner,
-        setScanner
+        setScanner,
       }}
     >
       {children}

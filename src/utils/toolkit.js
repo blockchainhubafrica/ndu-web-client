@@ -13,3 +13,13 @@ export const randomNumber = (length) => {
   }
   return token;
 };
+
+export const arrayOfrandomNumbers = (amount, numberLength) => {
+  numberLength ?? (numberLength = 10);
+
+  const serialsArray = [];
+  for (let i = 0; i < amount; i++) {
+    serialsArray.push(randomNumber(numberLength));
+  }
+  return serialsArray;
+};
