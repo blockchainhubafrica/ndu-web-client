@@ -41,11 +41,10 @@ let PageSize = 6;
 const PharmacyDrugInventory = () => {
   const { setIsLoading } = useLoadingContext();
   const { toast } = useToastContext();
-  const [drugs, setDrugs] = useState(null);
   const { pharmacyDetails, pharmacyDrugs, setPharmacyDrugs } =
     usePharmacyContext();
+  const [drugs, setDrugs] = useState(pharmacyDrugs);
   const [currentPage, setCurrentPage] = useState(1);
-  const pharmacyId = parseInt(pharmacyDetails?.id);
   const history = useHistory();
 
   const displayData = useMemo(() => {
@@ -56,9 +55,10 @@ const PharmacyDrugInventory = () => {
   }, [currentPage, drugs]);
 
   useEffect(() => {
-    if (drugs || !pharmacyId) return;
+    console.log({ drugs, pharmacyDrugs });
+    if (drugs && pharmacyDrugs) return;
     setIsLoading(true);
-    if (pharmacyDrugs?.length > 0) return setDrugs(pharmacyDrugs);
+
     (async () => {
       const inventory = await getDrugInventory();
       setDrugs(inventory);
@@ -67,7 +67,7 @@ const PharmacyDrugInventory = () => {
       setPharmacyDrugs(drugs);
       setIsLoading(false);
     })();
-  }, [drugs, setIsLoading, toast, pharmacyId, pharmacyDrugs, setPharmacyDrugs]);
+  }, [drugs, pharmacyDrugs, setIsLoading, setPharmacyDrugs, toast]);
 
   useEffect(() => {
     window.scrollTo({ behavior: "smooth", top: "0px" });

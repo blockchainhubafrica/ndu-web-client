@@ -76,15 +76,35 @@ export function UserProvider({ children }) {
 
       localStorage.setItem("wallet-connection", true);
 
-      setTimeout(() => {
-        // history.replace("/dashboard/user");
-      }, 0);
+      setIsLoading(false);
+
+      return true;
+    })();
+  }, [setAddress, setIsLoading, setHasPharmacy, setPharmacyDetails]);
+
+  const resetValues = useCallback(() => {
+    return (async () => {
+      setIsLoading(true);
+
+      const address = getActiveWallet();
+      setAddress(address);
+
+      const hasPharmacy = await userHasPharmacy();
+      setHasPharmacy(hasPharmacy);
+
+      const details = await getCompanyDetails();
+      setPharmacyDetails(details);
+
+      setIsConnected(true);
+
+      localStorage.setItem("wallet-connection", true);
 
       setIsLoading(false);
 
       return true;
     })();
   }, [setAddress, setIsLoading, setHasPharmacy, setPharmacyDetails]);
+
 
   const handleWalletDisconnect = () => {
     setIsConnected(false);
@@ -96,7 +116,7 @@ export function UserProvider({ children }) {
 
   const handleAccountChanged = (address) => {
     if (!address) return handleWalletDisconnect();
-    setAddress(address);
+    resetValues();
   };
 
   useEffect(() => {

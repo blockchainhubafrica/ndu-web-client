@@ -162,7 +162,7 @@ export async function getDrugInventory() {
     const RegistrationContract = await getRegisterContract(signer);
 
     const drugHashes = await RegistrationContract.getAllHashesRegistered();
-
+    // console.log(drugHashes)
     const promises = drugHashes.map((hash) =>
       fetch(`${ipfsBaseUrl}/${hash}`).then((data) => data.json())
     );
@@ -174,7 +174,7 @@ export async function getDrugInventory() {
       if (drug.status === "fulfilled" && drug.value !== "")
         retrievedDrugs.push(drug.value);
     });
-    console.log(retrievedDrugs)
+    // console.log(retrievedDrugs)
     return retrievedDrugs;
   } catch (error) {
     console.log(error);
