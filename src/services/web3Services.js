@@ -198,3 +198,32 @@ export async function getAllDrugSerials(hash) {
     console.log(error);
   }
 }
+
+export const scanDrug = async (drug) => {
+  console.log("scanned drug", drug);
+  try {
+    const { ethereum } = window;
+
+    if (ethereum) {
+      const provider = new ethers.providers.Web3Provider(ethereum);
+      const signer = provider.getSigner();
+      const contract = new ethers.Contract(
+        nduBaseContractAddress,
+        NduAbi.abi,
+        signer
+      );
+
+      const scannedDrug = await contract.scanProduct(drug, {
+      });
+
+      await contract.on("Scanned", (drug, serial) => {
+        console.log("Scanned", drug, serial);
+      });
+
+      console.log(scannedDrug.hash);
+    }
+  } catch (error) {
+    console.log(error);
+  };
+}
+
