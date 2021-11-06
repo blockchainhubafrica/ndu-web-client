@@ -7,6 +7,8 @@ import {
   ipfsBaseUrl,
 } from "../utils";
 
+
+
 export const connectToMetaMask = async (setError) => {
   try {
     if (!hasEthereum()) return false;
@@ -134,12 +136,13 @@ export async function registerPharmacy(
 
     await nduTokenContract.approve(registrationContract.address, "100");
 
-    await registrationContract.registerCompany(
+   const register =  await registrationContract.registerCompany(
       details.id,
       details.name,
       details.isoNumber,
       details.ipfsHash
     );
+    console.log(register.value.toString())
 
     await registrationContract.on("companyRegister", () => {
       onRegistered();
@@ -199,9 +202,13 @@ export async function getAllDrugSerials(hash) {
   }
 }
 
+// const wait = (seconds) => {
+//   const milliseconds = seconds * 1000
+//   return new Promise(resolve => setTimeout(resolve, milliseconds))
+// }
+
 export const scanDrug = async (drug) => {
-  console.log("scanned drug", drug);
-  try {
+  // console.log("scanned drug", drug);
     const { ethereum } = window;
 
     if (ethereum) {
@@ -212,18 +219,22 @@ export const scanDrug = async (drug) => {
         NduAbi.abi,
         signer
       );
+      // const address = await signer.getAddress()
 
-      const scannedDrug = await contract.scanProduct(drug, {
-      });
+        // var overrideOptions = {
+        //   gasLimit: 250000,
+        //   gasPrice: 9000000000,
+        //   nonce: provider.getTransactionCount(address, "latest"),
+        //   // value: ethers.utils.parseEther('1.0')
+        // };
 
-      await contract.on("Scanned", (drug, serial) => {
-        console.log("Scanned", drug, serial);
-      });
+      const tx =  await contract.scanProduct(drug)
 
-      console.log(scannedDrug.hash);
+      const receipt = tx.wait()
+
+      
+      console.log(tx.wait())
+      console.log(receipt)
     }
-  } catch (error) {
-    console.log(error);
-  };
+  
 }
-
