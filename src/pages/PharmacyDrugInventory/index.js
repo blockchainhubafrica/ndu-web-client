@@ -16,7 +16,10 @@ import { ethers } from "ethers";
 import { useLoadingContext } from "../../contexts/loadingContext";
 import { useToastContext } from "../../contexts/toastContext";
 import { ipfsBaseUrl } from "../../utils";
+<<<<<<< Updated upstream
 import { usePharmacyContext } from "../../contexts/pharmacyContext";
+=======
+>>>>>>> Stashed changes
 
 // const dummyData = [
 //   "Acetaminophen",
@@ -60,12 +63,52 @@ const PharmacyDrugInventory = () => {
     setIsLoading(true);
 
     (async () => {
+<<<<<<< Updated upstream
       const inventory = await getDrugInventory();
       setDrugs(inventory);
       if (inventory.length > 0)
         toast.success("All Drugs were retrieved successfully");
       setPharmacyDrugs(drugs);
       setIsLoading(false);
+=======
+      const NduBaseContract = await getNduBaseContract(signer);
+      // console.log(NduBaseContract);
+      // const serialNo = randomNumber();
+      // console.log({ serialNo });
+      const drugRequests = serials.map((serial) =>
+        NduBaseContract.drugDetails(serial)
+      );
+
+      const hashPromises = await Promise.allSettled(drugRequests);
+
+      const hashes = [];
+      hashPromises.forEach((drug) => {
+        if (drug.status === "fulfilled" && drug.value !== "")
+          hashes.push(drug.value);
+      });
+
+      if (!hashes.length) {
+        setDrugs([]);
+        return setIsLoading(false);
+      }
+
+      const drugDataFromIPFS = hashes.map((hash) =>
+        fetch(`${ipfsBaseUrl}/${hash}`).then((data) => data.json())
+      );
+
+      const retrievedDrugPromises = await Promise.allSettled(drugDataFromIPFS);
+
+      const retrievedDrugs = retrievedDrugPromises.map((drug) => {
+        if (drug.status === "fulfilled") return drug.value;
+        return drug;
+      });
+
+      setDrugs(retrievedDrugs);
+      setIsLoading(false);
+      toast.success("All Drugs were retrieved successfully");
+
+      console.log(retrievedDrugs);
+>>>>>>> Stashed changes
     })();
   }, [drugs, pharmacyDrugs, setIsLoading, setPharmacyDrugs, toast]);
 

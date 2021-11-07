@@ -98,6 +98,7 @@ export async function getCompanyDetails() {
   }
 }
 
+<<<<<<< Updated upstream
 export async function userHasPharmacy() {
   try {
     if (!hasEthereum()) return false;
@@ -116,6 +117,8 @@ export async function userHasPharmacy() {
   }
 }
 
+=======
+>>>>>>> Stashed changes
 export async function registerPharmacy(
   details,
   loading,
