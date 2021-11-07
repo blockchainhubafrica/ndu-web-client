@@ -1,3 +1,10 @@
+import { ethers } from "ethers";
+import { NduAbi } from "../contract/abis";
+import { nduBaseContractAddress } from "./constants";
+
+
+
+
 export const range = (start, end) => {
   let length = end - start + 1;
   return Array.from({ length }, (_, index) => index + start);
@@ -23,3 +30,4 @@ export const arrayOfrandomNumbers = (amount, numberLength) => {
   }
   return serialsArray;
 };
+

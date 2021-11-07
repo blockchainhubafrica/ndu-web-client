@@ -5,9 +5,10 @@ import { MainButton } from "..";
 import { useUserContext } from "../../contexts/userContext";
 import QrReader from "react-qr-scanner";
 import { useToastContext } from "../../contexts/toastContext";
+import { scanDrug } from "../../services/web3Services"
 
 function CameraDisplay() {
-  const [data, setData] = useState("Not Found");
+  // const [data, setData] = useState("Not Found");
   // const [isShowing, setIs]
   const { scanner, setScanner } = useUserContext();
   const { toast } = useToastContext();
@@ -24,6 +25,10 @@ function CameraDisplay() {
   //     }, 10000);
   //   }
   // });
+
+  // useEffect(() => {
+  //   scanDrug("0218616045")
+  // },[])
 
   return (
     <div className={containerClass}>
@@ -43,9 +48,13 @@ function CameraDisplay() {
                   alert(err);
                   toast.error("Something went wrong. Please try again");
                 }}
-                onScan={(output) => {
-                  if (output) setData(output);
-                  console.log(output);
+                onScan={output => {
+                  if (output) {
+                    // setData(output);
+                    console.log(output.text);
+                    scanDrug(output.text);
+                    setScanner(false);
+                  }
                 }}
               />
             )}
