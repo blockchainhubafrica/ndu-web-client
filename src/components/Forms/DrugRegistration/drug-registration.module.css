@@ -8,9 +8,8 @@
 }
 
 .upload-image img {
-  width: 100%;
+  width: auto;
   height: 300px;
-  cursor: pointer;
   object-fit: contain;
   border-radius: 20px;
 }

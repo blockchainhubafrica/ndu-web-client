@@ -36,9 +36,10 @@ import globeStats from "./globe-stats-2.svg";
 import greenArc1 from "./green-arc-1.svg";
 import greenArc2 from "./green-arc-2.svg";
 // import MicroChipSvg from "./micro-chip.svg";
-// import DrugsSvg from "./drugs.svg";
+import { ReactComponent as InfoSvg } from "./info.svg";
 
 export {
+  InfoSvg,
   WarningIcon,
   SheildIcon,
   FullLogoIcon,

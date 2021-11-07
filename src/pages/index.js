@@ -6,3 +6,4 @@ export * from "./PharmacyDashboard";
 export * from "./PharmacyGenHash";
 export * from "./PharmacyHashListing";
 export * from "./PharmacyDrugInventory";
+export * from "./PharmacyProfile";

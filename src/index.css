@@ -41,3 +41,11 @@ ol {
 li {
   list-style: none;
 }
+
+.text-primary-blue {
+  color: var(--app-primary-blue);
+}
+
+.force-hidden {
+  display: none !important;
+}

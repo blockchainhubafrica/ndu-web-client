@@ -1,6 +1,6 @@
 import React from "react";
 import { ActionBox } from "../../components";
-import { DrugsSvg, MicroChipSvg } from "../../assets";
+import { DrugsSvg, InfoSvg, MicroChipSvg } from "../../assets";
 import { DashboardLayout } from "../../layouts";
 import styles from "./pharmacyDashboard.module.css";
 import { Link } from "react-router-dom";
@@ -34,6 +34,13 @@ function PharmacyDasboard() {
             <div className="3xl-col-span-2">
               <ActionBox title="Drug Inventory">
                 <DrugsSvg />
+              </ActionBox>
+            </div>
+          </Link>
+          <Link to="/dashboard/pharmacy/profile">
+            <div className="3xl-col-span-2">
+              <ActionBox title="Pharmacy Profile">
+                <InfoSvg className={`${styles["info-svg"]}`} />
               </ActionBox>
             </div>
           </Link>

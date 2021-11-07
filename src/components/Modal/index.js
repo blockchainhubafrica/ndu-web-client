@@ -3,12 +3,14 @@ import { CloseIcon } from "../../assets";
 import { useLockBodyScroll } from "../../hooks";
 
 import styles from "./modal.module.css";
+import OriginalDrug from "./OriginalDrugModal";
 
-const Modal = ({ children, type, closeModal }) => {
+const Modal = ({ children, type, closeModal, data }) => {
+  if (type === "original")  children = <OriginalDrug data={data} />
   useLockBodyScroll();
   return (
     <>
-      <div className={`${styles.container}`} onClick={closeModal}>
+      <div className={`${styles["original-container"]}`} onClick={closeModal}>
         <div
           onClick={(e) => e.stopPropagation()}
           className={`${styles["sub-container"]} `}

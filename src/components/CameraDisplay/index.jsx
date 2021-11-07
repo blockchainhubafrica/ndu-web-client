@@ -1,21 +1,29 @@
 import React, { useEffect, useState } from "react";
 import styles from "./cameraDisplay.module.css";
 import { ScanTracker } from "../../assets";
-import { MainButton } from "..";
+import { MainButton, Modal } from "..";
 import { useUserContext } from "../../contexts/userContext";
 import QrReader from "react-qr-scanner";
 import { useToastContext } from "../../contexts/toastContext";
-import { scanDrug } from "../../services/web3Services"
+import { getScannedDrugDetails } from "../../services/web3Services";
+import OriginalDrugModal from "../Modal/OriginalDrugModal";
 
 function CameraDisplay() {
+  const [displayModal, setdisplayModal] = useState(true);
+  const closeModal = () => {
+    setdisplayModal(false);
+    setScanner(false);
+  };
   // const [data, setData] = useState("Not Found");
   // const [isShowing, setIs]
   const { scanner, setScanner } = useUserContext();
   const { toast } = useToastContext();
+  const [drugDetails, setDrugDetails] = useState(null);
 
   let containerClass = `${styles.cameralDisplayOuterCon}`;
   if (!scanner) containerClass = "hidden";
-
+  let cameraDisplayContainerClass = `${styles.cameraDisplayCon} `;
+  if (drugDetails) cameraDisplayContainerClass += "force-hidden";
   // useEffect(() => {
   //   if (scanner) {
   //     setTimeout(() => {
@@ -27,12 +35,12 @@ function CameraDisplay() {
   // });
 
   // useEffect(() => {
-  //   scanDrug("0218616045")
+  //   getScannedDrugDetails("0218616045")
   // },[])
 
   return (
     <div className={containerClass}>
-      <div className={`${styles.cameraDisplayCon}`}>
+      <div className={cameraDisplayContainerClass}>
         <h5 className={`${styles.barCodeDescription}`}>
           Place barcode inside the frame to scan. Please keep your device steady
           when scanning to ensure accurate results.
@@ -48,12 +56,16 @@ function CameraDisplay() {
                   alert(err);
                   toast.error("Something went wrong. Please try again");
                 }}
-                onScan={output => {
+                onScan={(output) => {
                   if (output) {
+                    (async () => {
+                      console.log(output.text);
+                      const serial = output.text;
+                      const details = await getScannedDrugDetails(serial);
+                      setDrugDetails(details);
+                      setdisplayModal(true);
+                    })();
                     // setData(output);
-                    console.log(output.text);
-                    scanDrug(output.text);
-                    setScanner(false);
                   }
                 }}
               />
@@ -69,6 +81,13 @@ function CameraDisplay() {
           }}
         />
       </div>
+      {displayModal && drugDetails && (
+        <Modal
+          type={"original"}
+          data={drugDetails}
+          closeModal={() => closeModal()}
+        />
+      )}
     </div>
   );
 }

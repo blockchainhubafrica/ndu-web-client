@@ -36,15 +36,15 @@
   color: #fff;
 }
 
-.footer-text-bg-Original {
+.footer-text-bg-original {
   background: #00d6a3;
 }
 
-.footer-text-bg-Counterfeit {
+.footer-text-bg-counterfeit {
   background: #fa5f1c;
 }
 
-.footer-text-bg-Expired {
+.footer-text-bg-expired {
   background: #f8dc39;
 }
 
@@ -61,4 +61,8 @@
 
 .close-icon:hover {
   transform: scale(1.2, 1.2);
+}
+
+.original-container {
+  padding: 40px;
 }

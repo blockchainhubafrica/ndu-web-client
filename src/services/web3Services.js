@@ -7,8 +7,6 @@ import {
   ipfsBaseUrl,
 } from "../utils";
 
-
-
 export const connectToMetaMask = async (setError) => {
   try {
     if (!hasEthereum()) return false;
@@ -100,7 +98,6 @@ export async function getCompanyDetails() {
   }
 }
 
-<<<<<<< Updated upstream
 export async function userHasPharmacy() {
   try {
     if (!hasEthereum()) return false;
@@ -119,8 +116,6 @@ export async function userHasPharmacy() {
   }
 }
 
-=======
->>>>>>> Stashed changes
 export async function registerPharmacy(
   details,
   loading,
@@ -139,13 +134,13 @@ export async function registerPharmacy(
 
     await nduTokenContract.approve(registrationContract.address, "100");
 
-   const register =  await registrationContract.registerCompany(
+    const register = await registrationContract.registerCompany(
       details.id,
       details.name,
       details.isoNumber,
       details.ipfsHash
     );
-    console.log(register.value.toString())
+    console.log(register.value.toString());
 
     await registrationContract.on("companyRegister", () => {
       onRegistered();
@@ -210,34 +205,34 @@ export async function getAllDrugSerials(hash) {
 //   return new Promise(resolve => setTimeout(resolve, milliseconds))
 // }
 
-export const scanDrug = async (drug) => {
-  // console.log("scanned drug", drug);
-    const { ethereum } = window;
+export const getScannedDrugDetails = async (drug) => {
+  if (!hasEthereum()) return false;
 
-    if (ethereum) {
-      const provider = new ethers.providers.Web3Provider(ethereum);
-      const signer = provider.getSigner();
-      const contract = new ethers.Contract(
-        nduBaseContractAddress,
-        NduAbi.abi,
-        signer
-      );
-      // const address = await signer.getAddress()
+  try {
+    const provider = new ethers.providers.Web3Provider(window.ethereum);
+    const signer = provider.getSigner();
+    const contract = new ethers.Contract(
+      nduBaseContractAddress,
+      NduAbi.abi,
+      signer
+    );
 
-        // var overrideOptions = {
-        //   gasLimit: 250000,
-        //   gasPrice: 9000000000,
-        //   nonce: provider.getTransactionCount(address, "latest"),
-        //   // value: ethers.utils.parseEther('1.0')
-        // };
+    const tx = await contract.callStatic.scanProduct(drug);
 
-      const tx =  await contract.scanProduct(drug)
-
-      const receipt = tx.wait()
-
-      
-      console.log(tx.wait())
-      console.log(receipt)
-    }
-  
-}
+    const drugDetails = await fetch(
+      `${ipfsBaseUrl}/${tx[1].ipfsHashOfDrugDetails}`
+    ).then((data) => data.json());
+    console.log(tx);
+    drugDetails.imageUrl = `${ipfsBaseUrl}/${drugDetails.imageHash}`;
+    return {
+      pharmacy: {
+        id: tx[0].id.toString(),
+        name: tx[0].Name,
+        isoNumber: tx[0].ISOnumber,
+      },
+      drugDetails,
+    };
+  } catch (error) {
+    console.log(error);
+  }
+};
