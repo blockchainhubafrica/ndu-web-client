@@ -20,7 +20,7 @@ const Modal = ({ children, type, closeModal, data }) => {
             className={`${styles["close-icon"]}`}
             onClick={closeModal}
           />
-          <div className="mt-24">{children}</div>
+          <div className="">{children}</div>
           <div className={`${styles[`footer-text-bg-${type}`]} py-6`}>
             <h1 className="text-center">{type}</h1>
           </div>

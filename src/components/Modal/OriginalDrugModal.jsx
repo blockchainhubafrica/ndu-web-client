@@ -32,10 +32,7 @@ function OriginalDrug({ data }) {
         <div className="col-span-2">
           <img src={data.drugDetails.imageUrl} alt={data.drugDetails.name} />
         </div>
-        <div className="col-span-4">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolore quos
-          earum dolor fuga reiciendis tempora libero nam ducimus illum nemo.
-        </div>
+        <div className="col-span-4">{data.drugDetails.description}</div>
       </div>
     </div>
   );
