@@ -1,70 +1,52 @@
-# Getting Started with Create React App
+# Welcome to the Official Repository for the NDU APP
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### App Pitch Link:
+[https://app.pitch.com/app/public/player/dc39a787-153c-436a-a91d-3ece4414833e](https://app.pitch.com/app/public/player/dc39a787-153c-436a-a91d-3ece4414833e)
 
-## Available Scripts
+### Live Link:
+[https://local-ndu.vercel.app/](https://local-ndu.vercel.app/)
+ 
+## About Ndu
+Ndu runs on the blockchain technology allowing relevant data about drug production, distribution and sales to be immutable and safely stored.
+Ndu combines the decentralized power of the blockchain to combat and eradicateconterfeit drugs.    
+The rise in sale of counterfeit drugs in Africa has become an overwhelming problem. In Nigeria alone,   
+**NAFDAC** a drug law enforcement agency found in 2002, that nearly 41% of pharmaceuticals were counterfeit, and 70% were unregistered.   
+Though there have been efforts to combat the presence of counterfeit drugs, the amount of fake drugs sold remains high.    
+Ndu is a native word in the **Igbo Language** which means **Life**.   
+We hope to save many lives that are being lost daily with this amazing new technology that has been built on the blockchain.    
 
-In the project directory, you can run:
+## What we've achieved:
+Through a ton of research and consultations with the pharmaceutical industry and relevant organisations, we have built a simple demo for a solution which could potentially save millions of lives yearly by simply being able to scan and verify the authenticity of a drug.
 
-### `yarn start`
+## How it works
+1. Pharmacies and drug producting companies are licensed by relevant government agencies and then registered on the app.
+2. Once registered, there are given **NDU** tokens which are used to perform transactions on the application such as registration of drugs.
+3. These registered institutions use the **NDU** token to registered packets of drugs.
+4. On registered a certain quantity of a drug, for example: 20 packets of **Panadal**, 20 Serials are generated, one for each packet.
+5. Each serial is turned into a barcode and pasted at the back of these drugs.
+6. Finally, these barcodes can easily be used to get details about the **authenticity** of a drug as well as it's manufacturers.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+## Plans for the future
+There are limitless opportunities and the sky is the limit for what we are building and we are very commited to bringing this life saving solution to our country **Nigeria**, which has one of the worst rates of drug counterfeiting and death rates due to ingesting these poisons, in the world.    
+We only require time, necessary funding and support from enthusiatic people and institutions to bring this life saving solution to life.
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## How can you help us
+1. Funding! 😅 - Yes, we have some figures in mind, but we'd like to have private conversations with interested parties about that.
+2. Connecting us to Government agencies, big pharmaceutical corporations and those that can steer us in a better direction.
+3. Tips, advice, anything and everything is appreciated!
 
-### `yarn test`
+## How we plan to use funds appropriated to us:
+1. Research, development and a ton of learning to enable us further.
+2. Consultations with relevant authourities in the Pharmaceutical space.
+3. Incentives for the use and adoption of blockchain as an enabler for this solution.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Is there a revenue generation model?
+Certainly, registration fees, purchasing of the **NDU** token, and some other ideas we're messing with, but honestly, right now, we are more interested in getting this up and running and making some impact first. Money comes to those who bring value 😉.
 
-### `yarn build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+## Reach us:
+There's so much more to say, but we'll leave it here for now.    
+I hope you're as excited as we are! 😃
+If you have any questions, comments or interest to support us, please reach out to us via:     
+**Instagram**: [blockhubafrica](https://instagram.com/blockhubafrica)   
+**Twitter**: [@blockhubafrica](https://twitter.com/blockhubafrica)   
+**Github**: [https://github.com/blockchainhubafrica/](https://github.com/blockchainhubafrica/)

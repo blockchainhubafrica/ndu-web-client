@@ -4,10 +4,12 @@ import styles from "./modal.module.css";
 function OriginalDrug({ data }) {
   return (
     <div className={`${styles["original-container"]}`}>
-      <p className="mb-5 font-bold text-primary-blue text-xl">
-        {data.drugDetails.name}
-      </p>
-      <p>Manufactured by {data.pharmacy.name}</p>
+      <div className="">
+        <p className="mb-5 font-bold text-primary-blue text-xl">
+          {data.drugDetails.name}
+        </p>
+        <p>Manufactured by {data.pharmacy.name}</p>
+      </div>
       <div className="mt-6">
         <div className={`mb-4`}>
           <span className="pr-4 font-bold text-primary-blue">

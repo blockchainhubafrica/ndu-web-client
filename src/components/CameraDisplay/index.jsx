@@ -1,12 +1,10 @@
 import React, { useEffect, useState } from "react";
 import styles from "./cameraDisplay.module.css";
-import { ScanTracker } from "../../assets";
 import { MainButton, Modal } from "..";
 import { useUserContext } from "../../contexts/userContext";
 import QrReader from "react-qr-scanner";
 import { useToastContext } from "../../contexts/toastContext";
 import { getScannedDrugDetails } from "../../services/web3Services";
-import OriginalDrugModal from "../Modal/OriginalDrugModal";
 
 function CameraDisplay() {
   const [displayModal, setdisplayModal] = useState(true);
@@ -22,8 +20,6 @@ function CameraDisplay() {
 
   let containerClass = `${styles.cameralDisplayOuterCon}`;
   if (!scanner) containerClass = "hidden";
-  let cameraDisplayContainerClass = `${styles.cameraDisplayCon} `;
-  if (drugDetails) cameraDisplayContainerClass += "force-hidden";
   // useEffect(() => {
   //   if (scanner) {
   //     setTimeout(() => {
@@ -39,48 +35,51 @@ function CameraDisplay() {
   // },[])
 
   return (
-    <div className={containerClass}>
-      <div className={cameraDisplayContainerClass}>
-        <h5 className={`${styles.barCodeDescription}`}>
-          Place barcode inside the frame to scan. Please keep your device steady
-          when scanning to ensure accurate results.
-        </h5>
-        <div className={`${styles.cameraView}`}>
-          <div className={`${styles.cameraOverlay}`}>
-            {/* <ScanTracker /> */}
-            {scanner && (
-              <QrReader
-                delay={500}
-                onError={(err) => {
-                  console.log(err);
-                  alert(err);
-                  toast.error("Something went wrong. Please try again");
-                }}
-                onScan={(output) => {
-                  if (output) {
-                    (async () => {
-                      console.log(output.text);
-                      const serial = output.text;
-                      const details = await getScannedDrugDetails(serial);
-                      setDrugDetails(details);
-                      setdisplayModal(true);
-                    })();
-                    // setData(output);
-                  }
-                }}
-              />
-            )}
+    <div className={containerClass} onClick={() => setScanner(false)}>
+      {!drugDetails && (
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className={`${styles.cameraDisplayCon} `}
+        >
+          <h5 className={`${styles.barCodeDescription}`}>
+            Place barcode inside the frame to scan. Please keep your device
+            steady when scanning to ensure accurate results.
+          </h5>
+          <div className={`${styles.cameraView}`}>
+            <div className={`${styles.cameraOverlay}`}>
+              {scanner && (
+                <QrReader
+                  delay={500}
+                  onError={(err) => {
+                    console.log(err);
+                    alert(err);
+                    toast.error("Something went wrong. Please try again");
+                  }}
+                  onScan={(output) => {
+                    if (output) {
+                      (async () => {
+                        console.log(output.text);
+                        const serial = output.text;
+                        const details = await getScannedDrugDetails(serial);
+                        setDrugDetails(details);
+                        setdisplayModal(true);
+                      })();
+                    }
+                  }}
+                />
+              )}
+            </div>
           </div>
+          <MainButton
+            buttonText="Stop Scanning"
+            bg="#707173"
+            onClick={() => {
+              setScanner(false);
+            }}
+          />
         </div>
-        {/* <h1>{data}</h1> */}
-        <MainButton
-          buttonText="Stop Scanning"
-          bg="#707173"
-          onClick={() => {
-            setScanner(false);
-          }}
-        />
-      </div>
+      )}
+
       {displayModal && drugDetails && (
         <Modal
           type={"original"}
