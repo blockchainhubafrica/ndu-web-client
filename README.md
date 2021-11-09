@@ -1,70 +1,98 @@
-# Getting Started with Create React App
+The aim of this project is to eradicate the sale and distribution of fake drugs using the power of the blockchain. Consumers that verify the legitimacy of the drugs they purchase get incentivised with the platform's governance token. Our goal is to prevent drug piracy by utilizing the blockchain to create a transparent and secure way to track drugs through the various steps of the supply chain.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+Ndu is a decentralized platform for pharmaceutical companies to store serials and digital keys for each batch of their products on the blockchain. It also allows for validating the authenticity of drugs and products purchased from pharmaceuticals around the world.
 
-## Available Scripts
+Our solution provides proper pharmaceutical inventory of drugs and medicines which is publicly accessible by users who can use such information to verify those in their possession. It equally enables these drugs to be tracked at each step of the supply chain which prevents used, tampered, and repackaged fake drugs from being delivered to users.
 
-In the project directory, you can run:
+A licensed company subscribes with an ethereum account address and is given access to the features of the protocol
 
-### `yarn start`
+features include:
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+access to a decentralized database for data storage
+ability to store the hash of sensitive data on the blockchain
+registered users will have the ability to put up proposals for voting by the community
+The Solution
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+The end user(Consumer)
 
-### `yarn test`
+Sign up
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+The user should sign up after downloading the app for the first time.
 
-### `yarn build`
+Sign in
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+The user should sign if they already have an existing account
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+Overview of Dashboard
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+When the user logs in, they get to see a simple overview of their activities on our platform which should a scan button(Emphasizing the main use of the app)
 
-### `yarn eject`
+Scan QR code
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+Once the user scans a product, the see a screen that shows if the drug is registered or not Registered: if the drug is registered then they get to see the product details and also a button to claim their token.
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+Not registered:
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+If the drug is not registered then we can as well assume that the product is fake and provide the user with an option to report the product and be rewarded big time for saving more lives. We then forward the report to the appropriate authority to carry out an investigation.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Report
 
-## Learn More
+If after the investigation, the product happens to be fake, then we reward the consumer and also refund them their initial purchase price. If a user raises a false alarm, for whatever reason, the user’s account will be disabled and we will let the law enforcement agency deal with such a user appropriately.
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+Verifying report
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+For transparency purpose and more data to help carry out appropriate investigation, we will request the user to send a snapshot of the product and the receipt of the product.
 
-### Code Splitting
+Claim Token
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+User can only claim report token(Huge token) after a report has been certified true.
 
-### Analyzing the Bundle Size
+Notification(Consumer)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+Users should get notified about their token state and other activities on the platform.
 
-### Making a Progressive Web App
+The Producer(Pharmacy)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+Sign up: The Pharmaceutical company register’s through us by giving us their details and we verify by comparing their details with what the government provided us with and after that, we can approve or decline your registration request.
 
-### Advanced Configuration
+Sign in: If approved, you get to sign in with the company’s login details
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+Overview of dashboard
 
-### Deployment
+On signing in the company gets to see an overview of their company’s activities on our platform. Data capture Just like the main aim of the user is to scan and verify pharmaceutical products, the main aim of the pharmaceutical company is to constantly update their data on our platform and they can do this by uploading details of all the commodities they produce. Request code (Hash code) For security reasons, these companies only get the actual QRcode on request and we believe that they only request when they are ready to print on their product package and this is what the proposed process is like:
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+1, Request for a number or QRcodes for a particular from your product line.
 
-### `yarn build` fails to minify
+2, The hash decryption and QRcode generation happens on our servers and we only send the company the QRcodes and also let them know how important it is for them to keep it safe until packaging.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Decrypt Hash by entering your pin
+
+On request of QRcode, we send the company an OTP just to authenticate the request.
+
+Company’s Dashboard
+
+Each company should have an elaborate dashboard about all their activities on our platform.
+
+Future feature
+
+In future, the entire data about the supply chain should be made open on blockchain for better traceability and transparency. These companies can also choose to harvest their data for research purposes by paying us a token.
+
+The Government(Agency)
+
+Sign up: Register as a government agency if it’s your first time.
+
+Sign in: Sign in if an account already exists.
+
+Overview of Dashboard
+
+See overview of all activities on the platform and the dashboard should be expandible. The government should also be able to see all the details of a specific company to enable them carry out proper taxing and other activities.
+
+Report
+
+They should be a section for them to see all the active reports Notification
+
+They should be notified about different activities on our platform.
+
+Here is the link to the Solution Pitch deck https://app.pitch.com/app/public/player/dc39a787-153c-436a-a91d-3ece4414833e
+
+link to the webApp in development: https://local-ndu.vercel.app/
