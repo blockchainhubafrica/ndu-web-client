@@ -8,7 +8,7 @@
  
 ## About Ndu
 Ndu runs on the blockchain technology allowing relevant data about drug production, distribution and sales to be immutable and safely stored.
-Ndu combines the decentralized power of the blockchain to combat and eradicateconterfeit drugs.    
+Ndu combines the decentralized power of the blockchain to combat and eradicate conterfeit drugs.    
 The rise in sale of counterfeit drugs in Africa has become an overwhelming problem. In Nigeria alone,   
 **NAFDAC** a drug law enforcement agency found in 2002, that nearly 41% of pharmaceuticals were counterfeit, and 70% were unregistered.   
 Though there have been efforts to combat the presence of counterfeit drugs, the amount of fake drugs sold remains high.    
