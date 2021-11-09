@@ -46,7 +46,10 @@ Certainly, registration fees, purchasing of the **NDU** token, and some other id
 ## Reach us:
 There's so much more to say, but we'll leave it here for now.    
 I hope you're as excited as we are! 😃
-If you have any questions, comments or interest to support us, please reach out to us via:     
+If you have any questions, comments or interest to support us,     
+Please reach out to us via:     
 **Instagram**: [blockhubafrica](https://instagram.com/blockhubafrica)   
 **Twitter**: [@blockhubafrica](https://twitter.com/blockhubafrica)   
-**Github**: [https://github.com/blockchainhubafrica/](https://github.com/blockchainhubafrica/)
+**Github**: [https://github.com/blockchainhubafrica/](https://github.com/blockchainhubafrica/)     
+**Email**: [blockchainhubafrica@gmail.com](mailto:blockchainhubafrica@gmail.com)      
+**Telegram**: [https://t.me/blockchainhubafrica](https://t.me/blockchainhubafrica)   
