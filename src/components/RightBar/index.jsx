@@ -29,7 +29,6 @@ function RightBar() {
           <MainButton
             onClick={() => setScanner(true)}
             buttonText="Scan barcode"
-            mt="mt-15"
           />
         </div>
       </div>

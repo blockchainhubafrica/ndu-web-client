@@ -20,14 +20,14 @@
 
 .sub-container svg {
   position: absolute;
-  top: 40px;
+  top: 30px;
   right: 25px;
   cursor: pointer;
 }
 
 .sub-container > div:last-of-type {
-  position: absolute;
-  bottom: 0;
+  position: sticky;
+  bottom: -1px;
   width: 100%;
 }
 
@@ -37,7 +37,7 @@
 }
 
 .footer-text-bg-original {
-  background: #00d6a3;
+  background: var(--app-primary-green);
 }
 
 .footer-text-bg-counterfeit {
@@ -50,12 +50,18 @@
 
 @media screen and (min-width: 768px) {
   .sub-container {
-    width: 481px;
-    height: 543px;
+    overflow-y: auto;
+    width: 520px;
+    height: 65vh;
   }
 
   .sub-container svg {
-    right: 50px;
+    position: sticky;
+    margin-left: auto;
+    margin-right: 10px;
+    top: 30px;
+    right: 30px;
+    cursor: pointer;
   }
 }
 
@@ -63,6 +69,14 @@
   transform: scale(1.2, 1.2);
 }
 
-.original-container {
-  padding: 40px;
+.modal-body {
+  padding: 30px;
+  height: 65vh;
+  overflow-y: auto;
+}
+
+@media screen and (min-width: 768px) {
+  .modal-body {
+    padding: 10px 30px 30px 30px;
+  }
 }

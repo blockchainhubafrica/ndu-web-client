@@ -14,6 +14,7 @@ import {
   PharmacyHashListing,
   RegisterPharmacy,
   UserDashboard,
+  PharmacyDrugDetails,
 } from "./pages";
 
 function ScrollToTop() {
@@ -63,6 +64,11 @@ const AppRouter = () => {
         <Route
           exact
           path="/dashboard/pharmacy/drugs/:id"
+          render={(props) => <PharmacyDrugDetails />}
+        />
+        <Route
+          exact
+          path="/dashboard/pharmacy/drugs/:id/serials"
           render={(props) => <PharmacyHashListing />}
         />
         <Route

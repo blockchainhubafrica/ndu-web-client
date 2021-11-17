@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useHistory } from "react-router";
 import {
   drug2,
   drugPark,
@@ -13,14 +14,27 @@ import {
   mainframe,
   rightArc,
 } from "../../assets";
-import { Header, HowItWorksCard, Footer, NormalButton } from "../../components";
+import {
+  Header,
+  HowItWorksCard,
+  Footer,
+  NormalButton,
+  MainButton,
+} from "../../components";
 import ConnectWalletModal from "../../components/ConnectWalletModal";
 import { InputWithButton } from "../../components/InputWithButton";
+import { useUserContext } from "../../contexts/userContext";
 
 import styles from "./landingPage.module.css";
 
 const LandingPage = () => {
+  const history = useHistory();
   const [display, setdisplay] = useState(false);
+  const { isConnected, handleWalletConnect } = useUserContext();
+
+  const openDashboard = () => {
+    history.push("/dashboard");
+  };
 
   return (
     <>
@@ -81,6 +95,17 @@ const LandingPage = () => {
                   about drug production, distribution and sales to be immutable
                   and safely stored.
                 </p>
+
+                <div className="mt-10">
+                  <MainButton
+                    onClick={isConnected ? openDashboard : handleWalletConnect}
+                    bg="#00D6A3"
+                    buttonText={
+                      isConnected ? "Open Dashboard" : "Connect Wallet"
+                    }
+                  />
+                </div>
+
                 <div className={styles["landing-image-3-container"]}>
                   <img src={rightArc} alt="" />
                 </div>
@@ -140,6 +165,14 @@ const LandingPage = () => {
                   With Ndu, you are in sole control of the records of
                   production, distribution and sales of your drug product.
                 </p>
+                <div className="mt-10">
+                  <MainButton
+                    onClick={isConnected ? openDashboard : handleWalletConnect}
+                    buttonText={
+                      isConnected ? "Open Dashboard" : "Connect Wallet"
+                    }
+                  />
+                </div>
               </div>
             </div>
           </div>
@@ -247,6 +280,12 @@ const LandingPage = () => {
                   <span>Since washing powder</span>
                 </li>
               </ul>
+            </div>
+            <div className="flex justify-center mx-auto mt-10">
+              <MainButton
+                onClick={isConnected ? openDashboard : handleWalletConnect}
+                buttonText={isConnected ? "Open Dashboard" : "Connect Wallet"}
+              />
             </div>
           </div>
         </section>

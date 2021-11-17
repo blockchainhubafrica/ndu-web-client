@@ -5,6 +5,7 @@ import { useUserContext } from "../../contexts/userContext";
 import QrReader from "react-qr-scanner";
 import { useToastContext } from "../../contexts/toastContext";
 import { getScannedDrugDetails } from "../../services/web3Services";
+import { useLockBodyScroll } from "../../hooks";
 
 function CameraDisplay() {
   const [displayModal, setdisplayModal] = useState(true);
@@ -20,6 +21,8 @@ function CameraDisplay() {
 
   let containerClass = `${styles.cameralDisplayOuterCon}`;
   if (!scanner) containerClass = "hidden";
+  useLockBodyScroll();
+
   // useEffect(() => {
   //   if (scanner) {
   //     setTimeout(() => {
@@ -82,7 +85,6 @@ function CameraDisplay() {
 
       {displayModal && drugDetails && (
         <Modal
-          type={"original"}
           data={drugDetails}
           closeModal={() => closeModal()}
         />

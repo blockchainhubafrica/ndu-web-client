@@ -3,6 +3,15 @@
   border-radius: 30px;
 }
 
+.container:hover {
+  cursor: pointer;
+  background: var(--app-primary-blue);
+}
+
+.container:hover p {
+  color: #fff !important;
+}
+
 .container p:nth-of-type(1) {
   font-size: 14px;
   overflow: hidden;
@@ -10,6 +19,10 @@
   white-space: nowrap;
 }
 .container p:nth-of-type(2) {
-  color: #f93e03;
+  /* color: #f93e03; */
   font-size: 12px;
+}
+
+.container.expired * {
+  color: var(--app-primary-red);
 }

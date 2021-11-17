@@ -24,7 +24,9 @@ function SideBar() {
 
   return (
     <div className={`${styles.sideBarCon} py-10 hidden lg:block`}>
-      <NduLogo className={`${styles.nduLogo}`} />
+      <Link to="/">
+        <NduLogo className={`${styles.nduLogo}`} />
+      </Link>
       <ul>
         <li className="flex mb-8">
           <Link to="/dashboard/user">

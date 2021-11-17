@@ -1,14 +1,23 @@
-import React from "react";
+import React, { useState } from "react";
 
 import styles from "./hashListItem.module.css";
 
-const HashListItem = ({ address }) => {
+const HashListItem = ({ status, address }) => {
+  console.log(status);
+  const [isHovering, setIsHovering] = useState(false);
+
   return (
     <div
-      className={`${styles.container} flex flex-wrap items-center justify-between px-6 py-4`}
+      onMouseEnter={() => setIsHovering(true)}
+      onMouseLeave={() => setIsHovering(false)}
+      className={`${styles.container} ${styles[status]} flex flex-wrap items-center justify-between px-6 py-4`}
     >
       <p>{address}</p>
-      <p>View in Etherscan</p>
+      {isHovering ? (
+        <p>View in Etherscan</p>
+      ) : (
+        <p className="capitalize">{status}</p>
+      )}
     </div>
   );
 };
