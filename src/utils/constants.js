@@ -1,9 +1,9 @@
-const nduBaseContractAddress = "0xd81D7eDBABA4176444c31c562E43c3a295a45A91";
+const nduBaseContractAddress = '0xF1A6a5f42e75cE66454b96c56FD83b88a03C2B84';
 
-const nduTokenContractAddress = "0x7C78b34eb4F267f47FFE64EfBae93416BFcaCD12";
+const nduTokenContractAddress = '0x73bC3a0C39E3eA57e441F1D83111AB398a9F018A';
 
 const registrationContractAddress =
-  "0x4290F9250b77685c496e1bC9F742258Ab61645f3";
+	'0xffcd8a0ee6acb58Cac501A8Ea6A0383cb944fD5f';
 
 const ipfsBaseUrl = "https://ipfs.io/ipfs";
 
