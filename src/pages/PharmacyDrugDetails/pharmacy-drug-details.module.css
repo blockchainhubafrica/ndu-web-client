@@ -1,0 +1,49 @@
+.container .img-container {
+  border-radius: 20px;
+  background: #f8fafc;
+  height: 220px;
+  min-width: 140px;
+}
+
+.container .img-container img {
+  height: 160px;
+  object-fit: contain;
+}
+
+.detail-box :first-child {
+  color: #838181;
+  font-weight: 300;
+  font-size: 80%;
+}
+
+.detail-box :last-child {
+  /* color: #838181; */
+  font-weight: 400;
+}
+.drug-title {
+  position: relative;
+  font-weight: 550 !important;
+}
+
+@media screen and (min-width: 768px) {
+  .drug-title {
+    margin-top: -50px;
+  }
+}
+
+.register-btn {
+  padding-bottom: 5px;
+  transition: 0.3s ease-in-out;
+}
+
+.register-btn button {
+  transition: 0.3s ease-in-out;
+  position: relative;
+  background-color: var(--app-primary-blue);
+  border-radius: 30px;
+  top: 5px;
+}
+
+.register-btn:hover button {
+  top: 0px;
+}

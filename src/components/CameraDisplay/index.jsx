@@ -1,20 +1,27 @@
 import React, { useEffect, useState } from "react";
 import styles from "./cameraDisplay.module.css";
-import { ScanTracker } from "../../assets";
-import { MainButton } from "..";
+import { MainButton, Modal } from "..";
 import { useUserContext } from "../../contexts/userContext";
 import QrReader from "react-qr-scanner";
 import { useToastContext } from "../../contexts/toastContext";
-import { scanDrug } from "../../services/web3Services"
+import { getScannedDrugDetails } from "../../services/web3Services";
+import { useLockBodyScroll } from "../../hooks";
 
 function CameraDisplay() {
+  const [displayModal, setdisplayModal] = useState(true);
+  const closeModal = () => {
+    setdisplayModal(false);
+    setScanner(false);
+  };
   // const [data, setData] = useState("Not Found");
   // const [isShowing, setIs]
   const { scanner, setScanner } = useUserContext();
   const { toast } = useToastContext();
+  const [drugDetails, setDrugDetails] = useState(null);
 
   let containerClass = `${styles.cameralDisplayOuterCon}`;
   if (!scanner) containerClass = "hidden";
+  useLockBodyScroll();
 
   // useEffect(() => {
   //   if (scanner) {
@@ -27,48 +34,61 @@ function CameraDisplay() {
   // });
 
   // useEffect(() => {
-  //   scanDrug("0218616045")
+  //   getScannedDrugDetails("0218616045")
   // },[])
 
   return (
-    <div className={containerClass}>
-      <div className={`${styles.cameraDisplayCon}`}>
-        <h5 className={`${styles.barCodeDescription}`}>
-          Place barcode inside the frame to scan. Please keep your device steady
-          when scanning to ensure accurate results.
-        </h5>
-        <div className={`${styles.cameraView}`}>
-          <div className={`${styles.cameraOverlay}`}>
-            {/* <ScanTracker /> */}
-            {scanner && (
-              <QrReader
-                delay={500}
-                onError={(err) => {
-                  console.log(err);
-                  alert(err);
-                  toast.error("Something went wrong. Please try again");
-                }}
-                onScan={output => {
-                  if (output) {
-                    // setData(output);
-                    console.log(output.text);
-                    scanDrug(output.text);
-                    setScanner(false);
-                  }
-                }}
-              />
-            )}
+    <div className={containerClass} onClick={() => setScanner(false)}>
+      {!drugDetails && (
+        <div
+          onClick={(e) => e.stopPropagation()}
+          className={`${styles.cameraDisplayCon} `}
+        >
+          <h5 className={`${styles.barCodeDescription}`}>
+            Place barcode inside the frame to scan. Please keep your device
+            steady when scanning to ensure accurate results.
+          </h5>
+          <div className={`${styles.cameraView}`}>
+            <div className={`${styles.cameraOverlay}`}>
+              {scanner && (
+                <QrReader
+                  delay={500}
+                  onError={(err) => {
+                    console.log(err);
+                    alert(err);
+                    toast.error("Something went wrong. Please try again");
+                  }}
+                  onScan={(output) => {
+                    if (output) {
+                      (async () => {
+                        console.log(output.text);
+                        const serial = output.text;
+                        const details = await getScannedDrugDetails(serial);
+                        setDrugDetails(details);
+                        setdisplayModal(true);
+                      })();
+                    }
+                  }}
+                />
+              )}
+            </div>
           </div>
+          <MainButton
+            buttonText="Stop Scanning"
+            bg="#707173"
+            onClick={() => {
+              setScanner(false);
+            }}
+          />
         </div>
-        {/* <h1>{data}</h1> */}
-        <MainButton
-          buttonText="Stop Scanning"
-          bg="#707173"
-          onClick={() => {
-            setScanner(false);
-          }}
+      )}
+
+      {displayModal && drugDetails && (
+        <Modal
+          data={drugDetails}
+          closeModal={() => closeModal()}
         />
-      </div>
+      )}
     </div>
   );
 }

@@ -10,9 +10,11 @@ import {
   PharmacyDasboard,
   PharmacyDrugInventory,
   PharmacyGenHash,
+  PharmacyProfile,
   PharmacyHashListing,
   RegisterPharmacy,
   UserDashboard,
+  PharmacyDrugDetails,
 } from "./pages";
 
 function ScrollToTop() {
@@ -28,7 +30,7 @@ function ScrollToTop() {
 const AppRouter = () => {
   const { user } = useUserContext();
   const hasPharmacy = user?.hasPharmacy;
-  
+
   return (
     <>
       <ScrollToTop />
@@ -62,7 +64,17 @@ const AppRouter = () => {
         <Route
           exact
           path="/dashboard/pharmacy/drugs/:id"
+          render={(props) => <PharmacyDrugDetails />}
+        />
+        <Route
+          exact
+          path="/dashboard/pharmacy/drugs/:id/serials"
           render={(props) => <PharmacyHashListing />}
+        />
+        <Route
+          exact
+          path="/dashboard/pharmacy/profile"
+          render={(props) => <PharmacyProfile />}
         />
         <Route path="/dashboard" render={(props) => <UserDashboard />} />
         <Route path="/" render={(props) => <LandingPage />} />

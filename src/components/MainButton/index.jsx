@@ -2,7 +2,7 @@ import React from "react";
 import { ButtonScan } from "../../assets";
 import styles from "./mainButton.module.css";
 
-function MainButton({ buttonText, bg, mt, buttonIcon, onClick }) {
+function MainButton({ buttonText, bg, buttonIcon, onClick }) {
   return (
     <div
       onClick={onClick}

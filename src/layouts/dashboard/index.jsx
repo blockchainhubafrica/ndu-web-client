@@ -8,9 +8,13 @@ import {
 } from "../../components";
 import styles from "./dashboard.module.css";
 import { useUserContext } from "../../contexts/userContext";
+import ScanButton from "../../components/ScanIcon";
+import { useHistory, useLocation } from "react-router";
 
 function DashboardLayout({ children }) {
-  const { scanner } = useUserContext();
+  const route = useLocation().pathname;
+  const showScanButton = !route.includes("signup");
+  const { scanner, setScanner } = useUserContext();
   // console.log(scanner);
   return (
     <div className={`${styles.dashboardCon}`}>
@@ -25,6 +29,7 @@ function DashboardLayout({ children }) {
           <RightBar />
         </div>
         <DashboardFooter />
+        {showScanButton && <ScanButton onClick={() => setScanner(true)} />}
       </>
     </div>
   );

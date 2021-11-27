@@ -20,7 +20,6 @@ function RegisterPharmacy() {
           <PharmacySignUpForm />
         </div>
       </div>
-      <ScanButton bgColor="blue" />
     </DashboardLayout>
   );
 }

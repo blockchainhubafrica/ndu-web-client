@@ -41,3 +41,25 @@ ol {
 li {
   list-style: none;
 }
+
+.text-primary-blue {
+  color: var(--app-primary-blue);
+}
+
+.force-hidden {
+  display: none !important;
+}
+
+*::-webkit-scrollbar {
+  width: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ececec;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--app-primary-blue);
+  border-radius: 20px;
+  padding: 3px;
+}

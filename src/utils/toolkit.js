@@ -1,10 +1,3 @@
-import { ethers } from "ethers";
-import { NduAbi } from "../contract/abis";
-import { nduBaseContractAddress } from "./constants";
-
-
-
-
 export const range = (start, end) => {
   let length = end - start + 1;
   return Array.from({ length }, (_, index) => index + start);
@@ -31,3 +24,18 @@ export const arrayOfrandomNumbers = (amount, numberLength) => {
   return serialsArray;
 };
 
+export const isExpired = (date) => {
+  let expiryTime = new Date(date).getTime();
+  let today = new Date().getTime();
+  return today > expiryTime;
+};
+
+export const formatDate = (date) => {
+  let formattedDate = date
+    ? new Date(date).toDateString()
+    : new Date().toDateString();
+  formattedDate = formattedDate.split(" ");
+  formattedDate = formattedDate.slice(1).join(" ");
+
+  return formattedDate;
+};

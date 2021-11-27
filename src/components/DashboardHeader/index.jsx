@@ -8,7 +8,7 @@ function DashboardHeader(props) {
   return (
     <div className={`${styles["walletBalanceCon"]}  py-3 shadow-sm lg:hidden`}>
       <div className="flex container">
-        <Link to="/dashboard/user">
+        <Link to="/">
           <HalfLogoIcon />
         </Link>
         <WalletButton />

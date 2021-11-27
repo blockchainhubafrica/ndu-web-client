@@ -14,6 +14,7 @@ import {
   unmountEthListeners,
   userHasPharmacy,
   getCompanyDetails,
+  getDrugInventory,
 } from "../services/web3Services";
 
 import { useHistory } from "react-router-dom";
@@ -26,7 +27,7 @@ const userContext = createContext();
 export function UserProvider({ children }) {
   const { toast } = useToastContext();
   const { setIsLoading } = useLoadingContext();
-  const { setPharmacyDetails } = usePharmacyContext();
+  const { setPharmacyDetails, setPharmacyDrugs } = usePharmacyContext();
   const history = useHistory();
   const [isInitiallyFetched, setIsInitiallyFetched] = useState(false);
   const [isConnected, setIsConnected] = useState(false);
@@ -71,7 +72,11 @@ export function UserProvider({ children }) {
 
       const details = await getCompanyDetails();
       setPharmacyDetails(details);
-
+      if (hasPharmacy) {
+        const drugs = await getDrugInventory();
+        setPharmacyDrugs(drugs);
+        toast.success("All Drugs were retrieved successfully");
+      }
       setIsConnected(true);
 
       localStorage.setItem("wallet-connection", true);
@@ -80,7 +85,14 @@ export function UserProvider({ children }) {
 
       return true;
     })();
-  }, [setAddress, setIsLoading, setHasPharmacy, setPharmacyDetails]);
+  }, [
+    setIsLoading,
+    setAddress,
+    setHasPharmacy,
+    setPharmacyDetails,
+    setPharmacyDrugs,
+    toast,
+  ]);
 
   const resetValues = useCallback(() => {
     return (async () => {
@@ -95,6 +107,12 @@ export function UserProvider({ children }) {
       const details = await getCompanyDetails();
       setPharmacyDetails(details);
 
+      if (hasPharmacy) {
+        const drugs = await getDrugInventory();
+        setPharmacyDrugs(drugs);
+        toast.success("All Drugs were retrieved successfully");
+      }
+
       setIsConnected(true);
 
       localStorage.setItem("wallet-connection", true);
@@ -103,8 +121,14 @@ export function UserProvider({ children }) {
 
       return true;
     })();
-  }, [setAddress, setIsLoading, setHasPharmacy, setPharmacyDetails]);
-
+  }, [
+    setIsLoading,
+    setAddress,
+    setHasPharmacy,
+    setPharmacyDetails,
+    setPharmacyDrugs,
+    toast,
+  ]);
 
   const handleWalletDisconnect = () => {
     setIsConnected(false);

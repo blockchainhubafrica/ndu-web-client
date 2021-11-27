@@ -2,20 +2,13 @@ import React, { useEffect, useMemo, useState } from "react";
 import { useHistory } from "react-router-dom";
 import { ArrowLeft } from "../../assets";
 import { Pagination } from "../../components";
-import { useUserContext } from "../../contexts/userContext";
 import { DashboardLayout } from "../../layouts";
-import {
-  getDrugInventory,
-  getNduBaseContract,
-  getRegisterContract,
-} from "../../services/web3Services";
+import { getDrugInventory } from "../../services/web3Services";
 import { Drug } from "./components";
 
 import styles from "./pharmacyDrugInventory.module.css";
-import { ethers } from "ethers";
 import { useLoadingContext } from "../../contexts/loadingContext";
 import { useToastContext } from "../../contexts/toastContext";
-import { ipfsBaseUrl } from "../../utils";
 import { usePharmacyContext } from "../../contexts/pharmacyContext";
 
 // const dummyData = [
@@ -39,35 +32,18 @@ import { usePharmacyContext } from "../../contexts/pharmacyContext";
 let PageSize = 6;
 
 const PharmacyDrugInventory = () => {
-  const { setIsLoading } = useLoadingContext();
-  const { toast } = useToastContext();
-  const { pharmacyDetails, pharmacyDrugs, setPharmacyDrugs } =
-    usePharmacyContext();
-  const [drugs, setDrugs] = useState(pharmacyDrugs);
+  const { pharmacyDetails, pharmacyDrugs } = usePharmacyContext();
   const [currentPage, setCurrentPage] = useState(1);
   const history = useHistory();
 
+  // console.log(pharmacyDrugs);
+
   const displayData = useMemo(() => {
-    if (!drugs) return [];
+    if (!pharmacyDrugs) return [];
     const firstPageIndex = (currentPage - 1) * PageSize;
     const lastPageIndex = firstPageIndex + PageSize;
-    return drugs?.slice(firstPageIndex, lastPageIndex);
-  }, [currentPage, drugs]);
-
-  useEffect(() => {
-    console.log({ drugs, pharmacyDrugs });
-    if (drugs && pharmacyDrugs) return;
-    setIsLoading(true);
-
-    (async () => {
-      const inventory = await getDrugInventory();
-      setDrugs(inventory);
-      if (inventory.length > 0)
-        toast.success("All Drugs were retrieved successfully");
-      setPharmacyDrugs(drugs);
-      setIsLoading(false);
-    })();
-  }, [drugs, pharmacyDrugs, setIsLoading, setPharmacyDrugs, toast]);
+    return pharmacyDrugs?.slice(firstPageIndex, lastPageIndex);
+  }, [currentPage, pharmacyDrugs]);
 
   useEffect(() => {
     window.scrollTo({ behavior: "smooth", top: "0px" });
@@ -97,7 +73,7 @@ const PharmacyDrugInventory = () => {
           <div className="hidden md:inline-block">
             <Pagination
               currentPage={currentPage}
-              totalCount={drugs?.length}
+              totalCount={pharmacyDrugs?.length}
               pageSize={PageSize}
               onPageChange={(page) => setCurrentPage(page)}
             />
@@ -106,7 +82,7 @@ const PharmacyDrugInventory = () => {
         <div className="flex flex-wrap justify-between items-center mb-6">
           <h3 className="font-medium text-xl">Drug Inventory</h3>
         </div>
-        {drugs && !drugs.length && (
+        {pharmacyDrugs && !pharmacyDrugs.length && (
           <div className="text-lg">No Drugs are registered.</div>
         )}
         <div className={`grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6`}>
@@ -115,12 +91,12 @@ const PharmacyDrugInventory = () => {
               key={index + item.name}
               className="cursor-pointer"
               onClick={() =>
-                history.push(`/dashboard/pharmacy/drugs/${index + 1}`)
+                history.push(`/dashboard/pharmacy/drugs/${item.hash}`)
               }
             >
               <Drug
+                drug={item}
                 image={`https://ipfs.io/ipfs/${item.imageHash}`}
-                name={item.name}
               />
             </div>
           ))}
@@ -128,7 +104,7 @@ const PharmacyDrugInventory = () => {
         <div className="mt-10 md:hidden flex justify-center">
           <Pagination
             currentPage={currentPage}
-            totalCount={drugs?.length}
+            totalCount={pharmacyDrugs?.length}
             pageSize={PageSize}
             onPageChange={(page) => setCurrentPage(page)}
           />

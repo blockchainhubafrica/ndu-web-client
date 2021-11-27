@@ -185,7 +185,7 @@ function Components(props) {
             </div>
             {/* Modal */}
             {displayModal ? (
-              <Modal type="Original" closeModal={() => setdisplayModal(false)}>
+              <Modal type="original" closeModal={() => setdisplayModal(false)}>
                 <div>
                   <h1 className="text-center">Modal items go into here</h1>
                   <h2 style={{ fontSize: "50px" }} className="text-center mt-5">

@@ -87,7 +87,6 @@ function UserDashboard() {
           type={"Expired"}
         />
       </div>
-      <ScanButton onClick={() => setScanner(true)} />
     </DashboardLayout>
   );
 }
