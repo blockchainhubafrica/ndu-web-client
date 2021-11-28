@@ -5,6 +5,8 @@ https://app.pitch.com/app/public/player/dc39a787-153c-436a-a91d-3ece4414833e
 Live Link:
 https://local-ndu.vercel.app/
 
+link to nd contracts: https://github.com/blockchainhubafrica/app-for-drug-validation-
+
 About Ndu
 Ndu runs on the blockchain technology allowing relevant data about drug production, distribution and sales to be immutable and safely stored. Ndu combines the decentralized power of the blockchain to combat and eradicate conterfeit drugs.
 The rise in sale of counterfeit drugs in Africa has become an overwhelming problem. In Nigeria alone,
