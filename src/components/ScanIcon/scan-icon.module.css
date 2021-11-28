@@ -1,0 +1,40 @@
+.container {
+  cursor: pointer;
+  position: fixed;
+  width: 58px;
+  height: 57px;
+  right: 1rem;
+  bottom: 150px;
+  border-radius: 33px;
+  transform: matrix(-1, 0, 0, 1, 0, 0);
+  z-index: var(--scan-icon-z-index);
+  align-items: center;
+  justify-content: center;
+}
+
+.container > svg {
+  height: 50%;
+}
+
+.container.blue {
+  background: #f3f3f3;
+}
+
+.container.white {
+  background: var(--app-primary-blue);
+}
+
+@media screen and (min-width: 640px) {
+  .container {
+    right: 2rem;
+  }
+}
+
+.container.white > svg,
+.container.white > svg > path {
+  fill: #fff;
+}
+
+.container.blue > svg > path {
+  fill: var(--app-primary-blue);
+}

@@ -4,18 +4,24 @@
 
 @import "tailwindcss/utilities";
 
-@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500);
+@import url(https://fonts.googleapis.com/css?family=Poppins:300,400,500,550);
 
 :root {
   --app-primary-blue: #022655;
+  --app-primary-red: #fa5f1c;
   --app-blue-fade: #ebf3ff;
   --app-blue-light: #f8fafc;
+  --app-grey: #717171;
   --app-primary-text: poppins;
   --app-primary-green: #00d6a3;
   --app-green-fade: #87e5d8;
   --app-border-radius-sm: 10px;
   --app-border-radius-md: 15px;
   --app-border-radius-lg: 30px;
+  --scan-icon-z-index: 500;
+  --header-z-index: 1000;
+  --overlay-z-index: 1500;
+  --modal-z-index: 1500;
 }
 
 * {
@@ -34,4 +40,26 @@ ol {
 
 li {
   list-style: none;
+}
+
+.text-primary-blue {
+  color: var(--app-primary-blue);
+}
+
+.force-hidden {
+  display: none !important;
+}
+
+*::-webkit-scrollbar {
+  width: 7px;
+}
+
+*::-webkit-scrollbar-track {
+  background: #ececec;
+}
+
+*::-webkit-scrollbar-thumb {
+  background: var(--app-primary-blue);
+  border-radius: 20px;
+  padding: 3px;
 }

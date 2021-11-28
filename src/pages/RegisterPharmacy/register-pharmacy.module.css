@@ -1,0 +1,26 @@
+.container {
+  background-color: var(--app-primary-blue);
+  width: 100%;
+  min-height: calc(100vh - 70px);
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    min-height: calc(100vh);
+  }
+}
+
+.container > h5 {
+  font-style: normal;
+  font-weight: 10;
+  line-height: 27px;
+  text-align: center;
+  color: #ffffff;
+  margin-bottom: 50px;
+}
+
+@media screen and (max-width: 768px) {
+  .container > h5 {
+    line-height: 24px;
+  }
+}

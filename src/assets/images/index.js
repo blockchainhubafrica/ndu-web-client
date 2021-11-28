@@ -7,6 +7,8 @@ import landingPageBg1 from "./landing-page-bg-1.png";
 import drugPark from "./drug-park.png";
 import drug2 from "./drug-2.png";
 import mainframe from "./mainframe.png";
+import drug from "./drug.png";
+import pharmacyPic from "./pharmacy.jpg";
 
 export {
   dude,
@@ -18,4 +20,6 @@ export {
   drug2,
   mainframe,
   handWithDrug,
+  drug,
+  pharmacyPic,
 };

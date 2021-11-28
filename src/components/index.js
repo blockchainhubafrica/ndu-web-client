@@ -9,8 +9,14 @@ export * from "./ActionBox";
 export * from "./MainButton";
 export * from "./NormalButton";
 export * from "./RegularButton";
-export * from "./PharmacyLogin";
 export * from "./CameraDisplay";
 export * from "./InputPassword";
-export * from "./UserDashboard";
-export * from "./PharmacyDashboard";
+export * from "./textArea";
+export * from "./DashboardHeader";
+export * from "./DashboardFooter";
+export * from "./WalletButton";
+export * from "./Pagination";
+export * from "./WalletButton"
+export * from "./Forms"
+export * from "./Loader"
+export * from "./Toasts"

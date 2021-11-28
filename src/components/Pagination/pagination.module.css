@@ -1,0 +1,27 @@
+.container button {
+  border-radius: 5px;
+  background: #eeeff0;
+  font-size: 18px;
+  margin: 0px 3px;
+  width: 25px;
+}
+
+.container svg {
+  height: 18px;
+  width: 18px;
+}
+
+.container button:hover {
+  background: var(--app-primary-blue);
+  color: #fff;
+}
+
+.active {
+  background: var(--app-primary-blue) !important;
+  color: #fff !important;
+}
+
+.disabled {
+  background: #808080 !important;
+  color: #fff;
+}

@@ -1,12 +1,18 @@
-.regularButton{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-    width: 140px;
-    height: 48px;
-    background: #00D6A3;
-    border-radius: 5px;
-    color: #fff;
-    margin-top: 30px;
+.regularButton {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  padding: 10px 10px;
+  background: #00d6a3;
+  border-radius: 5px;
+  color: #fff;
+  margin-top: 30px;
+}
+
+@media screen and (min-width: 400px) {
+  .regularButton {
+    padding: 10px 20px;
+  }
 }

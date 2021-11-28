@@ -112,9 +112,10 @@ section.how-it-works {
   background-image: url("/src/assets/images/landing-page-bg-1.png");
 }
 
-section.how-it-works .card:nth-child(1)::after {
+section.how-it-works .card:nth-child(1)::before {
   content: "";
   position: relative;
+  left: 200px;
   z-index: 100;
   height: 30px;
   width: 60px;
@@ -183,7 +184,7 @@ section.what-to-gain .headers + div {
   font-size: 0.75rem;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1024px) {
   section.what-to-gain .headers + div {
     font-size: 1rem;
   }
@@ -276,12 +277,6 @@ section.subscribe .primary-blue-bg {
   position: relative;
 }
 
-/* @media screen and (min-width: 768px) {
-  section.subscribe .primary-blue-bg {
-    border-radius: var(--app-border-radius-md);
-  }
-} */
-
 .primary-blue-bg {
   background-color: var(--app-primary-blue);
 }
@@ -301,12 +296,12 @@ section.subscribe .img-container {
   height: 250px;
 }
 
-@media screen and (min-width: 992px) {
+@media screen and (min-width: 1024px) {
   section.subscribe .img-container {
     position: absolute;
-    top: -70px;
+    top: -105px;
     bottom: 0px;
-    right: -70px;
+    right: -60px;
     height: 400px;
   }
 }
@@ -314,7 +309,7 @@ section.subscribe .img-container {
 @media screen and (min-width: 1280px) {
   section.subscribe .img-container {
     position: absolute;
-    top: -125px;
+    top: -120px;
     bottom: 0px;
     right: -70px;
     height: 415px;
@@ -324,7 +319,6 @@ section.subscribe .img-container {
 section.subscribe .img-container img {
   height: 100%;
 }
- 
 
 section.subscribe .subscribe-button {
   max-width: 200px;

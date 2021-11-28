@@ -2,16 +2,17 @@ import React from "react";
 import { ButtonScan } from "../../assets";
 import styles from "./mainButton.module.css";
 
-function MainButton({ buttonText, bg, mt, buttonIcon }) {
+function MainButton({ buttonText, bg, buttonIcon, onClick }) {
   return (
     <div
-      className={`${styles.mainButton}`}
+      onClick={onClick}
+      className={`${styles.mainButton} shadow-lg`}
       style={{
         backgroundColor: bg ? bg : "#022655",
       }}
     >
       <ButtonScan className={`${styles.buttonScan}`} />
-      <h1 className={`${styles.buttonText}`}>{buttonText}</h1>
+      <span className={`${styles.buttonText}`}>{buttonText}</span>
     </div>
   );
 }

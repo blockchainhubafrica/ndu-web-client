@@ -1,8 +1,7 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React from "react";
+import { useHistory } from "react-router-dom";
 import {
   BinanceChain,
-  CloseIcon,
   MetaMask,
   TrustWallet,
   WalletConnect,
@@ -11,12 +10,18 @@ import {
 import styles from "./connectWalletModal.module.css";
 
 function ConnectWalletModal({ displayModal, setDisplayModal }) {
-  //   const [display, setDisplay] = useState("none");
+  const history = useHistory();
   return (
     <>
       {displayModal ? (
-        <div className={styles.connectWalletModalCon}>
-          <div className={styles.connectWalletModalInnerCon}>
+        <div
+          onClick={() => setDisplayModal(false)}
+          className={styles.connectWalletModalCon}
+        >
+          <div
+            onClick={(e) => e.stopPropagation()}
+            className={styles.connectWalletModalInnerCon}
+          >
             <div className={styles.top}>
               <h5 className={styles.title}>Connect wallet</h5>
               <WhiteCloseIcon
@@ -29,12 +34,37 @@ function ConnectWalletModal({ displayModal, setDisplayModal }) {
             <div
               className={`${styles.main} w-6/6 h-auto flex items-center justify-evenly`}
             >
-              {/* <TrustWallet /> */}
-              <Link to="/dashboard/user">
-              <MetaMask />
-              </Link>
-              {/* <WalletConnect /> */}
-                {/* <BinanceChain /> */}
+              <button
+                className="flex flex-col items-center"
+                onClick={() => history.push("/dashboard/user")}
+              >
+                <TrustWallet />
+                <span className="mt-4">Trust wallet</span>
+              </button>
+
+              <button
+                className="flex flex-col items-center"
+                onClick={() => history.push("/dashboard/user")}
+              >
+                <MetaMask />
+                <span className="mt-4">Meta Mask</span>
+              </button>
+
+              <button
+                className="flex flex-col items-center"
+                onClick={() => history.push("/dashboard/user")}
+              >
+                <WalletConnect />
+                <span className="mt-6">Wallet Connect</span>
+              </button>
+
+              <button
+                className="flex flex-col items-center"
+                onClick={() => history.push("/dashboard/user")}
+              >
+                <BinanceChain />
+                <span className="mt-4">Binance Chain</span>
+              </button>
             </div>
           </div>
         </div>

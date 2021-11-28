@@ -1,0 +1,66 @@
+.container {
+  position: relative;
+  cursor: pointer;
+  border-radius: 100px;
+  width: 160px;
+}
+
+.container .wallet-address-box {
+  width: 100%;
+  justify-content: space-around;
+  position: relative;
+  z-index: 1;
+  padding: 0.75rem 1.25rem;
+  display: flex;
+  align-items: center;
+  background: #ececec;
+  border-radius: 100px;
+}
+
+.container .wallet-address-box .address {
+  font-style: normal;
+  font-weight: 600;
+  font-size: 12px;
+  line-height: 20px;
+  color: #022655;
+}
+
+.container .arrow-down-icon {
+  transform: rotate(0deg);
+}
+
+.container.active .arrow-down-icon {
+  transform: rotate(180deg);
+}
+
+.disconnect-btn {
+  transition: all 0.5s ease-in-out;
+  position: absolute;
+  left: 0;
+  width: 100%;
+  z-index: 0;
+  top: 0.5px;
+  opacity: 0;
+  box-shadow: 0 5px 20px -10px rgb(0 0 0);
+  border-radius: 25px 25px 15px 15px !important;
+  padding: 10px 25px;
+  background-color: var(--app-primary-blue);
+  color: #ececec;
+}
+
+.disconnect-btn span {
+  text-align: center;
+  display: block;
+}
+
+.container.active .disconnect-btn {
+  opacity: 1;
+}
+
+.disconnect-btn span {
+  margin-top: 0rem;
+}
+
+.container.active .disconnect-btn span {
+  margin-top: 2.7rem;
+}

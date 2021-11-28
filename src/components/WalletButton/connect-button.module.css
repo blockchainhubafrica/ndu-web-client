@@ -1,0 +1,17 @@
+.container {
+  /* box-shadow: 0 20px 50px rgba(0, 0, 0, 0.15); */
+  border-top: 1px solid rgba(255, 255, 255, 0.5);
+  border-left: 1px solid rgba(255, 255, 255, 0.5);
+  background: rgba(228, 241, 253, 0.56);
+  backdrop-filter: blur(4px);
+  position: sticky;
+  z-index: 1;
+  top: 0;
+  padding: 20px 0px;
+}
+
+svg.wallet-icon,
+svg.wallet-icon path {
+  fill: #fff;
+  stroke: #fff;
+}

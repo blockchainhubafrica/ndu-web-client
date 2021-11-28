@@ -4,7 +4,9 @@ import styles from "./inputPassword.module.css";
 function InputPassword({ onClick, ...rest }) {
   return (
     <div className={`${styles.passwordContainer} flex flex-col`}>
-      <label htmlFor="password">Pharmacy Identity Number</label>
+      <label htmlFor="password" className="mb-3">
+        Pharmacy Identity Number
+      </label>
 
       <input
         name="password"

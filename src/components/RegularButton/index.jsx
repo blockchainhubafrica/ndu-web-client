@@ -1,12 +1,12 @@
-import React from 'react'
-import styles from "./regularButton.module.css"
+import React from "react";
+import styles from "./regularButton.module.css";
 
-function RegularButton({buttonText}) {
-    return (
-        <div className={`${styles.regularButton}`}>
-            {buttonText}
-        </div>
-    )
+function RegularButton({ type, text, onClick, children }) {
+  return (
+    <button type={"submit"} onClick={onClick} className={`${styles.regularButton}`}>
+      {text ?? children}
+    </button>
+  );
 }
 
-export  {RegularButton}
+export { RegularButton };

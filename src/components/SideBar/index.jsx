@@ -1,48 +1,72 @@
 import React from "react";
 import styles from "./sideBar.module.css";
-import { CartIcon, DashBoardIcon, MoneyIcon, NduLogo, UserIcon} from "../../assets"
-import { Link } from "react-router-dom";
+import {
+  CartIcon,
+  DashBoardIcon,
+  MoneyIcon,
+  NduLogo,
+  UserIcon,
+} from "../../assets";
+import { Link, useLocation } from "react-router-dom";
+import { useUserContext } from "../../contexts/userContext";
 
 function SideBar() {
+  const activeRoute = useLocation().pathname;
+  const { user } = useUserContext();
+  const hasPharmacy = user.hasPharmacy;
+
+  const linkClass = (route) => {
+    if (activeRoute.includes(route))
+      return `${styles["iconCon"]} ${styles["active"]}`;
+
+    return `${styles["iconCon"]}`;
+  };
+
   return (
-    <div className={`${styles.sideBarCon}`}>
-      <NduLogo className={`${styles.nduLogo} mt-10`} />
+    <div className={`${styles.sideBarCon} py-10 hidden lg:block`}>
+      <Link to="/">
+        <NduLogo className={`${styles.nduLogo}`} />
+      </Link>
       <ul>
-       <Link to="/dashboard/user">
-       <li>
-          <span className={`${styles.iconCon}`}>
-            <DashBoardIcon className={`${styles.sideBarIcon}`} />
-          </span>
-          <h6>Dashboard</h6>
+        <li className="flex mb-8">
+          <Link to="/dashboard/user">
+            <div className={linkClass("/dashboard/user")}>
+              <DashBoardIcon className={`${styles.sideBarIcon}`} />
+            </div>
+            <span>Dashboard</span>
+          </Link>
         </li>
-       </Link>
-        <Link to="/">
-        <li>
-          <span className={`${styles.iconCon}`}>
-            <UserIcon className={`${styles.sideBarIcon}`} />
-          </span>
-          <h6>Profile</h6>
+        <li className="flex mb-8">
+          <Link to="/dashboard/user">
+            <div className={linkClass("/dashboard/user/profile")}>
+              <UserIcon className={`${styles.sideBarIcon}`} />
+            </div>
+            <span>Profile</span>
+          </Link>
         </li>
-        </Link>
-       <Link to="/">
-       <li>
-          <span className={`${styles.iconCon}`}>
-            <MoneyIcon className={`${styles.sideBarIcon}`} />
-          </span>
-          <h6>Transactions</h6>
+        <li className="flex mb-8">
+          <Link to="/dashboard/user">
+            <div className={linkClass("/dashboard/user/transactions")}>
+              <MoneyIcon className={`${styles.sideBarIcon}`} />
+            </div>
+            <span>Transactions</span>
+          </Link>
         </li>
-       </Link>
-        <Link to="/dashboard/pharmacy/login">
-        <li>
-        <span className={`${styles.iconCon}`}>
-            <CartIcon className={`${styles.sideBarIcon}`} />
-          </span>
-          <h6>Pharmacy</h6>
+        <li className="flex mb-8">
+          <Link
+            to={
+              hasPharmacy ? "/dashboard/pharmacy" : "/dashboard/pharmacy/signup"
+            }
+          >
+            <div className={linkClass("/dashboard/pharmacy")}>
+              <CartIcon className={`${styles.sideBarIcon}`} />
+            </div>
+            <span>Pharmacy</span>
+          </Link>
         </li>
-        </Link>
       </ul>
     </div>
   );
 }
 
-export  {SideBar};
+export { SideBar };

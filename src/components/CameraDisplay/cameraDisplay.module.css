@@ -1,43 +1,52 @@
-.cameraDisplayCon{
-    max-width: 481px;
-    /* height: 543px; */
-    padding: 40px 20px !important;
-    border-radius: 10px;
-    background-color: #fff;
-    display: flex;
-    padding: 0px;
-    align-items: center;
-    flex-direction: column;
-    justify-content: space-evenly;
-    box-shadow: 0px 21px 79px rgba(0, 0, 0, 0.08);
+.cameralDisplayOuterCon {
+  height: 100vh;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.548);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  z-index: var(--modal-z-index);
 }
 
-.barCodeDescription{
-    font-style: normal;
-    font-weight: 300;
-    font-size: 14px;
-    line-height: 21px;
-    text-align: center;
-    color: #1A1919;
-    width: 75%;
-
+.cameraDisplayCon {
+  max-width: 481px;
+  /* height: 543px; */
+  padding: 40px 20px !important;
+  border-radius: 10px;
+  background-color: #fff;
+  display: flex;
+  padding: 0px;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-evenly;
+  box-shadow: 0px 21px 79px rgba(0, 0, 0, 0.08);
 }
 
-.cameraView{
-    margin: 20px;
-    width: 238px;
-    height: 276px;
-    border-radius: 20px;
-    background: url("../../assets/svg/drugContainer.svg") no-repeat center;
+.barCodeDescription {
+  font-style: normal;
+  font-weight: 300;
+  font-size: 14px;
+  line-height: 21px;
+  text-align: center;
+  color: #1a1919;
+  width: 75%;
 }
 
-.cameraOverlay{
-    height: 100%;
-    width: 100%;
-    border-radius: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: rgba(0, 0, 0, 0.38);
+.cameraView {
+  margin: 20px;
+  width: 238px;
+  height: 276px;
+  border-radius: 20px;
+  /* background: url("../../assets/svg/drugContainer.svg") no-repeat center; */
+}
 
+.cameraOverlay {
+  height: 100%;
+  width: 100%;
+  border-radius: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.38);
 }

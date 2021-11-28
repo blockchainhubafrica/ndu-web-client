@@ -1,13 +1,21 @@
 import React, { useEffect } from "react";
+
+import { Redirect, Route, Switch, useLocation } from "react-router-dom";
+import { usePharmacyContext } from "./contexts/pharmacyContext";
+import { useUserContext } from "./contexts/userContext";
+
 import {
-  BrowserRouter as Router,
-  Redirect,
-  Route,
-  Switch,
-  useLocation,
-} from "react-router-dom";
-import { PharmacyDasboard, PharmacyLogin, UserDashboard } from "./components";
-import { LandingPage, Dashboard, Components } from "./pages";
+  Components,
+  LandingPage,
+  PharmacyDasboard,
+  PharmacyDrugInventory,
+  PharmacyGenHash,
+  PharmacyProfile,
+  PharmacyHashListing,
+  RegisterPharmacy,
+  UserDashboard,
+  PharmacyDrugDetails,
+} from "./pages";
 
 function ScrollToTop() {
   const { pathname } = useLocation();
@@ -20,26 +28,59 @@ function ScrollToTop() {
 }
 
 const AppRouter = () => {
+  const { user } = useUserContext();
+  const hasPharmacy = user?.hasPharmacy;
+
   return (
-    <Router basename={"/"}>
+    <>
       <ScrollToTop />
       <Switch>
-        <Route exact path="/components" render={() => <Components />} />
-        <Route exact path="/dashboard/user" render={() => <UserDashboard />} />
+        <Route exact path="/components" render={(props) => <Components />} />
         <Route
           exact
-          path="/dashboard/pharmacy/login"
-          render={() => <PharmacyLogin />}
+          path="/dashboard/user"
+          render={(props) => <UserDashboard />}
         />
         <Route
           exact
           path="/dashboard/pharmacy"
-          render={() => <PharmacyDasboard />}
+          render={(props) => <PharmacyDasboard />}
         />
-        <Route path="/" render={() => <LandingPage />} />
-        <Route path="*" render={() => <Redirect to="/" />} />
+        <Route
+          exact
+          path="/dashboard/pharmacy/signup"
+          render={(props) => <RegisterPharmacy />}
+        />
+        <Route
+          exact
+          path="/dashboard/pharmacy/generate-hash"
+          render={(props) => <PharmacyGenHash />}
+        />
+        <Route
+          exact
+          path="/dashboard/pharmacy/drugs"
+          render={(props) => <PharmacyDrugInventory />}
+        />
+        <Route
+          exact
+          path="/dashboard/pharmacy/drugs/:id"
+          render={(props) => <PharmacyDrugDetails />}
+        />
+        <Route
+          exact
+          path="/dashboard/pharmacy/drugs/:id/serials"
+          render={(props) => <PharmacyHashListing />}
+        />
+        <Route
+          exact
+          path="/dashboard/pharmacy/profile"
+          render={(props) => <PharmacyProfile />}
+        />
+        <Route path="/dashboard" render={(props) => <UserDashboard />} />
+        <Route path="/" render={(props) => <LandingPage />} />
+        <Route path="*" render={(props) => <Redirect to="/" />} />
       </Switch>
-    </Router>
+    </>
   );
 };
 

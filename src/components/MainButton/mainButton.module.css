@@ -1,26 +1,25 @@
-.mainButton{
-    width: 192px;
-    height: 41px;
-    background-color: #022655;
-    box-shadow: 0px 21px 79px rgba(0, 0, 0, 0.08);
-    border-radius: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    position: relative;
-    cursor: pointer;
-    /* padding: 0px 8px; */
+.mainButton {
+  width: 100%;
+  max-width: 196px;
+  background-color: #022655;
+  box-shadow: 0px 21px 79px rgba(0, 0, 0, 0.08);
+  border-radius: 30px;
+  display: flex;
+  align-items: center;
+  position: relative;
+  cursor: pointer;
+  padding: 0.5rem;
 }
 
-.buttonScan{
-    position: absolute;
-    left: 8px;
+.buttonScan {
 }
 
-.buttonText{
-    font-style: normal;
-    font-weight: 600;
-    font-size: 14px;
-    line-height: 20px;
-    color: #FFFFFF;
+.buttonText {
+  display: inline-block;
+  margin: auto;
+  font-style: normal;
+  font-weight: 550;
+  font-size: 14px;
+  color: #ffffff;
+  text-align: center;
 }

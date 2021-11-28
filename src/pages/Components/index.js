@@ -26,6 +26,7 @@ import {
   HowItWorksCard,
   HistoryCard,
   Modal,
+  NormalButton,
 } from "./../../components";
 
 function Components(props) {
@@ -39,7 +40,7 @@ function Components(props) {
           <div className="container mx-auto">
             <div className="my-10">
               <p className="mb-4">This is an Input box</p>
-              <Input type="text" placeHolder="Drug name" />
+              <Input type="text" placeholder="Drug name" />
             </div>
           </div>
         </section>
@@ -48,7 +49,7 @@ function Components(props) {
             <div className="mb-10">
               <p className="mb-4">This is an Input box with button</p>
               <div style={{ maxWidth: "500px" }}>
-                <InputWithButton placeHolder="Enter your email address" />
+                <InputWithButton placeholder="Enter your email address" />
               </div>
             </div>
           </div>
@@ -81,10 +82,14 @@ function Components(props) {
               <p className="mb-4">These are the Action Boxes</p>
               <div className="flex flex-wrap flex-1 gap-7">
                 <div className="my-3">
-                  <ActionBox title="Generate Hash" image={MicroChipSvg} />
+                  <ActionBox title="Generate Hash">
+                    <MicroChipSvg />
+                  </ActionBox>
                 </div>
                 <div className="my-3">
-                  <ActionBox title="Drug Inventory" image={DrugsSvg} />
+                  <ActionBox title="Generate Hash">
+                    <DrugsSvg />
+                  </ActionBox>
                 </div>
               </div>
             </div>
@@ -170,20 +175,27 @@ function Components(props) {
           </div>
         </section>
         <section id="modal">
-          <div className="container mx-auto">
+          <div className="container mx-auto py-4">
+            <p className="mb-4">This button opens the modal</p>
+
+            <div className="grid grid-cols-1 md:grid-cols-4 xl:grid-cols-6">
+              <NormalButton onClick={() => setdisplayModal(true)}>
+                <span>Open the modal</span>
+              </NormalButton>
+            </div>
             {/* Modal */}
-            <Modal
-              type="Original"
-              displayModal={displayModal}
-              closeModal={() => setdisplayModal(false)}
-            >
-              <div>
-                <h1 className="text-center">Modal items go into here</h1>
-                <h2 style={{ fontSize: "50px" }} className="text-center mt-5">
-                  😎
-                </h2>
-              </div>
-            </Modal>
+            {displayModal ? (
+              <Modal type="original" closeModal={() => setdisplayModal(false)}>
+                <div>
+                  <h1 className="text-center">Modal items go into here</h1>
+                  <h2 style={{ fontSize: "50px" }} className="text-center mt-5">
+                    😎
+                  </h2>
+                </div>
+              </Modal>
+            ) : (
+              ""
+            )}
           </div>
         </section>
         <section id="sidebar">
@@ -194,9 +206,7 @@ function Components(props) {
             <DashboardLayout>
               <div className="">
                 <div className="mt-20 text-center">
-                  <span className="block">
-                    You know who the greatest is?
-                  </span>
+                  <span className="block">You know who the greatest is?</span>
                   <span>!You</span>
                 </div>
               </div>

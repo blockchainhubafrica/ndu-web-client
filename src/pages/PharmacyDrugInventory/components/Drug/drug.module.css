@@ -1,0 +1,52 @@
+.container {
+  position: relative;
+  border-radius: 20px;
+  background: #f8fafc;
+  height: 220px;
+}
+
+.container img {
+  /* max-width: 80%; */
+  height: 160px;
+  object-fit: contain;
+}
+
+.container div.name {
+  /* padding: 15px 20px; */
+  height: 45px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 0px 0px 20px 20px;
+}
+
+.container span {
+  /* padding: 15px 20px; */
+  /* display: block; */
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.container:hover {
+  background: #d6d7d9;
+}
+
+.container:hover div.name {
+  color: #fff;
+  background-color: var(--app-primary-blue);
+}
+
+.container .serial-count {
+  display: none;
+  position: absolute;
+  top: 20px;
+  right: 15px;
+  background-color: #fff;
+  padding: 10px 20px;
+  border-radius: 20px;
+}
+
+.container:hover .serial-count {
+  display: block;
+}
