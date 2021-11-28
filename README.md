@@ -115,5 +115,7 @@ Here is the link to the Solution Pitch deck https://app.pitch.com/app/public/pla
 
 link to the webApp in development: https://local-ndu.vercel.app/
 
+link to ndu contracts: https://github.com/blockchainhubafrica/beima_app
+
 
  
